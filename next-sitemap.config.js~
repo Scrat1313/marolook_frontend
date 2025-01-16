@@ -1,0 +1,13 @@
+/** @type {import('next-sitemap').IConfig} */
+module.exports = {
+    siteUrl: 'https://ton-url-deploye.vercel.app', // Remplace par ton URL déployée
+    generateRobotsTxt: true, // Crée également un fichier robots.txt
+    exclude: ['/admin/*', '/drafts/*'], // Pages ou routes à exclure (facultatif)
+    robotsTxtOptions: {
+        policies: [
+            { userAgent: '*', allow: '/' }, // Autorise tout pour les bots
+            { userAgent: '*', disallow: ['/admin', '/drafts'] }, // Bloque certaines pages
+        ],
+    },
+    sitemapSize: 5000, // Divise les sitemaps s'il y a plus de 5000 URLs (par défaut)
+};

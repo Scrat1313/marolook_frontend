@@ -1,0 +1,116 @@
+import React from 'react';
+import {HeroTitle} from "../components";
+import EmojiNatureRoundedIcon from '@mui/icons-material/EmojiNatureRounded';
+import ImagesearchRollerRoundedIcon from '@mui/icons-material/ImagesearchRollerRounded';
+import SportsEsportsRoundedIcon from '@mui/icons-material/SportsEsportsRounded';
+import backgroundImageHome from "../assets/images/background/bg.jpg";
+import usePageTitle from "../hooks/usePageTitle";
+
+const Leisure = () => {
+    usePageTitle('Loisirs');
+    const leisureCategories = [
+        {
+            title: "Loisirs Naturels",
+            icon: <EmojiNatureRoundedIcon className="w-8 h-8 text-[#228B22]"/>,
+            activities: [
+                {
+                    name: "Randonnée à Anja",
+                    description: "Découvrez la réserve d'Anja avec ses paysages à couper le souffle et ses lémuriens.",
+                    link: "/loisirs/anja"
+                },
+                {
+                    name: "Pic d'Ivohibe",
+                    description: "Une expérience unique d'escalade et d'exploration en pleine nature.",
+                    link: "/loisirs/ivohibe"
+                }
+            ]
+        },
+        {
+            title: "Loisirs Culturels",
+            icon: <ImagesearchRollerRoundedIcon className="w-8 h-8 text-[#228B22]"/>,
+            activities: [
+                {
+                    name: "Visite du marché Zoma",
+                    description: "Un marché animé où découvrir l'artisanat local et les spécialités culinaires.",
+                    link: "/loisirs/zoma"
+                },
+                {
+                    name: "Festival des Arts Malgaches",
+                    description: "Célébrez la culture malgache à travers des danses, musiques et expositions.",
+                    link: "/loisirs/festival"
+                }
+            ]
+        },
+        {
+            title: "Loisirs Sportifs",
+            icon: <SportsEsportsRoundedIcon className="w-8 h-8 text-[#228B22]"/>,
+            activities: [
+                {
+                    name: "Football en plein air",
+                    description: "Participez à des tournois amicaux sur les terrains locaux.",
+                    link: "/loisirs/football"
+                },
+                {
+                    name: "Cyclisme autour des collines",
+                    description: "Explorez les paysages vallonnés en vélo.",
+                    link: "/loisirs/cyclisme"
+                }
+            ]
+        }
+    ];
+
+    return (
+        <div className="min-h-screen bg-gray-50">
+            <HeroTitle
+                title="Découvrir les Loisirs"
+                description="Explorez une variété d'activités passionnantes dans la commune d'Ambalavao, allant des aventures en plein air aux événements culturels."
+                backgroundImage={backgroundImageHome}
+            />
+
+            <section className="py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-[#228B22] to-emerald-800 bg-clip-text text-transparent mb-16">
+                        Nos Activités et Loisirs
+                    </h2>
+
+                    <div className="space-y-32">
+                        {leisureCategories.map((category, index) => (
+                            <div key={index} className="relative">
+                                <div className="flex flex-col items-center text-center mb-16">
+                                    <div className="mb-4">
+                                        {category.icon}
+                                    </div>
+                                    <h3 className="text-3xl font-bold text-gray-800">
+                                        {category.title}
+                                    </h3>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                                    {category.activities.map((activity, aIndex) => (
+                                        <div key={aIndex}
+                                             className="group relative border-l-4 border-[#228B22] pl-6 hover:pl-8 transition-all duration-300">
+                                            <h4 className="text-2xl font-bold text-gray-800 mb-3">
+                                                {activity.name}
+                                            </h4>
+                                            <p className="text-gray-600 leading-relaxed mb-4">
+                                                {activity.description}
+                                            </p>
+                                            <a
+                                                href={activity.link}
+                                                className="inline-block text-[#228B22] font-medium after:content-[''] after:block after:w-0 after:h-0.5 after:bg-[#228B22] after:transition-all group-hover:after:w-full"
+                                            >
+                                                En savoir plus
+                                            </a>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default Leisure;

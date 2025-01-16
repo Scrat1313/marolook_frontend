@@ -1,0 +1,167 @@
+import React, {useEffect, useState} from 'react';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import HourglassTopIcon from '@mui/icons-material/HourglassTop';
+import CancelIcon from '@mui/icons-material/Cancel';
+import {HeroTitle} from "../components";
+import backgroundImageHome from "../assets/images/background/bg.jpg";
+import projectImage from "../assets/images/default/project.jpg";
+import usePageTitle from "../hooks/usePageTitle";
+import {HeroShimmer, ProjectShimmer} from "../components/shimmer";
+
+
+const Project = () => {
+    usePageTitle('Projets');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Simuler un chargement de 2 secondes
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    const projects = [
+        {
+            title: "Construction d'une nouvelle école primaire",
+            description: "Le projet vise à offrir un accès à l'éducation pour les enfants des quartiers éloignés. Cette nouvelle infrastructure permettra d'accueillir plus de 300 élèves et comprendra 12 salles de classe modernes, une bibliothèque et une cantine scolaire.",
+            status: "En cours",
+            image: projectImage,
+            progress: 65
+        },
+        {
+            title: "Réhabilitation des routes principales",
+            description: "Ce projet améliore les infrastructures routières pour favoriser les échanges économiques. La rénovation inclut la réfection de 15 km de routes, l'installation d'un nouveau système de drainage et l'amélioration de la signalisation routière.",
+            status: "Terminé",
+            image: projectImage,
+            progress: 100
+        },
+        {
+            title: "Création d'un centre de santé communautaire",
+            description: "Un centre de santé moderne pour répondre aux besoins médicaux des habitants. Le projet prévoyait des services de consultation générale, une maternité et un laboratoire d'analyses médicales.",
+            status: "Annulé",
+            image: projectImage,
+            progress: 0
+        },
+    ];
+
+    const getStatusIcon = (status) => {
+        switch (status) {
+            case "Terminé":
+                return <CheckCircleIcon className="w-6 h-6 text-emerald-500"/>;
+            case "En cours":
+                return <HourglassTopIcon className="w-6 h-6 text-amber-500"/>;
+            case "Annulé":
+                return <CancelIcon className="w-6 h-6 text-red-500"/>;
+            default:
+                return null;
+        }
+    };
+
+    const getStatusBadgeColor = (status) => {
+        switch (status) {
+            case "Terminé":
+                return "bg-emerald-100 text-emerald-800";
+            case "En cours":
+                return "bg-amber-100 text-amber-800";
+            case "Annulé":
+                return "bg-red-100 text-red-800";
+            default:
+                return "bg-gray-100 text-gray-800";
+        }
+    };
+
+    if (loading) {
+        return (
+            <div className="flex flex-col">
+                <HeroShimmer/>
+                <ProjectShimmer/>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen bg-gray-50">
+            <HeroTitle
+                title="Projets Communaux d'Ambalavao"
+                description="Découvrez les initiatives de développement en cours et réalisées dans notre commune. Ensemble, construisons un avenir meilleur pour tous les habitants d'Ambalavao."
+                backgroundImage={backgroundImageHome}
+                buttons={[
+                    {text: "Voir les projets en cours", path: "#project", variant: "primary"},
+                    {text: "Proposer un projet", path: "/contact", variant: "secondary"}
+                ]}
+            />
+
+            <section id="project" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+                        Nos Projets Communaux
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Suivez l'avancement des projets qui façonnent l'avenir de notre commune
+                    </p>
+                </div>
+
+                <div className="space-y-8">
+                    {projects.map((project, index) => (
+                        <div
+                            key={index}
+                            className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 border border-gray-100"
+                        >
+                            <div className="flex flex-col lg:flex-row">
+                                <div className="lg:w-2/5 relative overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="h-64 lg:h-full w-full object-cover transform hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <div className="absolute top-4 right-4">
+                                        <span
+                                            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusBadgeColor(project.status)}`}>
+                                            {project.status}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div className="lg:w-3/5 p-6 lg:p-8">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-gray-600 mb-6 leading-relaxed">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-2">
+                                            {getStatusIcon(project.status)}
+                                            <span className="font-medium text-gray-700">
+                                                État du projet
+                                            </span>
+                                        </div>
+
+                                        {project.status === "En cours" && (
+                                            <div className="flex-1">
+                                                <div className="w-full bg-gray-200 rounded-full h-2">
+                                                    <div
+                                                        className="bg-amber-500 h-2 rounded-full transition-all duration-300"
+                                                        style={{width: `${project.progress}%`}}
+                                                    />
+                                                </div>
+                                                <span className="text-sm text-gray-600 mt-1">
+                                                    {project.progress}% complété
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default Project;

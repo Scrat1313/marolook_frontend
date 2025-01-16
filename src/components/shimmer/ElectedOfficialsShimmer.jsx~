@@ -1,0 +1,86 @@
+import React from 'react';
+import Shimmer from './Shimmer';
+
+const ElectedOfficialsShimmer = () => {
+    const officials = Array(3).fill(null);
+
+    return (
+        <section className="bg-gray-900 py-24">
+            <div className="max-w-7xl mx-auto px-4">
+                {/* Header Section Shimmer */}
+                <div className="relative mb-20">
+                    <div className="flex items-center justify-center mb-4">
+                        <div className="relative overflow-hidden">
+                            <Shimmer className="w-[40px] h-[40px] text-[#228B22]"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <div className="text-center mb-6 relative overflow-hidden">
+                            <Shimmer className="h-[48px] w-[300px] md:w-[400px] rounded-lg"/>
+                        </div>
+                        <div className="relative overflow-hidden">
+                            <Shimmer className="w-24 h-1 bg-[#228B22]"/>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Officials Section Shimmer */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                    {officials.map((_, index) => (
+                        <div key={index} className="group bg-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-xl">
+                            {/* Image Container Shimmer */}
+                            <div className="relative mb-6 perspective-1000">
+                                <div className="relative h-[400px] transform transition-transform duration-500">
+                                    <div className="h-full w-full overflow-hidden">
+                                        <Shimmer className="h-full w-full object-cover"/>
+                                    </div>
+
+                                    {/* Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"/>
+
+                                    {/* Title Position Shimmer */}
+                                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                                        <div className="relative overflow-hidden mb-2">
+                                            <Shimmer className="h-8 w-48 rounded"/>
+                                        </div>
+                                        <div className="relative overflow-hidden">
+                                            <Shimmer className="h-6 w-32 rounded bg-[#228B22]/20"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Decorative Corner Elements */}
+                                <div
+                                    className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-[#228B22] opacity-0 transition-all duration-300 group-hover:opacity-100"/>
+                                <div
+                                    className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-[#228B22] opacity-0 transition-all duration-300 group-hover:opacity-100"/>
+                            </div>
+
+                            {/* Contact Information Shimmer */}
+                            <div className="space-y-3 px-2">
+                                <div className="flex items-center gap-3 bg-white/70 backdrop-blur-xl p-4 rounded-2xl">
+                                    <div className="relative overflow-hidden">
+                                        <Shimmer className="w-5 h-5 rounded-full text-[#228B22]"/>
+                                    </div>
+                                    <div className="relative overflow-hidden flex-1">
+                                        <Shimmer className="h-5 w-full max-w-[200px] rounded"/>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 bg-white/70 backdrop-blur-xl p-4 rounded-2xl">
+                                    <div className="relative overflow-hidden">
+                                        <Shimmer className="w-5 h-5 rounded-full text-[#228B22]"/>
+                                    </div>
+                                    <div className="relative overflow-hidden flex-1">
+                                        <Shimmer className="h-5 w-full max-w-[180px] rounded"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default ElectedOfficialsShimmer;

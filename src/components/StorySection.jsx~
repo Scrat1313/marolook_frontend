@@ -1,0 +1,123 @@
+import React, {useState, useEffect} from 'react';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import Diversity2OutlinedIcon from '@mui/icons-material/Diversity2Outlined';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import {HeroShimmer, StorySectionShimmer} from "./shimmer";
+
+const StorySection = () => {
+
+    const [activeItem, setActiveItem] = useState(null);
+
+    const historyData = [
+        {
+            icon: <TimelineIcon className="w-6 h-6 text-[#228B22]"/>,
+            year: "1800s",
+            title: "Fondation d'Ambalavao",
+            description: "Établissement de la commune au cœur des hautes terres malgaches.",
+            details: "Centre névralgique entre les hautes terres et le sud de Madagascar, Ambalavao s'est développée grâce à sa position stratégique."
+        },
+        {
+            icon: <Diversity2OutlinedIcon className="w-6 h-6 text-[#228B22]"/>,
+            year: "1900s",
+            title: "Développement Artisanal",
+            description: "Émergence des ateliers traditionnels de papier Antaimoro.",
+            details: "Les artisans locaux ont perfectionné la technique ancestrale de fabrication du papier Antaimoro, utilisant l'écorce du mûrier Avoha."
+        },
+        {
+            icon: <AutoStoriesIcon className="w-6 h-6 text-[#228B22]"/>,
+            year: "Aujourd'hui",
+            title: "Héritage Vivant",
+            description: "Préservation active des traditions et tourisme culturel.",
+            details: "La commune maintient son rôle de gardienne des savoirs traditionnels tout en s'adaptant aux enjeux contemporains."
+        }
+    ];
+
+
+    return (
+        <section className="bg-gray-900 py-16">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-[#228B22] mb-16">
+                    Notre Histoire
+                </h2>
+
+                <div className="relative">
+                    {/* Timeline line - hidden on mobile */}
+                    <div
+                        className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#228B22] via-[#228B22]/50 to-transparent"/>
+
+                    <div className="space-y-8 md:space-y-16">
+                        {historyData.map((item, index) => (
+                            <div key={index} className="relative">
+                                {/* Timeline dot - hidden on mobile */}
+                                <div
+                                    className="hidden md:block absolute left-1/2 w-4 h-4 rounded-full bg-slate-900 border-2 border-[#228B22] transform -translate-x-1/2 z-10">
+                                    <div className="absolute inset-0 bg-[#228B22]/20 rounded-full animate-ping"/>
+                                </div>
+
+                                {/* Content container */}
+                                <div className={`flex flex-col md:flex-row ${
+                                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                                } gap-4 md:gap-8`}>
+                                    {/* Content card */}
+                                    <div className={`w-full md:w-1/2 ${
+                                        index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                                    }`}>
+                                        <div
+                                            className="group bg-slate-800/30 backdrop-blur-sm p-6 rounded-xl border border-slate-700 hover:border-[#228B22]/30 transition-all duration-300">
+                                            {/* Header */}
+                                            <div className="flex items-center gap-4 mb-4">
+                                                <div
+                                                    className="bg-slate-900 p-2 rounded-lg group-hover:bg-[#228B22]/10 transition-colors">
+                                                    {item.icon}
+                                                </div>
+                                                <span
+                                                    className="bg-[#228B22]/10 text-[#228B22] px-3 py-1 rounded-full text-sm font-medium">
+                                                    {item.year}
+                                                </span>
+                                            </div>
+
+                                            {/* Content */}
+                                            <h3 className="text-xl font-bold text-white mb-2">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-slate-300 mb-4">
+                                                {item.description}
+                                            </p>
+
+                                            {/* Expand button */}
+                                            <button
+                                                onClick={() => setActiveItem(activeItem === index ? null : index)}
+                                                className="flex items-center gap-2 text-[#228B22] hover:text-[#228B22]/80 transition-colors group"
+                                            >
+                                                <KeyboardArrowDownIcon
+                                                    className={`w-5 h-5 transition-transform duration-300 ${
+                                                        activeItem === index ? 'rotate-180' : ''
+                                                    }`}
+                                                />
+                                                <span className="text-sm font-medium">
+                                                    {activeItem === index ? 'Voir moins' : 'En savoir plus'}
+                                                </span>
+                                            </button>
+
+                                            {/* Expandable content */}
+                                            <div className={`transition-all duration-300 ease-in-out ${
+                                                activeItem === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
+                                            }`}>
+                                                <p className="text-slate-400 border-l-2 border-[#228B22]/30 pl-4">
+                                                    {item.details}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default StorySection;

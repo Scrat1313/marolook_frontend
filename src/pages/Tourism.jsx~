@@ -1,0 +1,234 @@
+import React, {useEffect, useState} from 'react';
+import {HeroTitle} from "../components";
+import LandscapeIcon from '@mui/icons-material/Landscape';
+import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import HotelIcon from '@mui/icons-material/Hotel';
+import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
+import backgroundImageHome from '../assets/images/background/bg.jpg';
+import tourismImage from '../assets/images/default/tourism.jpg';
+import usePageTitle from "../hooks/usePageTitle";
+import {HeroShimmer, TourismShimmer} from "../components/shimmer";
+
+const Tourism = () => {
+    usePageTitle('Tourismes');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Simuler un chargement de 2 secondes
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    const tourismData = [
+        {
+            category: "Sites Naturels",
+            icon: <LandscapeIcon className="w-8 h-8 text-white"/>,
+            description: "Découvrez nos paysages exceptionnels et notre biodiversité unique",
+            places: [
+                {
+                    name: "Massif d'Andringitra",
+                    description: "Parc national classé patrimoine mondial, offrant des randonnées spectaculaires et une vue imprenable sur les sommets granitiques.",
+                    activities: ["Randonnée", "Observation d'oiseaux", "Camping"],
+                    image: tourismImage,
+                    duration: "1-3 jours",
+                    difficulty: "Modérée à difficile",
+                },
+                {
+                    name: "Cascade d'Ambalavao",
+                    description: "Chute d'eau naturelle entourée d'une végétation luxuriante, idéale pour la baignade et le pique-nique.",
+                    activities: ["Baignade", "Pique-nique", "Photographie"],
+                    image: tourismImage,
+                    duration: "Demi-journée",
+                    difficulty: "Facile",
+                },
+            ],
+        },
+        {
+            category: "Culture et Artisanat",
+            icon: <LocalActivityIcon className="w-8 h-8 text-white"/>,
+            description: "Immergez-vous dans notre riche patrimoine culturel",
+            places: [
+                {
+                    name: "Atelier de Papier Antemoro",
+                    description: "Découvrez la fabrication traditionnelle du papier Antemoro, un artisanat unique à Madagascar.",
+                    activities: ["Démonstration", "Atelier pratique", "Boutique"],
+                    image: tourismImage,
+                    duration: "2-3 heures",
+                    price: "À partir de 10 000 Ar",
+                },
+                {
+                    name: "Marché artisanal",
+                    description: "Le plus grand marché de tissage de la soie sauvage de la région, avec des artisans locaux.",
+                    activities: ["Shopping", "Démonstration de tissage"],
+                    image: tourismImage,
+                    duration: "2-4 heures",
+                    bestTime: "Mercredi et samedi matin",
+                },
+            ],
+        },
+        {
+            category: "Hébergement",
+            icon: <HotelIcon className="w-8 h-8 text-white"/>,
+            description: "Des options d'hébergement pour tous les budgets",
+            places: [
+                {
+                    name: "Hôtel Aux Bougainvillées",
+                    description: "Établissement de charme avec vue sur les montagnes et jardin tropical.",
+                    facilities: ["Restaurant", "Wifi", "Parking"],
+                    image: tourismImage,
+                    priceRange: "100 000 - 200 000 Ar/nuit",
+                    contact: "+261 34 50 123 45",
+                },
+            ],
+        },
+    ];
+
+    if (loading) {
+        return (
+            <div className="flex flex-col">
+                <HeroShimmer/>
+                <TourismShimmer/>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen bg-white">
+            <HeroTitle
+                title="Découvrez Ambalavao"
+                description="Une destination unique entre tradition et nature au cœur de Madagascar"
+                backgroundImage={backgroundImageHome}
+                buttons={[
+                    {text: "Réserver un guide", path: "/reservation", variant: "primary"},
+                    {text: "Voir la carte", path: "/carte", variant: "secondary"}
+                ]}
+            />
+
+            <section className="py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                            Explorer Ambalavao
+                        </h2>
+                        <p className="text-lg text-slate-900 max-w-2xl mx-auto">
+                            Entre ses paysages grandioses, son artisanat unique et sa culture vivante,
+                            Ambalavao vous promet des expériences inoubliables
+                        </p>
+                    </div>
+
+                    <div className="space-y-24">
+                        {tourismData.map((section, index) => (
+                            <div key={index} className="relative">
+                                <div className="flex items-center gap-4 mb-12">
+                                    <div className="bg-[#228B22] p-4 rounded-full">
+                                        {section.icon}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-3xl font-bold text-slate-900">
+                                            {section.category}
+                                        </h3>
+                                        <p className="text-slate-900/80 mt-1">
+                                            {section.description}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-16">
+                                    {section.places.map((place, placeIndex) => (
+                                        <div key={placeIndex} className="group">
+                                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                                <div className="relative overflow-hidden">
+                                                    <img
+                                                        src={place.image}
+                                                        alt={place.name}
+                                                        className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col justify-center">
+                                                    <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-[#228B22] transition-colors duration-300">
+                                                        {place.name}
+                                                    </h4>
+                                                    <p className="text-slate-900/80 mb-6 leading-relaxed">
+                                                        {place.description}
+                                                    </p>
+
+                                                    {place.activities && (
+                                                        <div className="mb-6">
+                                                            <h5 className="font-semibold text-slate-900 mb-2">Activités</h5>
+                                                            <div className="flex flex-wrap gap-2">
+                                                                {place.activities.map((activity, actIndex) => (
+                                                                    <span key={actIndex}
+                                                                          className="inline-flex items-center px-3 py-1 bg-[#228B22]/10 text-[#228B22] text-sm">
+                                                                        {activity}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    <div className="flex flex-wrap gap-8 text-slate-900">
+                                                        {place.duration && (
+                                                            <div className="flex items-center gap-2">
+                                                                <DirectionsWalkIcon className="w-5 h-5 text-[#228B22]"/>
+                                                                <span>{place.duration}</span>
+                                                            </div>
+                                                        )}
+                                                        {place.difficulty && (
+                                                            <div>
+                                                                <span
+                                                                    className="font-medium">Difficulté:</span> {place.difficulty}
+                                                            </div>
+                                                        )}
+                                                        {place.priceRange && (
+                                                            <div>
+                                                                <span
+                                                                    className="font-medium">Prix:</span> {place.priceRange}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-24">
+                        <div className="bg-[#228B22] py-16 px-8">
+                            <div className="max-w-3xl mx-auto text-center">
+                                <h3 className="text-3xl font-bold text-white mb-4">
+                                    Prêt à découvrir Ambalavao ?
+                                </h3>
+                                <p className="text-white/90 mb-8 text-lg">
+                                    Nos guides locaux vous feront découvrir les plus beaux
+                                    secrets de notre région.
+                                </p>
+                                <div className="flex justify-center gap-4">
+                                    <a
+                                        href="/contact"
+                                        className="inline-flex items-center px-8 py-4 bg-white text-[#228B22] font-bold hover:bg-slate-100 transition-colors duration-300"
+                                    >
+                                        Contacter un guide
+                                    </a>
+                                    <a
+                                        href="/carte"
+                                        className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-bold hover:bg-white/10 transition-colors duration-300"
+                                    >
+                                        Voir la carte touristique
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default Tourism;

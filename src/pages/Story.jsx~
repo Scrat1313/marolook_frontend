@@ -1,0 +1,20 @@
+import React from 'react';
+import {HeroTitle, StorySection} from "../components";
+import backgroundImageHome from "../assets/images/background/bg.jpg";
+const Story = () => {
+    return (
+        <div className="flex flex-col">
+            <HeroTitle
+                title="L’Histoire d’Ambalavao : Un patrimoine riche et authentique"
+                description="Depuis ses origines comme carrefour commercial jusqu’à sa renommée pour son artisanat, Ambalavao incarne un héritage culturel et naturel unique au cœur de la région Haute Matsiatra. Découvrez ses traditions, son marché emblématique, et son rôle dans la préservation de la nature."
+                backgroundImage={backgroundImageHome}
+            />
+            {/* Story Section */}
+            <section className="w-full">
+                <StorySection/>
+            </section>
+        </div>
+    );
+};
+
+export default Story;

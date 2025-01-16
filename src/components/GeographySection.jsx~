@@ -1,0 +1,114 @@
+import React, {useState} from 'react';
+import TerrainIcon from '@mui/icons-material/Terrain';
+import PlaceIcon from '@mui/icons-material/Place';
+import NaturePeopleIcon from '@mui/icons-material/NaturePeople';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
+const GeographySection = () => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [expandedIndex, setExpandedIndex] = useState(null);
+
+    const geographyData = [
+        {
+            icon: <TerrainIcon className="w-10 h-10 text-emerald-600"/>,
+            title: "Paysages et Reliefs",
+            description: "Ambalavao est entourée par le massif de l'Andringitra, offrant des paysages spectaculaires entre montagnes et vallées.",
+            details: "Le relief varié crée un microclimat unique, propice à une végétation diverse et à l'agriculture traditionnelle."
+        },
+        {
+            icon: <PlaceIcon className="w-10 h-10 text-emerald-600"/>,
+            title: "Localisation",
+            description: "Située dans la région Haute Matsiatra, Ambalavao est un carrefour entre les hauts plateaux et la côte Est de Madagascar.",
+            details: "Cette position stratégique en fait un point de passage important pour le commerce et les échanges culturels."
+        },
+        {
+            icon: <NaturePeopleIcon className="w-10 h-10 text-emerald-600"/>,
+            title: "Richesses Naturelles",
+            description: "La commune est proche de parcs naturels, tels que le parc national d'Andringitra, abritant une biodiversité unique.",
+            details: "La région abrite des espèces endémiques et des écosystèmes remarquables qui attirent chercheurs et écotouristes."
+        }
+    ];
+
+    return (
+        <section className="py-16 bg-gradient-to-b from-emerald-50/50 to-white">
+            <div className="max-w-6xl mx-auto px-4">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-bold text-emerald-900">
+                        Découvrez <span className="text-emerald-600">Notre Territoire</span>
+                    </h2>
+                    <div className="mt-4 w-24 h-1 bg-emerald-600 mx-auto rounded-full"/>
+                </div>
+
+                <div className="space-y-12">
+                    {geographyData.map((item, index) => (
+                        <div
+                            key={index}
+                            className="group relative"
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            <div className={`
+                relative flex flex-col md:flex-row items-start gap-8 p-8 rounded-2xl
+                transition-all duration-300 ease-out
+                ${hoveredIndex === index ? 'bg-white shadow-lg shadow-emerald-100 scale-[1.02]' : 'bg-transparent'}
+              `}>
+                                {/* Icône avec cercle animé */}
+                                <div className="relative">
+                                    <div className={`
+                    absolute inset-0 rounded-full
+                    transition-all duration-500
+                    ${hoveredIndex === index ? 'bg-emerald-100/50 scale-125' : 'bg-emerald-50 scale-100'}
+                  `}/>
+                                    <div className="relative p-4">
+                                        {item.icon}
+                                    </div>
+                                </div>
+
+                                {/* Contenu */}
+                                <div className="flex-1 space-y-4">
+                                    <h3 className="text-2xl font-semibold text-emerald-900 group-hover:text-emerald-600 transition-colors">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        {item.description}
+                                    </p>
+
+                                    {/* Section extensible */}
+                                    <div>
+                                        <button
+                                            onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                                            className="flex items-center gap-2 text-emerald-600 hover:text-emerald-700 transition-colors"
+                                        >
+                                            <ChevronRightIcon className={`
+                        transform transition-transform duration-300
+                        ${expandedIndex === index ? 'rotate-90' : 'rotate-0'}
+                      `}/>
+                                            {expandedIndex === index ? 'Voir moins' : 'En savoir plus'}
+                                        </button>
+
+                                        <div className={`
+                      mt-4 overflow-hidden transition-all duration-300
+                      ${expandedIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}
+                    `}>
+                                            <p className="text-slate-600 pl-6 border-l-2 border-emerald-400">
+                                                {item.details}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Ligne de connexion */}
+                            {index < geographyData.length - 1 && (
+                                <div
+                                    className="hidden md:block absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 w-px h-12 bg-gradient-to-b from-emerald-400 to-transparent"/>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default GeographySection;
