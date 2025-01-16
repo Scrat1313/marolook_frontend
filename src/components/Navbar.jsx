@@ -9,6 +9,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import LandscapeIcon from '@mui/icons-material/Landscape';
 import route from "../routes/routes";
 import usePageTitle from "../hooks/usePageTitle";
+import logo from "../assets/images/logos/logo.png";
 
 const Navbar = () => {
     usePageTitle('Accueil')
@@ -24,17 +25,17 @@ const Navbar = () => {
         },
         {
             path: '/commune',
-            label: 'La commune',
+            label: 'Qui sommes nous ?',
             icon: <LocationCityIcon className="w-5 h-5"/>
         },
         {
             path: '/projets',
-            label: 'Projets et partenaires',
+            label: 'Nos services',
             icon: <GroupsIcon className="w-5 h-5"/>
         },
         {
             path: '/tourisme',
-            label: 'Tourisme et loisirs',
+            label: 'Portfolio',
             icon: <LandscapeIcon className="w-5 h-5"/>
         }
     ];
@@ -64,12 +65,22 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between">
                         {/* Logo */}
-                        <Link to="/" className="flex items-center">
-                            <span
-                                className="text-2xl font-bold bg-gradient-to-r from-[#FF4B4B] to-[#E43D3D] bg-clip-text text-transparent">
-                                Test
-                            </span>
-                        </Link>
+                        <div className="flex-shrink-0">
+                            <Link to="/" className="flex items-center space-x-3 group">
+                                <img
+                                    src={logo}
+                                    alt="La Commune Logo"
+                                    className="w-10 h-10 object-contain"
+                                    loading="eager"
+                                    draggable="false"
+                                    style={{
+                                        imageRendering: '-webkit-optimize-contrast',
+                                        transform: 'translateZ(0)',
+                                        backfaceVisibility: 'hidden'
+                                    }}
+                                />
+                            </Link>
+                        </div>
 
                         {/* Desktop Navigation */}
                         <div className="hidden lg:flex items-center gap-8">
