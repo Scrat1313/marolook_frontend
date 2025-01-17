@@ -3,7 +3,7 @@ import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel} from "../components";
 
 const Contact = () => {
-    usePageTitle('Qui sommes-nous ?');
+    usePageTitle('Contact');
 
     const heroSlides = [
         {

@@ -1,0 +1,142 @@
+import React from 'react';
+import {
+    AdminPanelSettings,
+    Assignment,
+    AccountBalance,
+    Business,
+    Groups,
+    TrendingUp
+} from '@mui/icons-material';
+
+const servicesData = [
+    {
+        id: 1,
+        Icon: AdminPanelSettings,
+        title: "Administration",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        link: "/services/administration"
+    },
+    {
+        id: 2,
+        Icon: Assignment,
+        title: "État Civil",
+        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        link: "/services/etat-civil"
+    },
+    {
+        id: 3,
+        Icon: Business,
+        title: "Urbanisme",
+        description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        link: "/services/urbanisme"
+    },
+    {
+        id: 4,
+        Icon: AccountBalance,
+        title: "Finances",
+        description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        link: "/services/finances"
+    },
+    {
+        id: 5,
+        Icon: Groups,
+        title: "Social",
+        description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+        link: "/services/social"
+    },
+    {
+        id: 6,
+        Icon: TrendingUp,
+        title: "Développement",
+        description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.",
+        link: "/services/developpement"
+    }
+];
+
+const ServiceSection = () => {
+    return (
+        <section className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+            <div className="max-w-7xl mx-auto mb-16">
+                <div className="text-center relative">
+                    <h2 className="text-4xl font-bold text-gray-800 mb-6 inline-block">
+                        Nos Services
+                        <div
+                            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-[#FF4B4B] rounded-full"/>
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.
+                    </p>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {servicesData.map((service) => (
+                    <div
+                        key={service.id}
+                        className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl
+                                 transition-all duration-300 transform hover:-translate-y-2"
+                    >
+                        {/* Bordure décorative */}
+                        <div className="absolute inset-0 border-2 border-[#FF4B4B]/20 rounded-2xl opacity-0
+                                      group-hover:opacity-100 transition-opacity duration-300"/>
+
+                        <div className="p-8">
+                            {/* Conteneur de l'icône avec positionnement corrigé */}
+                            <div className="relative mb-6 h-16 flex items-center">
+                                {/* Carré décoratif en arrière-plan */}
+                                <div className="absolute w-16 h-16 bg-[#FF4B4B]/10 rounded-2xl
+                                             transform rotate-45"/>
+                                {/* Icône centrée */}
+                                <div className="absolute left-3">
+                                    <service.Icon
+                                        className="w-10 h-10 text-[#FF4B4B]"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#FF4B4B]
+                                             transition-colors duration-300">
+                                    {service.title}
+                                </h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    {service.description}
+                                </p>
+
+                                <div className="pt-4">
+                                    <a
+                                        href={service.link}
+                                        className="inline-flex items-center space-x-2 text-[#FF4B4B] font-medium
+                                                 group-hover:text-[#E43D3D] transition-colors duration-300"
+                                    >
+                                        <span>En savoir plus</span>
+                                        <svg
+                                            className="w-5 h-5 transform transition-transform duration-300
+                                                     group-hover:translate-x-1"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Effet de surbrillance au survol */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#FF4B4B]/5 to-transparent opacity-0
+                                      group-hover:opacity-100 transition-opacity duration-300"/>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+};
+
+export default ServiceSection;

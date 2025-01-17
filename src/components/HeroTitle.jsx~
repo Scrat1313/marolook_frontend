@@ -1,41 +1,69 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import {smoothScrollTo} from '../utils/scrollUtils';
+import {ChevronLeft, ChevronRight} from '@mui/icons-material';
 
-const HeroTitle = ({
-                       title,
-                       description,
-                       buttons = [],
-                       backgroundImage,
-                       height = "h-[800px]",
-                       overlayColor = "bg-black/50",
-                       titleColor = "text-white",
-                       descriptionColor = "text-gray-200",
-                       primaryButtonColor = "bg-[#228B22]",
-                       primaryButtonHoverColor = "hover:bg-[#1a6b1a]",
-                       secondaryButtonColor = "bg-white",
-                       secondaryButtonTextColor = "text-[#228B22]",
-                       secondaryButtonHoverColor = "hover:bg-gray-100"
-                   }) => {
-    const ButtonComponent = ({
-                                 button,
-                                 index,
-                                 primaryButtonColor,
-                                 primaryButtonHoverColor,
-                                 secondaryButtonColor,
-                                 secondaryButtonTextColor,
-                                 secondaryButtonHoverColor
-                             }) => {
-        const className = `px-6 py-3 rounded-lg font-medium transition-colors duration-300 ${
-            button.variant === 'primary'
-                ? `${primaryButtonColor} ${primaryButtonHoverColor} text-white`
-                : `${secondaryButtonColor} ${secondaryButtonTextColor} ${secondaryButtonHoverColor}`
-        }`;
+const HeroCarousel = ({
+                          slides = [],
+                          autoPlayInterval = 5000,
+                          height = "h-[600px]",
+                          showArrows = true,
+                          showDots = true,
+                      }) => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+    useEffect(() => {
+        if (slides.length <= 1) return;
+
+        const interval = setInterval(() => {
+            handleNext();
+        }, autoPlayInterval);
+
+        return () => clearInterval(interval);
+    }, [currentSlide, slides.length]);
+
+    const handleNext = () => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setTimeout(() => setIsTransitioning(false), 500);
+    };
+
+    const handlePrev = () => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setTimeout(() => setIsTransitioning(false), 500);
+    };
+
+    const handleDotClick = (index) => {
+        if (isTransitioning || index === currentSlide) return;
+        setIsTransitioning(true);
+        setCurrentSlide(index);
+        setTimeout(() => setIsTransitioning(false), 500);
+    };
+
+    const ButtonComponent = ({button}) => {
+        const baseClassName = "px-6 py-3 rounded-lg font-medium transition-all duration-300";
+        const variantStyles = {
+            primary: "bg-[#FF4B4B] hover:bg-[#E43D3D] text-white shadow-lg hover:shadow-xl",
+            secondary: "bg-white text-[#FF4B4B] hover:bg-[#F8F8F8] shadow-lg hover:shadow-xl"
+        };
+
+        const className = `${baseClassName} ${variantStyles[button.variant]}`;
+
+        const handleAnchorClick = (e, path) => {
+            e.preventDefault();
+            const elementId = path.replace('#', '');
+            smoothScrollTo(elementId);
+        };
 
         if (button.path.startsWith('#')) {
             return (
                 <a
-                    key={index}
                     href={button.path}
+                    onClick={(e) => handleAnchorClick(e, button.path)}
                     className={className}
                 >
                     {button.text}
@@ -44,62 +72,116 @@ const HeroTitle = ({
         }
 
         return (
-            <Link
-                key={index}
-                to={button.path}
-                className={className}
-            >
+            <Link to={button.path} className={className}>
                 {button.text}
             </Link>
         );
     };
 
-    return (
-        <section className={`relative ${height}`}>
-            {/* Background image */}
-            <div
-                className="absolute inset-0"
-                style={backgroundImage ? {
-                    backgroundImage: `url(${backgroundImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                } : {}}
-            />
-            {/* Dark overlay */}
-            <div className={`absolute inset-0 ${overlayColor}`}/>
+    if (!slides.length) return null;
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-                <div className="space-y-6 text-center w-full">
-                    {title && (
-                        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center ${titleColor}`}>
-                            {title}
-                        </h1>
-                    )}
-                    {description && (
-                        <p className={`text-xl max-w-2xl mx-auto text-center ${descriptionColor}`}>
-                            {description}
-                        </p>
-                    )}
-                    {buttons.length > 0 && (
-                        <div className="flex flex-wrap gap-4 justify-center">
-                            {buttons.map((button, index) => (
-                                <ButtonComponent
-                                    key={index}
-                                    button={button}
-                                    index={index}
-                                    primaryButtonColor={primaryButtonColor}
-                                    primaryButtonHoverColor={primaryButtonHoverColor}
-                                    secondaryButtonColor={secondaryButtonColor}
-                                    secondaryButtonTextColor={secondaryButtonTextColor}
-                                    secondaryButtonHoverColor={secondaryButtonHoverColor}
-                                />
-                            ))}
+    return (
+        <div className={`relative overflow-hidden ${height}`}>
+            {/* Slides container */}
+            <div className="h-full relative">
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 w-full h-full transition-opacity duration-500
+              ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                    >
+                        {/* Background */}
+                        <div
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: `url(${slide.backgroundImage})`,
+                            }}
+                        />
+
+                        {/* Overlay */}
+                        <div className={`absolute inset-0 ${slide.overlayColor || 'bg-[#333333]/30'}`}/>
+
+                        {/* Content */}
+                        <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex items-center justify-center h-full">
+                                <div className="text-center space-y-6 max-w-3xl">
+                                    <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold
+                    ${slide.titleColor || 'text-white'} 
+                    transform transition-all duration-700 
+                    ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                                    >
+                                        {slide.title}
+                                    </h1>
+
+                                    {slide.description && (
+                                        <p className={`text-xl 
+                      ${slide.descriptionColor || 'text-white/90'}
+                      transform transition-all duration-700 delay-100
+                      ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                                        >
+                                            {slide.description}
+                                        </p>
+                                    )}
+
+                                    {slide.buttons && slide.buttons.length > 0 && (
+                                        <div className={`flex flex-wrap gap-4 justify-center
+                      transform transition-all duration-700 delay-200
+                      ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                                        >
+                                            {slide.buttons.map((button, buttonIndex) => (
+                                                <ButtonComponent key={buttonIndex} button={button}/>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
-                    )}
-                </div>
+                    </div>
+                ))}
             </div>
-        </section>
+
+            {/* Navigation Arrows */}
+            {showArrows && slides.length > 1 && (
+                <>
+                    <button
+                        onClick={handlePrev}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full
+                     bg-white/80 hover:bg-white text-[#333333] backdrop-blur-sm
+                     transition-all duration-300 hover:scale-110"
+                        aria-label="Slide précédente"
+                    >
+                        <ChevronLeft className="w-6 h-6"/>
+                    </button>
+                    <button
+                        onClick={handleNext}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full
+                     bg-white/80 hover:bg-white text-[#333333] backdrop-blur-sm
+                     transition-all duration-300 hover:scale-110"
+                        aria-label="Slide suivante"
+                    >
+                        <ChevronRight className="w-6 h-6"/>
+                    </button>
+                </>
+            )}
+
+            {/* Dots Navigation */}
+            {showDots && slides.length > 1 && (
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                    {slides.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleDotClick(index)}
+                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300
+                ${index === currentSlide
+                                ? 'bg-[#FF4B4B] w-8'
+                                : 'bg-white hover:bg-[#FF4B4B]/50'}`}
+                            aria-label={`Aller à la slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
+        </div>
     );
 };
 
-export default HeroTitle;
+export default HeroCarousel;

@@ -1,0 +1,222 @@
+import React, {useState, useMemo} from 'react';
+import {
+    Star,
+    ArrowBack,
+    ArrowForward,
+    BusinessCenter,
+    Person
+} from '@mui/icons-material';
+
+const testimonialData = [
+    {
+        id: 1,
+        name: "Marie Rakoto",
+        role: "Résidente",
+        type: "particular",
+        avatar: "/images/avatars/avatar-1.jpg",
+        content: "La mairie d'Ambalavao a transformé mon expérience administrative. Le service est rapide, efficace et le personnel est très accueillant. Je recommande vivement leurs services en ligne !",
+        rating: 5,
+        date: "Janvier 2025"
+    },
+    {
+        id: 2,
+        name: "Hôtel Betsileo",
+        role: "Entreprise locale",
+        type: "business",
+        avatar: "/images/avatars/business-1.jpg",
+        content: "En tant qu'entreprise locale, nous apprécions grandement la réactivité et le professionnalisme des services municipaux. Leur accompagnement dans nos démarches administratives a été précieux.",
+        rating: 5,
+        date: "Décembre 2024"
+    },
+    {
+        id: 3,
+        name: "Jean Randria",
+        role: "Entrepreneur",
+        type: "business",
+        avatar: "/images/avatars/avatar-2.jpg",
+        content: "L'équipe de la commune a été d'une aide exceptionnelle pour l'obtention de mon permis de construire. Un service public moderne et efficace !",
+        rating: 4,
+        date: "Janvier 2025"
+    },
+];
+
+const TestimonySection = () => {
+    const [activeFilter, setActiveFilter] = useState('all');
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    // Utiliser useMemo pour filtrer les témoignages
+    const filteredTestimonials = useMemo(() => {
+        return activeFilter === 'all'
+            ? testimonialData
+            : testimonialData.filter(item => item.type === activeFilter);
+    }, [activeFilter]);
+
+    // Gérer le changement de filtre
+    const handleFilterChange = (filter) => {
+        setActiveFilter(filter);
+        setCurrentSlide(0); // Réinitialiser à la première slide
+    };
+
+    // Navigation
+    const handleNext = () => {
+        if (filteredTestimonials.length > 0) {
+            setCurrentSlide((prev) => (prev + 1) % filteredTestimonials.length);
+        }
+    };
+
+    const handlePrev = () => {
+        if (filteredTestimonials.length > 0) {
+            setCurrentSlide((prev) =>
+                prev === 0 ? filteredTestimonials.length - 1 : prev - 1
+            );
+        }
+    };
+
+    const renderStars = (rating) => (
+        <div className="flex gap-1">
+            {[...Array(5)].map((_, index) => (
+                <Star
+                    key={index}
+                    className={`w-5 h-5 ${
+                        index < rating ? 'text-[#FF4B4B]' : 'text-gray-300'
+                    }`}
+                />
+            ))}
+        </div>
+    );
+
+    const filters = [
+        {id: 'all', label: 'Tous', icon: null},
+        {id: 'particular', label: 'Particuliers', icon: <Person className="w-5 h-5"/>},
+        {id: 'business', label: 'Entreprises', icon: <BusinessCenter className="w-5 h-5"/>}
+    ];
+
+    return (
+        <section className="relative py-24 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+            {/* En-tête */}
+            <div className="relative max-w-7xl mx-auto mb-16 text-center">
+                <span
+                    className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10 rounded-full text-sm font-medium">
+                    Témoignages
+                </span>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Ce que disent nos usagers
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Découvrez les expériences de nos citoyens et entreprises avec les services municipaux.
+                </p>
+            </div>
+
+            {/* Filtres */}
+            <div className="relative max-w-7xl mx-auto mb-12">
+                <div className="flex justify-center gap-4">
+                    {filters.map(filter => (
+                        <button
+                            key={filter.id}
+                            onClick={() => handleFilterChange(filter.id)}
+                            className={`px-6 py-2 rounded-full transition-all duration-300 
+                                ${activeFilter === filter.id
+                                ? 'bg-[#FF4B4B] text-white shadow-lg'
+                                : 'bg-white text-gray-600 hover:bg-[#FF4B4B]/10'}`}
+                        >
+                            <div className="flex items-center gap-2">
+                                {filter.icon}
+                                <span>{filter.label}</span>
+                            </div>
+                        </button>
+                    ))}
+                </div>
+            </div>
+            {/* Carrousel */}
+            <div className="relative max-w-5xl mx-auto">
+                {/* Guillemets décoratifs */}
+
+                {filteredTestimonials.length === 0 ? (
+                    <div className="bg-white/70 backdrop-blur-xl rounded-2xl p-8 text-center">
+                        <p className="text-gray-600 text-lg">
+                            Aucun témoignage disponible pour cette catégorie.
+                        </p>
+                    </div>
+                ) : (
+                    <div className="bg-white/70 backdrop-blur-xl rounded-2xl p-8 md:p-12 shadow-lg">
+                        <div className="relative z-10">
+                            {/* Avatar et infos */}
+                            <div className="flex flex-col items-center text-center mb-8">
+                                <div
+                                    className="w-20 h-20 rounded-full overflow-hidden mb-4 border-4 border-white shadow-lg">
+                                    <img
+                                        src={filteredTestimonials[currentSlide].avatar}
+                                        alt={filteredTestimonials[currentSlide].name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <h3 className="text-xl font-bold text-gray-800">
+                                        {filteredTestimonials[currentSlide].name}
+                                    </h3>
+                                    <p className="text-[#FF4B4B]">
+                                        {filteredTestimonials[currentSlide].role}
+                                    </p>
+                                    <div className="flex justify-center">
+                                        {renderStars(filteredTestimonials[currentSlide].rating)}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Témoignage */}
+                            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                                {filteredTestimonials[currentSlide].content}
+                            </p>
+
+                            <p className="text-gray-500 text-sm text-center">
+                                {filteredTestimonials[currentSlide].date}
+                            </p>
+                        </div>
+                    </div>
+                )}
+
+                {/* Navigation */}
+                {filteredTestimonials.length > 1 && (
+                    <>
+                        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0">
+                            <div className="flex justify-between px-4">
+                                <button
+                                    onClick={handlePrev}
+                                    className="p-2 rounded-full bg-white shadow-lg hover:bg-[#FF4B4B] 
+                                             text-gray-600 hover:text-white transition-all duration-300"
+                                    aria-label="Précédent"
+                                >
+                                    <ArrowBack className="w-6 h-6"/>
+                                </button>
+                                <button
+                                    onClick={handleNext}
+                                    className="p-2 rounded-full bg-white shadow-lg hover:bg-[#FF4B4B] 
+                                             text-gray-600 hover:text-white transition-all duration-300"
+                                    aria-label="Suivant"
+                                >
+                                    <ArrowForward className="w-6 h-6"/>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="flex justify-center mt-8 gap-2">
+                            {filteredTestimonials.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentSlide(index)}
+                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 
+                                        ${index === currentSlide
+                                        ? 'bg-[#FF4B4B] w-8'
+                                        : 'bg-gray-300 hover:bg-[#FF4B4B]/50'}`}
+                                    aria-label={`Slide ${index + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </>
+                )}
+            </div>
+        </section>
+    );
+};
+
+export default TestimonySection;

@@ -2,8 +2,8 @@ import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel} from "../components";
 
-const Contact = () => {
-    usePageTitle('Qui sommes-nous ?');
+const Service = () => {
+    usePageTitle('Nos service');
 
     const heroSlides = [
         {
@@ -69,4 +69,4 @@ const Contact = () => {
     );
 };
 
-export default Contact;
+export default Service;

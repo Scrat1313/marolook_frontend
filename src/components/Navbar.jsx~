@@ -29,7 +29,7 @@ const Navbar = () => {
             icon: <LocationCityIcon className="w-5 h-5"/>
         },
         {
-            path: '/nos-services',
+            path: '/services',
             label: 'Nos services',
             icon: <GroupsIcon className="w-5 h-5"/>
         },
