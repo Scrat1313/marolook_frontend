@@ -1,59 +1,63 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel} from "../components";
+import {PresentationSection, Whyus} from "../components";
 
 const About = () => {
     usePageTitle('Qui sommes-nous ?');
 
     const heroSlides = [
         {
-            title: "Bienvenu sur le site officiel de la Commune Urbaine d'Ambalavao",
-            description: "Découvrez notre histoire, nos projets, et nos richesses culturelles au cœur de la région Haute Matsiatra",
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
             backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
             buttons: [
                 {
-                    text: "En savoir plus",
-                    path: "/commune",
+                    text: "Lorem ipsum",
+                    path: "/",
                     variant: "primary"
                 },
                 {
-                    text: "Nos projets",
-                    path: "/projets",
+                    text: "Lorem ipsum ",
+                    path: "/",
                     variant: "secondary"
                 }
             ]
         },
         {
-            title: "Une ville riche en culture",
-            description: "Entre tradition et modernité, Ambalavao vous accueille dans un cadre authentique",
-            backgroundImage: "/images/ambalavao-2.jpg", // À remplacer par votre image
-            overlayColor: "bg-[#333333]/40",
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+            backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
             buttons: [
                 {
-                    text: "Découvrir",
-                    path: "/tourisme",
+                    text: "Lorem ipsum",
+                    path: "/",
                     variant: "primary"
+                },
+                {
+                    text: "Lorem ipsum ",
+                    path: "/",
+                    variant: "secondary"
                 }
             ]
         },
         {
-            title: "Au service des citoyens",
-            description: "Retrouvez tous les services de la commune pour faciliter vos démarches administratives",
-            backgroundImage: "/images/ambalavao-3.jpg", // À remplacer par votre image
-            overlayColor: "bg-[#333333]/35",
+            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+            backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
             buttons: [
                 {
-                    text: "Nos services",
-                    path: "/services",
+                    text: "Lorem ipsum",
+                    path: "/",
                     variant: "primary"
                 },
                 {
-                    text: "Contact",
-                    path: "/contact",
+                    text: "Lorem ipsum ",
+                    path: "/",
                     variant: "secondary"
                 }
             ]
-        }
+        },
     ];
 
     return (
@@ -65,6 +69,10 @@ const About = () => {
                 showArrows={true}
                 showDots={true}
             />
+
+            <PresentationSection />
+
+            <Whyus />
         </div>
     );
 };

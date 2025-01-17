@@ -46,7 +46,7 @@ const Home = () => {
             backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
             buttons: [
                 {
-                    text: "orem ipsum",
+                    text: "Lorem ipsum",
                     path: "/",
                     variant: "primary"
                 },

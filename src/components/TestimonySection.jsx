@@ -198,37 +198,38 @@ const TestimonySection = () => {
 
                             {/* Contenu du témoignage */}
                             <blockquote className="mb-8 relative px-12 md:px-20">
-
-                                {/* Contenu */}
-                                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6">
-                                    {/* Guillemet ouvrant */}
-                                    <div className="absolute left-0 top-0">
+                                <div className="relative">
+                                    {/* Conteneur principal avec position relative pour le positionnement des guillemets */}
+                                    <div className="mb-6">
+                                        {/* Guillemet ouvrant */}
                                         <FormatQuote
-                                            className="w-8 md:w-12 h-8 md:h-12 text-[#FF4B4B] transform -scale-x-100"
+                                            className="absolute -left-8 md:-left-12 top-0 w-8 md:w-12 h-8 md:h-12 text-[#FF4B4B] transform -scale-x-100"
+                                        />
+
+                                        {/* Contenu */}
+                                        <p className="text-sm md:text-sm text-gray-700 leading-relaxed pt-4">
+                                            {displayedTestimonials[currentIndex].content}
+                                        </p>
+
+                                        {/* Guillemet fermant */}
+                                        <FormatQuote
+                                            className="absolute -right-8 md:-right-12 bottom-0 w-8 md:w-12 h-8 md:h-12 text-[#FF4B4B]"
                                         />
                                     </div>
-                                    {displayedTestimonials[currentIndex].content}
-                                    {/* Guillemet fermant */}
-                                    <div className="absolute right-0 bottom-0 transform translate-y-1/2">
-                                        <FormatQuote
-                                            className="w-8 md:w-12 h-8 md:h-12 text-[#FF4B4B]"
-                                        />
-                                    </div>
-                                </p>
 
-
-                                {/* Informations de l'auteur */}
-                                <footer className="text-gray-600 relative z-10">
-                                    <cite className="font-medium text-gray-800 block">
-                                        {displayedTestimonials[currentIndex].name}
-                                    </cite>
-                                    <span className="text-[#FF4B4B]">
-                                        {displayedTestimonials[currentIndex].role}
-                                    </span>
-                                    <span className="block text-sm mt-2">
-                                        {displayedTestimonials[currentIndex].date}
-                                    </span>
-                                </footer>
+                                    {/* Informations de l'auteur */}
+                                    <footer className="text-gray-600 relative z-10">
+                                        <cite className="font-medium text-gray-800 block">
+                                            {displayedTestimonials[currentIndex].name}
+                                        </cite>
+                                        <span className="text-[#FF4B4B]">
+                                            {displayedTestimonials[currentIndex].role}
+                                        </span>
+                                        <span className="block text-sm mt-2">
+                                            {displayedTestimonials[currentIndex].date}
+                                        </span>
+                                    </footer>
+                                </div>
                             </blockquote>
 
                             {/* Navigation */}
