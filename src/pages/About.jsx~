@@ -1,6 +1,6 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
-import {ClientPartenerSection, HeroCarousel} from "../components";
+import {HeroCarousel} from "../components";
 import {PresentationSection, Whyus} from "../components";
 
 const About = () => {
@@ -71,8 +71,6 @@ const About = () => {
             />
 
             <PresentationSection />
-
-            <ClientPartenerSection/>
 
             <Whyus />
         </div>
