@@ -11,143 +11,30 @@ const TeamSection = () => {
             role: "CEO & Fondateur",
             phone: "+33 6 12 34 56 78",
             email: "john.doe@marolook.com",
-            image: "https://i.pravatar.cc/150?img=1"
+            image: "/path/to/john-image.jpg"
         },
         {
             name: "Jane Smith",
             role: "Directrice Technique",
             phone: "+33 6 23 45 67 89",
             email: "jane.smith@marolook.com",
-            image: "https://i.pravatar.cc/150?img=2"
+            image: "/path/to/jane-image.jpg"
         },
         {
             name: "Marc Johnson",
             role: "Lead Designer",
             phone: "+33 6 34 56 78 90",
             email: "marc.johnson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=3"
+            image: "/path/to/marc-image.jpg"
         },
         {
             name: "Sarah Wilson",
             role: "Responsable Marketing",
             phone: "+33 6 45 67 89 01",
             email: "sarah.wilson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=4"
-        },
-        {
-            name: "Paul Garcia",
-            role: "Développeur Frontend",
-            phone: "+33 6 56 78 90 12",
-            email: "paul.garcia@marolook.com",
-            image: "https://i.pravatar.cc/150?img=5"
-        },
-        {
-            name: "Emily Brown",
-            role: "Développeuse Backend",
-            phone: "+33 6 67 89 01 23",
-            email: "emily.brown@marolook.com",
-            image: "https://i.pravatar.cc/150?img=6"
-        },
-        {
-            name: "Thomas Miller",
-            role: "Chef de Projet",
-            phone: "+33 6 78 90 12 34",
-            email: "thomas.miller@marolook.com",
-            image: "https://i.pravatar.cc/150?img=7"
-        },
-        {
-            name: "Olivia Davis",
-            role: "UX Designer",
-            phone: "+33 6 89 01 23 45",
-            email: "olivia.davis@marolook.com",
-            image: "https://i.pravatar.cc/150?img=8"
-        },
-        {
-            name: "James Wilson",
-            role: "Analyste Marketing",
-            phone: "+33 6 90 12 34 56",
-            email: "james.wilson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=9"
-        },
-        {
-            name: "Sophia Martinez",
-            role: "Consultante SEO",
-            phone: "+33 6 01 23 45 67",
-            email: "sophia.martinez@marolook.com",
-            image: "https://i.pravatar.cc/150?img=10"
-        },
-        {
-            name: "Liam Anderson",
-            role: "Spécialiste DevOps",
-            phone: "+33 6 23 45 67 89",
-            email: "liam.anderson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=11"
-        },
-        {
-            name: "Chloe Thomas",
-            role: "Community Manager",
-            phone: "+33 6 34 56 78 90",
-            email: "chloe.thomas@marolook.com",
-            image: "https://i.pravatar.cc/150?img=12"
-        },
-        {
-            name: "Daniel White",
-            role: "Responsable IT",
-            phone: "+33 6 45 67 89 01",
-            email: "daniel.white@marolook.com",
-            image: "https://i.pravatar.cc/150?img=13"
-        },
-        {
-            name: "Isabella Harris",
-            role: "Consultante RH",
-            phone: "+33 6 56 78 90 12",
-            email: "isabella.harris@marolook.com",
-            image: "https://i.pravatar.cc/150?img=14"
-        },
-        {
-            name: "Ethan Clark",
-            role: "Rédacteur Web",
-            phone: "+33 6 67 89 01 23",
-            email: "ethan.clark@marolook.com",
-            image: "https://i.pravatar.cc/150?img=15"
-        },
-        {
-            name: "Mia Rodriguez",
-            role: "Responsable Événements",
-            phone: "+33 6 78 90 12 34",
-            email: "mia.rodriguez@marolook.com",
-            image: "https://i.pravatar.cc/150?img=16"
-        },
-        {
-            name: "Alexander Lewis",
-            role: "Stratégiste Digital",
-            phone: "+33 6 89 01 23 45",
-            email: "alexander.lewis@marolook.com",
-            image: "https://i.pravatar.cc/150?img=17"
-        },
-        {
-            name: "Ava Hall",
-            role: "Spécialiste Contenus",
-            phone: "+33 6 90 12 34 56",
-            email: "ava.hall@marolook.com",
-            image: "https://i.pravatar.cc/150?img=18"
-        },
-        {
-            name: "Lucas Young",
-            role: "Technicien Réseau",
-            phone: "+33 6 01 23 45 67",
-            email: "lucas.young@marolook.com",
-            image: "https://i.pravatar.cc/150?img=19"
-        },
-        {
-            name: "Amelia King",
-            role: "Gestionnaire Comptabilité",
-            phone: "+33 6 23 45 67 89",
-            email: "amelia.king@marolook.com",
-            image: "https://i.pravatar.cc/150?img=20"
+            image: "/path/to/sarah-image.jpg"
         }
     ];
-
 
     const settings = {
         infinite: true,

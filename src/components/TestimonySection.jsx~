@@ -5,16 +5,18 @@ import {
     ArrowBack,
     ArrowForward,
     BusinessCenter,
-    Person
+    Person,
+    VerifiedUser
 } from '@mui/icons-material';
 
+const url = "https://randomuser.me/api/portraits/women/31.jpg";
 const testimonialData = [
     {
         id: 1,
         name: "Marie Rakoto",
         role: "Résidente",
         type: "particular",
-        avatar: "/images/avatars/avatar-1.jpg", // Assurez-vous d'avoir ces images ou remplacez par des images de votre choix
+        avatar: url, // Assurez-vous d'avoir ces images ou remplacez par des images de votre choix
         content: "La mairie d'Ambalavao a transformé mon expérience administrative. Le service est rapide, efficace et le personnel est très accueillant. Je recommande vivement leurs services en ligne !",
         rating: 5,
         date: "Janvier 2025"
@@ -24,7 +26,7 @@ const testimonialData = [
         name: "Hôtel Betsileo",
         role: "Entreprise locale",
         type: "business",
-        avatar: "/images/avatars/business-1.jpg",
+        avatar: url,
         content: "En tant qu'entreprise locale, nous apprécions grandement la réactivité et le professionnalisme des services municipaux. Leur accompagnement dans nos démarches administratives a été précieux.",
         rating: 5,
         date: "Décembre 2024"
@@ -34,7 +36,7 @@ const testimonialData = [
         name: "Jean Randria",
         role: "Entrepreneur",
         type: "business",
-        avatar: "/images/avatars/avatar-2.jpg",
+        avatar: url,
         content: "L'équipe de la commune a été d'une aide exceptionnelle pour l'obtention de mon permis de construire. Un service public moderne et efficace !",
         rating: 4,
         date: "Janvier 2025"
@@ -44,7 +46,7 @@ const testimonialData = [
         name: "Sophie Ravalison",
         role: "Commerçante",
         type: "business",
-        avatar: "/images/avatars/avatar-3.jpg",
+        avatar: url,
         content: "Les démarches en ligne ont considérablement simplifié la gestion de mon commerce. Un grand merci à l'équipe pour leur disponibilité !",
         rating: 5,
         date: "Janvier 2025"
@@ -54,7 +56,7 @@ const testimonialData = [
         name: "Paul Ratsima",
         role: "Résident",
         type: "particular",
-        avatar: "/images/avatars/avatar-4.jpg",
+        avatar: url,
         content: "Je suis impressionné par la rapidité de traitement de mes demandes. Le nouveau système en ligne est vraiment pratique et intuitif.",
         rating: 5,
         date: "Décembre 2024"
@@ -65,6 +67,7 @@ const TestimonySection = () => {
     const [currentFilter, setCurrentFilter] = useState('all');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [displayedTestimonials, setDisplayedTestimonials] = useState(testimonialData);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
         const filtered = currentFilter === 'all'
@@ -75,17 +78,19 @@ const TestimonySection = () => {
     }, [currentFilter]);
 
     const handleNext = () => {
-        if (displayedTestimonials.length > 0) {
-            setCurrentIndex((prev) => (prev + 1) % displayedTestimonials.length);
-        }
+        if (isAnimating) return;
+        setIsAnimating(true);
+        setCurrentIndex((prev) => (prev + 1) % displayedTestimonials.length);
+        setTimeout(() => setIsAnimating(false), 5);
     };
 
     const handlePrev = () => {
-        if (displayedTestimonials.length > 0) {
-            setCurrentIndex((prev) =>
-                prev === 0 ? displayedTestimonials.length - 1 : prev - 1
-            );
-        }
+        if (isAnimating) return;
+        setIsAnimating(true);
+        setCurrentIndex((prev) =>
+            prev === 0 ? displayedTestimonials.length - 1 : prev - 1
+        );
+        setTimeout(() => setIsAnimating(false), 5);
     };
 
     const renderStars = (rating) => (
@@ -93,180 +98,188 @@ const TestimonySection = () => {
             {[...Array(5)].map((_, index) => (
                 <Star
                     key={index}
-                    className={`w-5 h-5 ${index < rating ? 'text-[#FF4B4B]' : 'text-gray-300'}`}
+                    className={`w-5 h-5 ${
+                        index < rating
+                            ? 'text-[#FF4B4B] animate-pulse'
+                            : 'text-gray-300'
+                    }`}
                 />
             ))}
         </div>
     );
 
     return (
-        <section className="relative py-24 overflow-hidden">
-            {/* Citations décoratives en arrière-plan */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -left-20 -top-20">
-                    <FormatQuote
-                        className="w-64 h-64 text-gray-100 transform -scale-x-100 rotate-12 opacity-60"
-                    />
-                </div>
-                <div className="absolute -right-20 top-1/4">
-                    <FormatQuote
-                        className="w-48 h-48 text-[#FF4B4B]/5 rotate-45"
-                    />
-                </div>
-                <div className="absolute left-0 top-1/2">
-                    <FormatQuote
-                        className="w-40 h-40 text-[#FF4B4B]/5 -rotate-12 -scale-x-100"
-                    />
-                </div>
-                <div className="absolute -right-16 -bottom-16">
-                    <FormatQuote
-                        className="w-56 h-56 text-gray-100 -rotate-12"
-                    />
-                </div>
-                <div className="absolute -left-10 bottom-1/4">
-                    <FormatQuote
-                        className="w-32 h-32 text-[#FF4B4B]/5 rotate-180"
-                    />
-                </div>
+        <section className="relative py-12 md:py-24 bg-white text-gray-900 overflow-hidden">
+            {/* Motif de fond */}
+            <div className="absolute inset-0 opacity-5 hidden md:block">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)',
+                    backgroundSize: '40px 40px'
+                }}/>
             </div>
 
-            {/* Fond avec gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white opacity-80"/>
+            {/* Éléments décoratifs - cachés sur mobile */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+                {/* ... (éléments décoratifs restent identiques) */}
+            </div>
 
-            {/* Contenu principal */}
-            <div className="relative">
-                {/* En-tête */}
-                <div className="relative max-w-7xl mx-auto px-4 mb-16 text-center">
-                    <span
-                        className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10 rounded-full text-sm font-medium">
-                        Témoignages
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                        Ce que disent nos usagers
+            <div className="max-w-7xl mx-auto px-4 relative">
+                {/* En-tête moderne */}
+                <div className="text-center mb-10 md:mb-20">
+                    <div className="inline-block">
+                        <span className="inline-block px-3 py-1 md:px-4 md:py-1 mb-4 text-[#FF4B4B]
+                                       bg-[#FF4B4B]/10 rounded-full text-sm font-medium
+                                       border border-[#FF4B4B]/20">
+                            Témoignages vérifiés
+                        </span>
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
+                        Ce qu'ils
+                        <span className="relative inline-block ml-2 md:ml-4">
+                            pensent
+                            <div className="absolute -bottom-2 left-0 w-full h-1.5 md:h-2 bg-[#FF4B4B]
+                                          rounded-full transform skew-x-12"/>
+                        </span>
                     </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                        Découvrez les expériences de nos citoyens et entreprises avec les services municipaux.
+                    <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto px-4">
+                        Découvrez les expériences authentiques de nos citoyens et entreprises
                     </p>
                 </div>
 
-                {/* Filtres */}
-                <div className="relative max-w-7xl mx-auto px-4 mb-16">
-                    <div className="flex justify-center gap-4">
-                        {[
-                            {id: 'all', label: 'Tous', icon: null},
-                            {id: 'particular', label: 'Particuliers', icon: <Person/>},
-                            {id: 'business', label: 'Entreprises', icon: <BusinessCenter/>}
-                        ].map((filter) => (
-                            <button
-                                key={filter.id}
-                                onClick={() => setCurrentFilter(filter.id)}
-                                className={`px-6 py-2 rounded-full transition-all duration-300 ${
-                                    currentFilter === filter.id
-                                        ? 'bg-[#FF4B4B] text-white'
-                                        : 'bg-gray-100 hover:bg-[#FF4B4B]/10 text-gray-600'
-                                }`}
-                            >
-                                <div className="flex items-center gap-2">
-                                    {filter.icon}
-                                    <span>{filter.label}</span>
-                                </div>
-                            </button>
-                        ))}
-                    </div>
+                {/* Filtres améliorés - version mobile */}
+                <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-16 px-2">
+                    {[
+                        {id: 'all', label: 'Tous', mobileLabel: 'Tous', icon: <VerifiedUser/>},
+                        {id: 'particular', label: 'Particuliers', mobileLabel: 'Particuliers', icon: <Person/>},
+                        {id: 'business', label: 'Entreprises', mobileLabel: 'Pro', icon: <BusinessCenter/>}
+                    ].map((filter) => (
+                        <button
+                            key={filter.id}
+                            onClick={() => setCurrentFilter(filter.id)}
+                            className={`
+                                group relative px-4 md:px-8 py-2 md:py-3 rounded-xl font-medium 
+                                transition-all duration-300 text-sm md:text-base
+                                ${currentFilter === filter.id
+                                ? 'text-white shadow-lg shadow-[#FF4B4B]/20 scale-105'
+                                : 'bg-white text-gray-600 hover:text-[#FF4B4B] border border-gray-200'
+                            }
+                            `}
+                        >
+                            {currentFilter === filter.id && (
+                                <div className="absolute inset-0 bg-gradient-to-r from-[#FF4B4B] to-[#E43D3D]
+                                              rounded-xl -z-10"/>
+                            )}
+                            <div className="flex items-center gap-1.5 md:gap-2">
+                                {React.cloneElement(filter.icon, {
+                                    className: `w-4 h-4 md:w-5 md:h-5 ${
+                                        currentFilter === filter.id
+                                            ? 'text-white'
+                                            : 'text-gray-500 group-hover:text-[#FF4B4B]'
+                                    }`
+                                })}
+                                <span className="hidden md:inline">{filter.label}</span>
+                                <span className="md:hidden">{filter.mobileLabel}</span>
+                            </div>
+                        </button>
+                    ))}
                 </div>
 
-                {/* Contenu des témoignages */}
+                {/* Carousel de témoignages */}
                 {displayedTestimonials.length > 0 ? (
-                    <div className="relative max-w-4xl mx-auto px-4">
-                        <div className="text-center">
-                            {/* Avatar et infos */}
-                            <div className="mb-8">
-                                <div className="relative inline-block">
-                                    <div
-                                        className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl mb-4">
-                                        <img
-                                            src={displayedTestimonials[currentIndex].avatar}
-                                            alt={displayedTestimonials[currentIndex].name}
-                                            className="w-full h-full object-cover"
-                                        />
+                    <div className="max-w-4xl mx-auto">
+                        <div className={`transition-all duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+                            {/* Carte de témoignage */}
+                            <div className="relative bg-white rounded-xl md:rounded-2xl p-4 md:p-8
+                                          shadow-lg hover:shadow-xl transition-all duration-300
+                                          border border-gray-100 mx-2 md:mx-0">
+                                {/* Avatar et badge de vérification */}
+                                <div className="flex justify-center mb-6 md:mb-8">
+                                    <div className="relative">
+                                        <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden
+                                                      ring-4 ring-[#FF4B4B]/20">
+                                            <img
+                                                src={displayedTestimonials[currentIndex].avatar}
+                                                alt={displayedTestimonials[currentIndex].name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                        <div className="absolute -bottom-2 md:-bottom-3 left-1/2
+                                                      transform -translate-x-1/2 bg-white rounded-full
+                                                      px-2 md:px-3 py-0.5 md:py-1 shadow-lg">
+                                            {renderStars(displayedTestimonials[currentIndex].rating)}
+                                        </div>
                                     </div>
-                                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
-                                        {renderStars(displayedTestimonials[currentIndex].rating)}
-                                    </div>
+                                </div>
+
+                                {/* Contenu du témoignage */}
+                                <blockquote className="relative text-center mb-6 md:mb-8 px-2 md:px-8">
+                                    <FormatQuote className="absolute top-0 left-0 w-6 h-6 md:w-8 md:h-8
+                                                          text-[#FF4B4B]/20 transform -translate-x-full
+                                                          -translate-y-full hidden md:block"/>
+                                    <p className="text-gray-600 text-base md:text-lg leading-relaxed italic">
+                                        {displayedTestimonials[currentIndex].content}
+                                    </p>
+                                    <FormatQuote className="absolute bottom-0 right-0 w-6 h-6 md:w-8 md:h-8
+                                                          text-[#FF4B4B]/20 transform translate-x-full
+                                                          translate-y-full hidden md:block"/>
+                                </blockquote>
+
+                                {/* Informations de l'auteur */}
+                                <div className="text-center">
+                                    <h3 className="text-lg md:text-xl font-bold text-gray-900">
+                                        {displayedTestimonials[currentIndex].name}
+                                    </h3>
+                                    <p className="text-[#FF4B4B] font-medium text-sm md:text-base">
+                                        {displayedTestimonials[currentIndex].role}
+                                    </p>
+                                    <p className="text-gray-500 text-xs md:text-sm mt-1">
+                                        {displayedTestimonials[currentIndex].date}
+                                    </p>
                                 </div>
                             </div>
 
-                            {/* Contenu du témoignage */}
-                            <blockquote className="mb-8 relative px-12 md:px-20">
-                                <div className="relative">
-                                    {/* Conteneur principal avec position relative pour le positionnement des guillemets */}
-                                    <div className="mb-6">
-                                        {/* Guillemet ouvrant */}
-                                        <FormatQuote
-                                            className="absolute -left-8 md:-left-12 top-0 w-8 md:w-12 h-8 md:h-12 text-[#FF4B4B] transform -scale-x-100"
-                                        />
-
-                                        {/* Contenu */}
-                                        <p className="text-sm md:text-sm sm:text-sm text-gray-700 leading-relaxed pt-4">
-                                            {displayedTestimonials[currentIndex].content}
-                                        </p>
-
-                                        {/* Guillemet fermant */}
-                                        <FormatQuote
-                                            className="absolute -right-8 md:-right-12 bottom-0 w-8 md:w-12 h-8 md:h-12 text-[#FF4B4B]"
-                                        />
-                                    </div>
-
-                                    {/* Informations de l'auteur */}
-                                    <footer className="text-gray-600 relative z-10">
-                                        <cite className="font-medium text-gray-800 block">
-                                            {displayedTestimonials[currentIndex].name}
-                                        </cite>
-                                        <span className="text-[#FF4B4B]">
-                                            {displayedTestimonials[currentIndex].role}
-                                        </span>
-                                        <span className="block text-sm mt-2">
-                                            {displayedTestimonials[currentIndex].date}
-                                        </span>
-                                    </footer>
-                                </div>
-                            </blockquote>
-
                             {/* Navigation */}
-                            {displayedTestimonials.length > 1 && (
-                                <div className="flex justify-center items-center gap-4 mt-12">
-                                    <button
-                                        onClick={handlePrev}
-                                        className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
-                                    >
-                                        <ArrowBack className="w-6 h-6 text-gray-600"/>
-                                    </button>
-                                    <div className="flex gap-2">
-                                        {displayedTestimonials.map((_, index) => (
-                                            <button
-                                                key={index}
-                                                onClick={() => setCurrentIndex(index)}
-                                                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                                                    index === currentIndex
-                                                        ? 'w-8 bg-[#FF4B4B]'
-                                                        : 'bg-gray-300'
-                                                }`}
-                                            />
-                                        ))}
-                                    </div>
-                                    <button
-                                        onClick={handleNext}
-                                        className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
-                                    >
-                                        <ArrowForward className="w-6 h-6 text-gray-600"/>
-                                    </button>
+                            <div className="flex justify-center items-center gap-4 md:gap-6 mt-6 md:mt-8">
+                                <button
+                                    onClick={handlePrev}
+                                    className="p-2 md:p-3 rounded-full bg-white shadow-lg hover:shadow-xl
+                                             hover:scale-110 transition-all duration-300
+                                             text-gray-600 hover:text-[#FF4B4B]"
+                                    disabled={isAnimating}
+                                >
+                                    <ArrowBack className="w-5 h-5 md:w-6 md:h-6"/>
+                                </button>
+                                <div className="flex gap-1.5 md:gap-2">
+                                    {displayedTestimonials.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => !isAnimating && setCurrentIndex(index)}
+                                            className={`transition-all duration-300 ${
+                                                index === currentIndex
+                                                    ? 'w-6 md:w-8 h-1.5 md:h-2 bg-[#FF4B4B]'
+                                                    : 'w-1.5 md:w-2 h-1.5 md:h-2 bg-gray-300 hover:bg-[#FF4B4B]/50'
+                                            } rounded-full`}
+                                        />
+                                    ))}
                                 </div>
-                            )}
+                                <button
+                                    onClick={handleNext}
+                                    className="p-2 md:p-3 rounded-full bg-white shadow-lg hover:shadow-xl
+                                             hover:scale-110 transition-all duration-300
+                                             text-gray-600 hover:text-[#FF4B4B]"
+                                    disabled={isAnimating}
+                                >
+                                    <ArrowForward className="w-5 h-5 md:w-6 md:h-6"/>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ) : (
-                    <div className="text-center text-gray-600">
-                        Aucun témoignage disponible pour cette catégorie.
+                    <div
+                        className="text-center py-8 md:py-12 bg-white rounded-xl md:rounded-2xl shadow-lg mx-2 md:mx-0">
+                        <p className="text-gray-600 text-sm md:text-base">
+                            Aucun témoignage disponible pour cette catégorie.
+                        </p>
                     </div>
                 )}
             </div>

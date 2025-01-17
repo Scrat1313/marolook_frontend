@@ -1,6 +1,6 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
-import {HeroCarousel} from "../components";
+import {OrganizationCarousel, HeroCarousel, TeamSection} from "../components";
 import {PresentationSection, Whyus} from "../components";
 
 const About = () => {
@@ -72,7 +72,11 @@ const About = () => {
 
             <PresentationSection />
 
+            <OrganizationCarousel/>
+
             <Whyus />
+
+            <TeamSection />
         </div>
     );
 };

@@ -6,4 +6,3 @@ export { default as TestimonySection } from './TestimonySection';
 export { default as PresentationSection } from './PresentationSection';
 export { default as Whyus } from './Whyus';
 export { default as OrganizationCarousel } from './OrganizationCarousel';
-export { default as TeamSection } from './TeamSection';

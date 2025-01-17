@@ -14,140 +14,139 @@ const servicesData = [
         Icon: AdminPanelSettings,
         title: "Administration",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        link: "/services/administration"
+        link: "/services/administration",
+        gradient: "from-blue-500 to-cyan-500"
     },
     {
         id: 2,
         Icon: Assignment,
         title: "État Civil",
         description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        link: "/services/etat-civil"
+        link: "/services/etat-civil",
+        gradient: "from-[#FF4B4B] to-[#E43D3D]"
     },
     {
         id: 3,
         Icon: Business,
         title: "Urbanisme",
         description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        link: "/services/urbanisme"
+        link: "/services/urbanisme",
+        gradient: "from-purple-500 to-pink-500"
     },
     {
         id: 4,
         Icon: AccountBalance,
         title: "Finances",
         description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        link: "/services/finances"
+        link: "/services/finances",
+        gradient: "from-amber-500 to-orange-500"
     },
     {
         id: 5,
         Icon: Groups,
         title: "Social",
         description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-        link: "/services/social"
+        link: "/services/social",
+        gradient: "from-emerald-500 to-teal-500"
     },
     {
         id: 6,
         Icon: TrendingUp,
         title: "Développement",
         description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.",
-        link: "/services/developpement"
+        link: "/services/developpement",
+        gradient: "from-indigo-500 to-violet-500"
     }
 ];
 
 const ServiceSection = () => {
     return (
-        <section className="relative py-24 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
-            {/* Cercles décoratifs en arrière-plan */}
-            <div
-                className="absolute top-0 left-0 w-96 h-96 bg-[#FF4B4B]/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"/>
-            <div
-                className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF4B4B]/10 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"/>
-
-            {/* En-tête */}
-            <div className="relative max-w-7xl mx-auto mb-20 text-center">
-                <span
-                    className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10 rounded-full text-sm font-medium">
-                    Nos services à votre disposition
-                </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                    Services Municipaux
-                </h2>
-                <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Découvrez l'ensemble des services proposés par la commune pour faciliter votre quotidien.
-                </p>
+        <section className="relative py-24 bg-white text-gray-900 overflow-hidden">
+            {/* Motif de fond */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)',
+                    backgroundSize: '40px 40px'
+                }}/>
             </div>
 
-            {/* Grille des services */}
-            <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {servicesData.map((service) => (
-                    <div
-                        key={service.id}
-                        className="group relative"
-                    >
-                        {/* Carte avec effet glassmorphisme */}
-                        <div className="relative p-8 bg-white/70 backdrop-blur-xl rounded-2xl
-                                      shadow-lg hover:shadow-2xl transition-all duration-500
-                                      border border-white/20 overflow-hidden
-                                      hover:bg-white/80">
+            {/* Éléments décoratifs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-gradient-to-br from-[#FF4B4B]/20 to-purple-500/20
+                              rounded-full blur-3xl transform translate-x-1/2 opacity-30"/>
+                <div className="absolute bottom-1/4 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-500/20 to-[#E43D3D]/20
+                              rounded-full blur-3xl transform -translate-x-1/2 opacity-30"/>
+            </div>
 
-                            {/* Icône avec cercle animé */}
-                            <div className="relative mb-6 flex items-center justify-start">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#FF4B4B]/20 rounded-full
-                                                  group-hover:scale-[1.2] transition-transform duration-500"/>
-                                    <div className="relative z-10 p-3">
+            <div className="max-w-7xl mx-auto px-4 relative">
+                {/* En-tête moderne */}
+                <div className="text-center mb-20">
+                    <div className="inline-block">
+                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
+                                       rounded-full text-sm font-medium border border-[#FF4B4B]/20">
+                            Services municipaux
+                        </span>
+                    </div>
+                    <h2 className="text-6xl font-bold mb-8 text-gray-900">
+                        Nos
+                        <span className="relative inline-block mx-4">
+                            Services
+                            <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#FF4B4B]
+                                          rounded-full transform skew-x-12"/>
+                        </span>
+                    </h2>
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        Découvrez l'ensemble des services proposés par la commune pour faciliter votre quotidien
+                    </p>
+                </div>
+
+                {/* Grille des services */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {servicesData.map((service) => (
+                        <div key={service.id} className="group relative">
+                            {/* Effet de fond au hover */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} 
+                                          opacity-0 group-hover:opacity-100 transition-opacity duration-500 
+                                          rounded-2xl blur-xl`}/>
+
+                            {/* Carte */}
+                            <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl
+                                          transition-all duration-300 border border-gray-100 backdrop-blur-sm">
+                                {/* Icône avec gradient */}
+                                <div
+                                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5 mb-6`}>
+                                    <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
                                         <service.Icon className="w-8 h-8 text-[#FF4B4B]"/>
                                     </div>
                                 </div>
-                            </div>
 
-                            {/* Contenu */}
-                            <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#FF4B4B]
+                                {/* Contenu */}
+                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#FF4B4B]
                                              transition-colors duration-300">
                                     {service.title}
                                 </h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">
+                                <p className="text-gray-600 mb-6">
                                     {service.description}
                                 </p>
 
-                                {/* Bouton avec effet de glissement */}
-                                <div className="pt-4">
-                                    <a
-                                        href={service.link}
-                                        className="relative inline-flex items-center group/btn"
-                                    >
-                                        <span className="relative z-10 text-[#FF4B4B] font-medium pr-8
-                                                       group-hover/btn:text-[#E43D3D] transition-colors duration-300">
-                                            En savoir plus
-                                        </span>
-                                        <span className="absolute right-0 top-1/2 -translate-y-1/2 w-6 h-6
-                                                       flex items-center justify-center rounded-full
-                                                       bg-[#FF4B4B]/10 group-hover/btn:bg-[#FF4B4B]/20
-                                                       transition-all duration-300 group-hover/btn:translate-x-2">
-                                            <svg
-                                                className="w-4 h-4 text-[#FF4B4B]"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M9 5l7 7-7 7"
-                                                />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
+                                {/* Bouton avec effet */}
+                                <a href={service.link}
+                                   className="inline-flex items-center gap-2 text-[#FF4B4B] font-medium
+                                            group-hover:text-[#E43D3D] transition-colors duration-300">
+                                    <span>En savoir plus</span>
+                                    <div className="w-6 h-6 rounded-full bg-[#FF4B4B]/10 flex items-center justify-center
+                                                  transform group-hover:translate-x-2 transition-transform duration-300">
+                                        <svg className="w-4 h-4 text-[#FF4B4B]" fill="none" viewBox="0 0 24 24"
+                                             stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                  d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                </a>
                             </div>
-
-                            {/* Effet de bordure au survol */}
-                            <div className="absolute inset-0 border-2 border-[#FF4B4B]/0 rounded-2xl
-                                          group-hover:border-[#FF4B4B]/20 transition-colors duration-500"/>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );

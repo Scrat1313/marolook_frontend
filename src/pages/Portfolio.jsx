@@ -7,49 +7,52 @@ const Portfolio = () => {
 
     const heroSlides = [
         {
-            title: "Bienvenu sur le site officiel de la Commune Urbaine d'Ambalavao",
-            description: "Découvrez notre histoire, nos projets, et nos richesses culturelles au cœur de la région Haute Matsiatra",
-            backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
+            title: "Découvrez la beauté naturelle d'Ambalavao",
+            description: "Explorez des paysages à couper le souffle, des traditions authentiques et une culture riche.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=1",
             buttons: [
                 {
                     text: "En savoir plus",
-                    path: "/commune",
+                    path: "/explore",
                     variant: "primary"
                 },
                 {
-                    text: "Nos projets",
-                    path: "/projets",
+                    text: "Réserver maintenant",
+                    path: "/booking",
                     variant: "secondary"
                 }
             ]
         },
         {
-            title: "Une ville riche en culture",
-            description: "Entre tradition et modernité, Ambalavao vous accueille dans un cadre authentique",
-            backgroundImage: "/images/ambalavao-2.jpg", // À remplacer par votre image
-            overlayColor: "bg-[#333333]/40",
+            title: "Vivez des aventures inoubliables",
+            description: "Partez à l'aventure et découvrez des expériences uniques au cœur de la nature.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=2",
             buttons: [
                 {
-                    text: "Découvrir",
-                    path: "/tourisme",
+                    text: "Nos activités",
+                    path: "/activities",
                     variant: "primary"
+                },
+                {
+                    text: "Contactez-nous",
+                    path: "/contact",
+                    variant: "secondary"
                 }
             ]
         },
         {
-            title: "Au service des citoyens",
-            description: "Retrouvez tous les services de la commune pour faciliter vos démarches administratives",
-            backgroundImage: "/images/ambalavao-3.jpg", // À remplacer par votre image
-            overlayColor: "bg-[#333333]/35",
+            title: "Plongez dans la culture locale",
+            description: "Rencontrez des artisans locaux, dégustez une cuisine unique et partagez des moments mémorables.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=3",
             buttons: [
                 {
-                    text: "Nos services",
-                    path: "/services",
+                    text: "Découvrir",
+                    path: "/culture",
                     variant: "primary"
                 },
                 {
-                    text: "Contact",
-                    path: "/contact",
+                    text: "Voir la galerie",
+                    path: "/gallery",
                     variant: "secondary"
                 }
             ]
