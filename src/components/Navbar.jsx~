@@ -94,7 +94,7 @@ const Navbar = () => {
                                 className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300
                                     ${location.pathname === '/contact'
                                     ? 'bg-[#FF4B4B] text-white shadow-lg shadow-[#FF4B4B]/25'
-                                    : 'bg-gray-50 text-gray-700 hover:bg-[#FF4B4B] hover:text-white hover:shadow-lg hover:shadow-[#FF4B4B]/25'
+                                    : 'bg-[#FF4B4B] text-white hover:bg-[#FF4B4B] hover:text-white hover:shadow-lg hover:shadow-[#FF4B4B]/25'
                                 }`}
                             >
                                 <PhoneIcon className="h-4 w-4"/>

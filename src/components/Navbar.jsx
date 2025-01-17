@@ -37,6 +37,11 @@ const Navbar = () => {
             path: '/portfolio',
             label: 'Portfolio',
             icon: <LandscapeIcon className="w-6 h-6 md:w-5 md:h-5"/>
+        },
+        {
+            path: '/blog',
+            label: 'Blog',
+            icon: <LandscapeIcon className="w-6 h-6 md:w-5 md:h-5"/>
         }
     ];
 
