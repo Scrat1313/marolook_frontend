@@ -94,7 +94,7 @@ const Portfolio = () => {
             description: "Transformation d'une maison en un espace élégant"
         },
         // Ajout de plus de 40 éléments
-        ...Array.from({length: 100}, (_, i) => {
+        ...Array.from({length: 40}, (_, i) => {
             const randomWidth = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
             const randomHeight = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
             return {
