@@ -191,15 +191,17 @@ const HeroCarousel = ({
                 </div>
             )}
 
-            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 md:hidden">
-                <div className="bg-black/30 backdrop-blur-md rounded-full px-4 py-2
-                              text-white/90 text-sm flex items-center gap-2
-                              border border-white/20">
-                    <span>←</span>
-                    <span>Swipez pour naviguer</span>
-                    <span>→</span>
+            {slides.length > 1 && (
+                <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 md:hidden">
+                    <div className="bg-black/30 backdrop-blur-md rounded-full px-4 py-2
+                      text-white/90 text-sm flex items-center gap-2
+                      border border-white/20">
+                        <span>←</span>
+                        <span>Swipez pour naviguer</span>
+                        <span>→</span>
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };

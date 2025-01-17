@@ -6,7 +6,7 @@ import {ChevronLeft, ChevronRight} from '@mui/icons-material';
 
 const HeroCarousel = ({
                           slides = [],
-                          height = "h-[500px] md:h-[600px] lg:h-[700px]", // Hauteurs responsives
+                          height = "h-[500px] md:h-[600px] lg:h-[700px]",
                           showArrows = true,
                           showDots = true,
                       }) => {
@@ -25,7 +25,6 @@ const HeroCarousel = ({
         setTimeout(() => setIsTransitioning(false), 500);
     };
 
-    // Configuration du swipe
     const handlers = useSwipeable({
         onSwipedLeft: () => handleSlideChange('next'),
         onSwipedRight: () => handleSlideChange('prev'),
@@ -35,22 +34,16 @@ const HeroCarousel = ({
     });
 
     const ButtonComponent = ({button}) => {
-        const baseClassName = `
-            px-6 py-3 rounded-lg font-medium
-            transition-all duration-300
-            text-center whitespace-nowrap
-            backdrop-blur-sm
-            hover:scale-105
-            active:scale-95
-            sm:text-base text-sm
+        const baseStyles = `
+            px-6 py-3 rounded-xl font-medium transition-all duration-300 text-center whitespace-nowrap 
+            backdrop-blur-md hover:scale-105 active:scale-95 sm:text-base text-sm border 
+            border-transparent shadow-lg hover:shadow-xl
         `;
 
-        const variantStyles = {
-            primary: "bg-[#FF4B4B]/90 hover:bg-[#FF4B4B] text-white shadow-lg hover:shadow-xl",
-            secondary: "bg-white/90 hover:bg-white text-[#FF4B4B] shadow-lg hover:shadow-xl"
+        const buttonStyles = {
+            primary: `${baseStyles} bg-[#FF4B4B]/90 hover:bg-[#FF4B4B] text-white border-white/20`,
+            secondary: `${baseStyles} bg-black/30 hover:bg-black/40 text-white border-white/30 hover:border-white/50`
         };
-
-        const className = `${baseClassName} ${variantStyles[button.variant]}`;
 
         if (button.path.startsWith('#')) {
             return (
@@ -60,7 +53,7 @@ const HeroCarousel = ({
                         e.preventDefault();
                         smoothScrollTo(button.path.replace('#', ''));
                     }}
-                    className={className}
+                    className={buttonStyles[button.variant]}
                 >
                     {button.text}
                 </a>
@@ -68,7 +61,7 @@ const HeroCarousel = ({
         }
 
         return (
-            <Link to={button.path} className={className}>
+            <Link to={button.path} className={buttonStyles[button.variant]}>
                 {button.text}
             </Link>
         );
@@ -78,14 +71,12 @@ const HeroCarousel = ({
 
     return (
         <div className={`relative overflow-hidden ${height}`} {...handlers}>
-            {/* Slides container */}
             <div className="h-full relative">
                 {slides.map((slide, index) => (
                     <div
                         key={index}
                         className={`
-                            absolute inset-0 w-full h-full 
-                            transition-all duration-700 ease-out
+                            absolute inset-0 w-full h-full transition-all duration-700 ease-out
                             ${index === currentSlide
                             ? 'opacity-100 translate-x-0 z-10'
                             : index < currentSlide
@@ -94,31 +85,30 @@ const HeroCarousel = ({
                         }
                         `}
                     >
-                        {/* Background avec effet parallaxe */}
                         <div
-                            className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-700"
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105
+                                     transition-transform duration-1000"
                             style={{
                                 backgroundImage: `url(${slide.backgroundImage})`,
                             }}
                         />
 
-                        {/* Overlay amélioré */}
-                        <div className={`
-                            absolute inset-0 
-                            bg-gradient-to-b 
-                            from-black/40 via-black/20 to-black/40
-                            ${slide.overlayColor || ''}
-                        `}/>
+                        <div className="absolute inset-0">
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"/>
+                            <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"/>
+                            {slide.overlayColor && (
+                                <div className={`absolute inset-0 ${slide.overlayColor} opacity-50`}/>
+                            )}
+                        </div>
 
-                        {/* Content */}
                         <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="flex items-center justify-center h-full">
-                                <div className="text-center space-y-4 md:space-y-6 max-w-3xl px-4">
+                                <div className="text-center space-y-6 md:space-y-8 max-w-3xl px-4
+                                              backdrop-blur-sm bg-black/20 rounded-2xl p-6 md:p-8">
                                     <h1 className={`
-                                        text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold
-                                        leading-tight
+                                        text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight
                                         ${slide.titleColor || 'text-white'}
-                                        transform transition-all duration-700
+                                        transform transition-all duration-700 drop-shadow-lg
                                         ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
                                     `}>
                                         {slide.title}
@@ -128,7 +118,7 @@ const HeroCarousel = ({
                                         <p className={`
                                             text-base sm:text-lg md:text-xl
                                             ${slide.descriptionColor || 'text-white/90'}
-                                            transform transition-all duration-700 delay-100
+                                            transform transition-all duration-700 delay-100 drop-shadow
                                             ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
                                         `}>
                                             {slide.description}
@@ -137,7 +127,7 @@ const HeroCarousel = ({
 
                                     {slide.buttons && slide.buttons.length > 0 && (
                                         <div className={`
-                                            flex flex-wrap gap-3 md:gap-4 justify-center
+                                            flex flex-wrap gap-4 justify-center
                                             transform transition-all duration-700 delay-200
                                             ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
                                         `}>
@@ -153,53 +143,58 @@ const HeroCarousel = ({
                 ))}
             </div>
 
-            {/* Navigation Arrows - Visible uniquement sur desktop */}
             {showArrows && slides.length > 1 && (
                 <div className="hidden md:block">
                     <button
                         onClick={() => handleSlideChange('prev')}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full
-                            bg-white/80 hover:bg-white text-[#333333] backdrop-blur-sm
-                            transition-all duration-300 hover:scale-110"
+                        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3
+                                 bg-black/30 hover:bg-black/50 text-white backdrop-blur-md
+                                 rounded-full border border-white/20 hover:border-white/40
+                                 transition-all duration-300 hover:scale-110 group"
                         aria-label="Slide précédente"
                     >
-                        <ChevronLeft className="w-6 h-6"/>
+                        <ChevronLeft className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"/>
                     </button>
                     <button
                         onClick={() => handleSlideChange('next')}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full
-                            bg-white/80 hover:bg-white text-[#333333] backdrop-blur-sm
-                            transition-all duration-300 hover:scale-110"
+                        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3
+                                 bg-black/30 hover:bg-black/50 text-white backdrop-blur-md
+                                 rounded-full border border-white/20 hover:border-white/40
+                                 transition-all duration-300 hover:scale-110 group"
                         aria-label="Slide suivante"
                     >
-                        <ChevronRight className="w-6 h-6"/>
+                        <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"/>
                     </button>
                 </div>
             )}
 
-            {/* Dots Navigation - Style amélioré */}
             {showDots && slides.length > 1 && (
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-                    {slides.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => !isTransitioning && setCurrentSlide(index)}
-                            className={`
-                                h-2 rounded-full transition-all duration-300
-                                ${index === currentSlide
-                                ? 'w-8 bg-[#FF4B4B]'
-                                : 'w-2 bg-white hover:bg-[#FF4B4B]/50'
-                            }
-                            `}
-                            aria-label={`Aller à la slide ${index + 1}`}
-                        />
-                    ))}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20
+                              bg-black/30 backdrop-blur-md rounded-full px-4 py-2
+                              border border-white/20">
+                    <div className="flex gap-2">
+                        {slides.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => !isTransitioning && setCurrentSlide(index)}
+                                className={`
+                                    h-2 rounded-full transition-all duration-300
+                                    ${index === currentSlide
+                                    ? 'w-8 bg-[#FF4B4B]'
+                                    : 'w-2 bg-white/50 hover:bg-white'
+                                }
+                                `}
+                                aria-label={`Aller à la slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
                 </div>
             )}
 
-            {/* Indicateur de swipe sur mobile */}
-            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 md:hidden">
-                <div className="text-white/70 text-sm flex items-center gap-2">
+            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 md:hidden">
+                <div className="bg-black/30 backdrop-blur-md rounded-full px-4 py-2
+                              text-white/90 text-sm flex items-center gap-2
+                              border border-white/20">
                     <span>←</span>
                     <span>Swipez pour naviguer</span>
                     <span>→</span>

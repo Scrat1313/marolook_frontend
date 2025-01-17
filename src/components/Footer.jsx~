@@ -119,33 +119,53 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-gradient-to-t from-[#F8F8F8] to-white">
+        <footer className="relative bg-gradient-to-b from-white to-gray-50">
+            {/* Effet de fond décoratif */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, #FF4B4B 1px, transparent 0)',
+                    backgroundSize: '40px 40px',
+                    opacity: '0.05'
+                }}/>
+            </div>
+
             {/* Desktop version */}
-            <div className="hidden lg:block max-w-7xl mx-auto px-6 py-16">
-                <div className="grid grid-cols-12 gap-8">
+            <div className="hidden lg:block relative max-w-7xl mx-auto px-8 py-20">
+                <div className="grid grid-cols-12 gap-12">
                     {/* Logo et description */}
                     <div className="col-span-4 pr-8">
-                        <Link to="/" className="inline-block mb-6 group">
+                        <Link to="/" className="inline-block mb-8 group">
                             <img
                                 src={logo}
                                 alt="Marolook Logo"
-                                className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+                                className="w-12 h-12 object-contain transform transition-transform duration-300 group-hover:scale-110"
                             />
                         </Link>
-                        <p className="text-[#666666] leading-relaxed mb-8">
+                        <p className="text-gray-600 text-lg leading-relaxed mb-8">
                             Marolook, rejoignez une communauté dynamique et engagée.
                         </p>
-                        <div className="flex gap-2">
+                        <div className="flex gap-3">
                             {SOCIAL_LINKS.map((social, index) => (
-                                <SocialLink key={index} {...social} />
+                                <a
+                                    key={index}
+                                    href={social.href}
+                                    className="group relative p-3 bg-white rounded-xl shadow-sm hover:shadow-md
+                                             transition-all duration-300 hover:-translate-y-1"
+                                    aria-label={`Lien vers ${social.href}`}
+                                >
+                                    <social.Icon
+                                        className="text-gray-600 group-hover:text-[#FF4B4B] transition-colors duration-300"
+                                        sx={{fontSize: 22}}
+                                    />
+                                </a>
                             ))}
                         </div>
                     </div>
 
                     {/* Navigation */}
                     <div className="col-span-3">
-                        <h3 className="text-lg font-semibold text-[#333333] mb-6">Navigation</h3>
-                        <div className="flex flex-col gap-2">
+                        <h3 className="text-xl font-bold text-gray-800 mb-6">Navigation</h3>
+                        <div className="flex flex-col gap-3">
                             {NAV_ITEMS.map(item => (
                                 <NavigationLink key={item} item={item}/>
                             ))}
@@ -154,20 +174,38 @@ const Footer = () => {
 
                     {/* Horaires */}
                     <div className="col-span-2">
-                        <h3 className="text-lg font-semibold text-[#333333] mb-6">Horaires</h3>
-                        <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-gray-800 mb-6">Horaires</h3>
+                        <div className="space-y-3 bg-white rounded-2xl p-4 shadow-sm">
                             {SCHEDULE_ITEMS.map(item => (
-                                <Schedule key={item.day} {...item} />
+                                <div key={item.day}
+                                     className="group hover:bg-gray-50 p-2 rounded-lg transition-colors duration-300">
+                                    <p className="text-sm font-medium text-gray-800">{item.day}</p>
+                                    <p className="text-sm text-gray-600">{item.hours}</p>
+                                </div>
                             ))}
                         </div>
                     </div>
 
                     {/* Contact */}
                     <div className="col-span-3">
-                        <h3 className="text-lg font-semibold text-[#333333] mb-6">Contact</h3>
-                        <div className="space-y-4">
+                        <h3 className="text-xl font-bold text-gray-800 mb-6">Contact</h3>
+                        <div className="space-y-5 bg-white rounded-2xl p-6 shadow-sm">
                             {CONTACT_ITEMS.map((item, index) => (
-                                <ContactInfo key={index} {...item} />
+                                <div key={index}
+                                     className="group flex items-start gap-4 hover:bg-gray-50 p-3 rounded-xl
+                                              transition-all duration-300">
+                                    <div className="p-2 bg-[#FF4B4B]/10 rounded-lg group-hover:bg-[#FF4B4B]/20
+                                                  transition-colors duration-300">
+                                        <item.Icon
+                                            className="text-[#FF4B4B]"
+                                            sx={{fontSize: 20}}
+                                        />
+                                    </div>
+                                    <span
+                                        className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
+                                        {item.text}
+                                    </span>
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -175,79 +213,102 @@ const Footer = () => {
             </div>
 
             {/* Mobile version */}
-            <div className="lg:hidden px-4 py-8">
+            <div className="lg:hidden relative px-4 py-12">
                 {/* Logo et description */}
-                <div className="mb-8">
-                    <Link to="/" className="inline-block mb-4">
+                <div className="text-center mb-12">
+                    <Link to="/" className="inline-block mb-6">
                         <img
                             src={logo}
                             alt="Marolook Logo"
-                            className="w-12 h-12 object-contain"
+                            className="w-16 h-16 object-contain mx-auto"
                         />
                     </Link>
-                    <p className="text-[#666666] leading-relaxed mb-6">
+                    <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-sm mx-auto">
                         Marolook, rejoignez une communauté dynamique et engagée.
                     </p>
-                    <div className="flex gap-4">
+                    <div className="flex justify-center gap-4">
                         {SOCIAL_LINKS.map((social, index) => (
-                            <SocialLink key={index} {...social} />
+                            <a
+                                key={index}
+                                href={social.href}
+                                className="p-3 bg-white rounded-xl shadow-sm hover:shadow-md
+                                         transition-all duration-300 hover:-translate-y-1"
+                            >
+                                <social.Icon
+                                    className="text-gray-600 hover:text-[#FF4B4B] transition-colors duration-300"
+                                    sx={{fontSize: 24}}
+                                />
+                            </a>
                         ))}
                     </div>
                 </div>
 
                 {/* Sections accordéon */}
-                <div className="space-y-2">
-                    <MobileAccordion
-                        title="Navigation"
-                        isOpen={openSection === 'navigation'}
-                        onToggle={() => toggleSection('navigation')}
-                    >
-                        <div className="flex flex-col gap-2 pl-2">
-                            {NAV_ITEMS.map(item => (
-                                <NavigationLink key={item} item={item}/>
-                            ))}
+                <div className="space-y-4 max-w-md mx-auto">
+                    {[
+                        {title: 'Navigation', content: 'navigation'},
+                        {title: 'Horaires', content: 'horaires'},
+                        {title: 'Contact', content: 'contact'}
+                    ].map((section) => (
+                        <div key={section.title}
+                             className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                            <button
+                                onClick={() => toggleSection(section.content)}
+                                className="flex items-center justify-between w-full p-4 text-left"
+                            >
+                                <span className="text-lg font-bold text-gray-800">{section.title}</span>
+                                <div className={`p-2 rounded-lg bg-gray-50 transition-colors duration-300
+                                              ${openSection === section.content ? 'bg-[#FF4B4B]/10' : ''}`}>
+                                    {openSection === section.content ?
+                                        <Remove className="text-[#FF4B4B]"/> :
+                                        <Add className="text-gray-600"/>
+                                    }
+                                </div>
+                            </button>
+                            <div className={`transition-all duration-300 ease-in-out
+                                          ${openSection === section.content ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                <div className="p-4 bg-gray-50">
+                                    {section.content === 'navigation' && (
+                                        <div className="flex flex-col gap-3">
+                                            {NAV_ITEMS.map(item => (
+                                                <NavigationLink key={item} item={item}/>
+                                            ))}
+                                        </div>
+                                    )}
+                                    {section.content === 'horaires' && (
+                                        <div className="space-y-3">
+                                            {SCHEDULE_ITEMS.map(item => (
+                                                <Schedule key={item.day} {...item}/>
+                                            ))}
+                                        </div>
+                                    )}
+                                    {section.content === 'contact' && (
+                                        <div className="space-y-4">
+                                            {CONTACT_ITEMS.map((item, index) => (
+                                                <ContactInfo key={index} {...item}/>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
-                    </MobileAccordion>
-
-                    <MobileAccordion
-                        title="Horaires"
-                        isOpen={openSection === 'horaires'}
-                        onToggle={() => toggleSection('horaires')}
-                    >
-                        <div className="space-y-2 pl-2">
-                            {SCHEDULE_ITEMS.map(item => (
-                                <Schedule key={item.day} {...item} />
-                            ))}
-                        </div>
-                    </MobileAccordion>
-
-                    <MobileAccordion
-                        title="Contact"
-                        isOpen={openSection === 'contact'}
-                        onToggle={() => toggleSection('contact')}
-                    >
-                        <div className="space-y-4 pl-2">
-                            {CONTACT_ITEMS.map((item, index) => (
-                                <ContactInfo key={index} {...item} />
-                            ))}
-                        </div>
-                    </MobileAccordion>
+                    ))}
                 </div>
             </div>
 
             {/* Copyright et liens légaux */}
-            <div className="border-t border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 lg:px-6 py-6">
-                    <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-                        <p className="text-sm text-[#666666] text-center lg:text-left">
-                            © {currentYear} Marolook. Tous droits réservés.
+            <div className="relative border-t border-gray-200 bg-white/50 backdrop-blur-sm">
+                <div className="max-w-7xl mx-auto px-6 py-8">
+                    <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+                        <p className="text-gray-600 text-center lg:text-left">
+                            © {currentYear} Marolook - Tous droits réservés.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-6">
+                        <div className="flex flex-wrap justify-center gap-8">
                             {LEGAL_LINKS.map(item => (
                                 <Link
                                     key={item}
                                     to="#"
-                                    className="text-sm text-[#666666] hover:text-[#FF4B4B]
+                                    className="text-sm text-gray-600 hover:text-[#FF4B4B]
                                              transition-colors duration-300"
                                 >
                                     {item}

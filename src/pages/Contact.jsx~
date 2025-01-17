@@ -101,7 +101,7 @@ const Contact = () => {
             {/* Hero Section avec image de fond */}
             <HeroCarousel
                 slides={heroSlides}
-                height="h-[500px] md:h-[500px]"
+                height="h-[400px] md:h-[500px]"
                 showArrows={false} // Pas besoin de flèches pour une seule slide
                 showDots={false}   // Pas besoin de points pour une seule slide
             />
