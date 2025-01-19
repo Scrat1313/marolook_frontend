@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import EmailIcon from '@mui/icons-material/Email';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
@@ -29,7 +29,7 @@ const NotFound = () => {
                                 to="/"
                                 className="group flex items-center justify-center px-6 py-3 bg-[#FF4B4B] text-white rounded-lg hover:bg-[#E43D3D] transition-all duration-300 gap-2"
                             >
-                                <HomeIcon />
+                                <HomeIcon/>
                                 <span>Retour à l'accueil</span>
                             </Link>
 
@@ -37,7 +37,7 @@ const NotFound = () => {
                                 to="/contact"
                                 className="group flex items-center justify-center px-6 py-3 bg-[#F8F8F8] text-[#333333] rounded-lg hover:bg-[#E5E5E5] transition-all duration-300 gap-2"
                             >
-                                <EmailIcon />
+                                <EmailIcon/>
                                 <span>Nous contacter</span>
                             </Link>
                         </div>
@@ -47,20 +47,23 @@ const NotFound = () => {
                     <div className="order-1 md:order-2 flex justify-center items-center">
                         <div className="relative">
                             {/* Large 404 background */}
-                            <div className="text-[120px] md:text-[180px] font-bold text-[#F8F8F8] select-none animate-pulse">
+                            <div
+                                className="text-[120px] md:text-[180px] font-bold text-[#F8F8F8] select-none animate-pulse">
                                 404
                             </div>
                             {/* Animated elements */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <ErrorOutlineIcon
-                                    sx={{ fontSize: 80 }}
+                                    sx={{fontSize: 80}}
                                     className="text-[#FF4B4B] animate-bounce"
                                 />
                             </div>
                             {/* Decorative circles */}
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-[#FFE5E5] rounded-full opacity-50 animate-pulse" />
-                            <div className="absolute bottom-0 left-0 w-16 h-16 bg-[#FFE5E5] rounded-full opacity-30 animate-pulse"
-                                 style={{ animationDelay: '0.5s' }} />
+                            <div
+                                className="absolute top-0 right-0 w-20 h-20 bg-[#FFE5E5] rounded-full opacity-50 animate-pulse"/>
+                            <div
+                                className="absolute bottom-0 left-0 w-16 h-16 bg-[#FFE5E5] rounded-full opacity-30 animate-pulse"
+                                style={{animationDelay: '0.5s'}}/>
                         </div>
                     </div>
                 </div>

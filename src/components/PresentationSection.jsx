@@ -171,7 +171,7 @@ const PresentationSection = () => {
                                 rounded-xl hover:bg-[#E43D3D] transition-colors duration-300 shadow-lg
                                 hover:shadow-xl hover:-translate-y-0.5 transform transition-transform">
                         <Lightbulb className="w-6 h-6 transition-transform duration-300 group-hover:rotate-12"/>
-                        <span className="text-lg font-semibold">Démarrer votre projet</span>
+                        <span className="text-sm font-semibold">Démarrer votre projet</span>
 
                         {/* Particle effect on hover */}
                         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#FF4B4B] to-[#E43D3D]
