@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {
     Phone,
-    Email,
     LocationOn,
     AccessTime,
     Send,
     Facebook,
     Twitter,
     Instagram,
-    LinkedIn
+    LinkedIn,
+    ArrowForward
 } from '@mui/icons-material';
 import {HeroCarousel} from "../components";
 
@@ -27,44 +27,36 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulation d'envoi
         await new Promise(resolve => setTimeout(resolve, 2000));
         setIsSubmitting(false);
         setFormData({name: '', email: '', subject: '', message: ''});
-        // Ajoutez ici votre logique d'envoi de formulaire
     };
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        setFormData(prev => ({...prev, [name]: value}));
     };
 
     const contactInfo = [
         {
-            icon: <Phone className="text-[#FF4B4B]"/>,
-            title: "Téléphone",
+            icon: <Phone/>,
+            title: "Appelez-nous",
             content: "+261 34 12 345 67",
+            action: "tel:+261341234567",
             description: "Du lundi au vendredi, 8h-17h"
         },
         {
-            icon: <Email className="text-[#FF4B4B]"/>,
-            title: "Email",
-            content: "contact@ambalavao.mg",
-            description: "Réponse sous 24h"
-        },
-        {
-            icon: <LocationOn className="text-[#FF4B4B]"/>,
-            title: "Adresse",
-            content: "123 rue Principale",
+            icon: <LocationOn/>,
+            title: "Visitez-nous",
+            content: "123 rue Principale, Ambalavao",
+            action: "#map",
             description: "Ambalavao, Madagascar"
         },
         {
-            icon: <AccessTime className="text-[#FF4B4B]"/>,
-            title: "Horaires",
+            icon: <AccessTime/>,
+            title: "Nos horaires",
             content: "Lun-Ven: 8h-17h",
+            action: "#",
             description: "Sam: 9h-12h | Dim: Fermé"
         }
     ];
@@ -76,125 +68,119 @@ const Contact = () => {
         {icon: <LinkedIn/>, url: "#", label: "LinkedIn"}
     ];
 
-    const heroSlides = [
-        {
-            title: "Contactez-nous",
-            description: "Notre équipe est à votre disposition pour répondre à toutes vos questions",
-            backgroundImage: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80", // Image de contact professionnelle
-            buttons: [
-                {
-                    text: "Appelez-nous",
-                    path: "tel:+261341234567",
-                    variant: "primary"
-                },
-                {
-                    text: "Envoyez un email",
-                    path: "mailto:contact@ambalavao.mg",
-                    variant: "secondary"
-                }
-            ]
-        }
-    ];
-
     return (
-        <div className="flex flex-col min-h-screen">
-            {/* Hero Section avec image de fond */}
-            <HeroCarousel
-                slides={heroSlides}
-                height="h-[400px] md:h-[500px]"
-                showArrows={false} // Pas besoin de flèches pour une seule slide
-                showDots={false}   // Pas besoin de points pour une seule slide
-            />
-
-            {/* Section d'informations de contact */}
-            <div className="py-16 px-4 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    {/* Cartes d'information */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                        {contactInfo.map((info, index) => (
-                            <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl
-                                                      transition-all duration-300 group">
-                                <div className="mb-4 p-3 bg-[#FF4B4B]/10 rounded-xl w-fit
-                                              group-hover:bg-[#FF4B4B] transition-colors duration-300">
-                                    {React.cloneElement(info.icon, {
-                                        className: "w-6 h-6 text-[#FF4B4B] group-hover:text-white transition-colors duration-300"
-                                    })}
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-800 mb-2">{info.title}</h3>
-                                <p className="text-[#FF4B4B] font-medium mb-1">{info.content}</p>
-                                <p className="text-gray-600 text-sm">{info.description}</p>
-                            </div>
-                        ))}
+        <div className="min-h-screen bg-[#FAFAFA]">
+            {/* En-tête de page stylisée */}
+            <div className="relative bg-white py-20 overflow-hidden">
+                <div className="absolute inset-0 bg-[#FF4B4B]/5 pattern-dots-lg"></div>
+                <div className="relative max-w-7xl mx-auto px-4">
+                    <div className="text-center">
+                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            Parlons de votre projet
+                        </h1>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Nous sommes là pour vous aider à concrétiser vos idées.
+                            Contactez-nous et commençons la discussion.
+                        </p>
                     </div>
+                </div>
+            </div>
 
-                    {/* Formulaire et carte */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Section principale */}
+            <div className="max-w-7xl mx-auto px-4 py-16">
+                {/* Cartes de contact avec design moderne */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    {contactInfo.map((info, index) => (
+                        <a href={info.action} key={index}
+                           className="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl
+                                    transition-all duration-500 overflow-hidden">
+                            {/* Effet de fond au hover */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#FF4B4B]/0 via-[#FF4B4B]/5 to-[#FF4B4B]/0
+                                          translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000">
+                            </div>
+
+                            {/* Contenu */}
+                            <div className="relative">
+                                <div className="flex items-start justify-between mb-4">
+                                    <div className="p-3 bg-gray-50 rounded-xl">
+                                        {React.cloneElement(info.icon, {
+                                            className: "w-6 h-6 text-[#FF4B4B]"
+                                        })}
+                                    </div>
+                                    <ArrowForward className="w-5 h-5 text-gray-300 group-hover:text-[#FF4B4B]
+                                                           transform group-hover:translate-x-1 transition-all duration-300"/>
+                                </div>
+                                <h3 className="text-xl font-semibold text-gray-900 mb-2">{info.title}</h3>
+                                <p className="text-[#FF4B4B] font-medium mb-2">{info.content}</p>
+                                <p className="text-gray-500 text-sm">{info.description}</p>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+
+                {/* Conteneur principal du formulaire et de la carte */}
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div className="grid md:grid-cols-2">
                         {/* Formulaire */}
-                        <div className="bg-white p-8 rounded-2xl shadow-lg">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Envoyez-nous un message</h2>
+                        <div className="p-8 lg:p-12">
+                            <div className="mb-8">
+                                <h2 className="text-2xl font-bold text-gray-900 mb-2">Envoyez-nous un message</h2>
+                                <p className="text-gray-600">Notre équipe vous répondra dans les plus brefs délais.</p>
+                            </div>
+
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Nom complet
-                                        </label>
                                         <input
                                             type="text"
                                             name="name"
                                             value={formData.name}
                                             onChange={handleChange}
+                                            placeholder="Nom complet"
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                     focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
-                                                     transition-all duration-300"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border-0
+                                                     focus:ring-2 focus:ring-[#FF4B4B] transition-all duration-300"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Email
-                                        </label>
                                         <input
                                             type="email"
                                             name="email"
                                             value={formData.email}
                                             onChange={handleChange}
+                                            placeholder="Email"
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                     focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
-                                                     transition-all duration-300"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border-0
+                                                     focus:ring-2 focus:ring-[#FF4B4B] transition-all duration-300"
+                                        />
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="text"
+                                            name="subject"
+                                            value={formData.subject}
+                                            onChange={handleChange}
+                                            placeholder="Sujet"
+                                            required
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border-0
+                                                     focus:ring-2 focus:ring-[#FF4B4B] transition-all duration-300"
+                                        />
+                                    </div>
+                                    <div>
+                                        <textarea
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            placeholder="Votre message..."
+                                            required
+                                            rows={4}
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border-0
+                                                     focus:ring-2 focus:ring-[#FF4B4B] transition-all duration-300
+                                                     resize-none"
                                         />
                                     </div>
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Sujet
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="subject"
-                                        value={formData.subject}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                 focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
-                                                 transition-all duration-300"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Message
-                                    </label>
-                                    <textarea
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        required
-                                        rows={6}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                 focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
-                                                 transition-all duration-300 resize-none"
-                                    />
-                                </div>
+
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
@@ -215,30 +201,36 @@ const Contact = () => {
                             </form>
                         </div>
 
-                        {/* Carte */}
-                        {/* Carte */}
-                        <div className="bg-white p-8 rounded-2xl shadow-lg">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Notre localisation</h2>
-                            {/* Version modifiée sans aspect-ratio plugin */}
-                            <div className="relative w-full h-0 pb-[56.25%] mb-6">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15248.461678610854!2d46.93131716977539!3d-21.83333384360462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21f07de59f456f2b%3A0x4c6b17a0f2c3f8a9!2sAmbalavao!5e0!3m2!1sfr!2smg!4v1629902254784!5m2!1sfr!2smg"
-                                    className="absolute top-0 left-0 w-full h-full rounded-xl"
-                                    style={{border: 0}}
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                    title="Emplacement de marolook"
-                                />
+                        {/* Carte et réseaux sociaux avec design sombre */}
+                        <div className="bg-gray-900 p-8 lg:p-12 flex flex-col">
+                            <div className="flex-grow">
+                                <div className="mb-8">
+                                    <h2 className="text-2xl font-bold text-white mb-2">Notre localisation</h2>
+                                    <p className="text-gray-400">Venez nous rencontrer dans nos locaux</p>
+                                </div>
+                                <div className="relative w-full h-0 pb-[75%] mb-8 rounded-xl overflow-hidden">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15248.461678610854!2d46.93131716977539!3d-21.83333384360462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21f07de59f456f2b%3A0x4c6b17a0f2c3f8a9!2sAmbalavao!5e0!3m2!1sfr!2smg!4v1629902254784!5m2!1sfr!2smg"
+                                        className="absolute top-0 left-0 w-full h-full"
+                                        style={{border: 0}}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        title="Emplacement de marolook"
+                                    />
+                                </div>
                             </div>
-                            <div className="space-y-4">
-                                <h3 className="text-lg font-medium text-gray-800">Suivez-nous</h3>
+
+                            {/* Réseaux sociaux */}
+                            <div>
+                                <h3 className="text-lg font-medium text-white mb-4">Suivez-nous</h3>
                                 <div className="flex gap-4">
                                     {socialLinks.map((social, index) => (
                                         <a
                                             key={index}
                                             href={social.url}
-                                            className="p-3 rounded-xl bg-gray-50 text-gray-600 hover:bg-[#FF4B4B]
-                             hover:text-white transition-all duration-300"
+                                            className="p-3 rounded-xl bg-gray-800 text-gray-400
+                                                     hover:bg-[#FF4B4B] hover:text-white
+                                                     transition-all duration-300"
                                             aria-label={social.label}
                                         >
                                             {social.icon}
