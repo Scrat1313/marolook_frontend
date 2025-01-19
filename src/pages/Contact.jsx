@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {
     Phone,
-    Email,
     LocationOn,
     AccessTime,
     Send,
@@ -27,19 +26,14 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulation d'envoi
         await new Promise(resolve => setTimeout(resolve, 2000));
         setIsSubmitting(false);
         setFormData({name: '', email: '', subject: '', message: ''});
-        // Ajoutez ici votre logique d'envoi de formulaire
     };
 
     const handleChange = (e) => {
         const {name, value} = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        setFormData(prev => ({...prev, [name]: value}));
     };
 
     const contactInfo = [
@@ -48,12 +42,6 @@ const Contact = () => {
             title: "Téléphone",
             content: "+261 34 12 345 67",
             description: "Du lundi au vendredi, 8h-17h"
-        },
-        {
-            icon: <Email className="text-[#FF4B4B]"/>,
-            title: "Email",
-            content: "contact@ambalavao.mg",
-            description: "Réponse sous 24h"
         },
         {
             icon: <LocationOn className="text-[#FF4B4B]"/>,
@@ -80,17 +68,12 @@ const Contact = () => {
         {
             title: "Contactez-nous",
             description: "Notre équipe est à votre disposition pour répondre à toutes vos questions",
-            backgroundImage: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80", // Image de contact professionnelle
+            backgroundImage: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80",
             buttons: [
                 {
                     text: "Appelez-nous",
                     path: "tel:+261341234567",
                     variant: "primary"
-                },
-                {
-                    text: "Envoyez un email",
-                    path: "mailto:contact@ambalavao.mg",
-                    variant: "secondary"
                 }
             ]
         }
@@ -98,40 +81,56 @@ const Contact = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            {/* Hero Section avec image de fond */}
             <HeroCarousel
                 slides={heroSlides}
                 height="h-[500px] md:h-[500px]"
-                showArrows={false} // Pas besoin de flèches pour une seule slide
-                showDots={false}   // Pas besoin de points pour une seule slide
+                showArrows={false}
+                showDots={false}
             />
 
-            {/* Section d'informations de contact */}
-            <div className="py-16 px-4 bg-gray-50">
+            {/* Nouvelle section d'informations de contact */}
+            <div className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
-                    {/* Cartes d'information */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    {/* Section titre */}
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                            Comment pouvons-nous vous aider ?
+                        </h2>
+                        <div className="w-24 h-1 bg-[#FF4B4B] mx-auto rounded-full"></div>
+                    </div>
+
+                    {/* Cartes d'information avec nouveau design */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                         {contactInfo.map((info, index) => (
-                            <div key={index} className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl
-                                                      transition-all duration-300 group">
-                                <div className="mb-4 p-3 bg-[#FF4B4B]/10 rounded-xl w-fit
-                                              group-hover:bg-[#FF4B4B] transition-colors duration-300">
-                                    {React.cloneElement(info.icon, {
-                                        className: "w-6 h-6 text-[#FF4B4B] group-hover:text-white transition-colors duration-300"
-                                    })}
+                            <div key={index}
+                                 className="relative overflow-hidden bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl
+                                           transition-all duration-300 group border border-gray-100">
+                                {/* Cercle décoratif */}
+                                <div className="absolute -right-16 -top-16 w-32 h-32 bg-[#FF4B4B]/5 rounded-full
+                                              group-hover:bg-[#FF4B4B]/10 transition-colors duration-300"></div>
+
+                                <div className="relative z-10">
+                                    <div className="mb-6 p-4 bg-[#FF4B4B]/10 rounded-2xl w-fit
+                                                  group-hover:bg-[#FF4B4B] transition-colors duration-300">
+                                        {React.cloneElement(info.icon, {
+                                            className: "w-8 h-8 text-[#FF4B4B] group-hover:text-white transition-colors duration-300"
+                                        })}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-gray-800 mb-3">{info.title}</h3>
+                                    <p className="text-[#FF4B4B] font-medium text-lg mb-2">{info.content}</p>
+                                    <p className="text-gray-600">{info.description}</p>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-800 mb-2">{info.title}</h3>
-                                <p className="text-[#FF4B4B] font-medium mb-1">{info.content}</p>
-                                <p className="text-gray-600 text-sm">{info.description}</p>
                             </div>
                         ))}
                     </div>
 
-                    {/* Formulaire et carte */}
+                    {/* Formulaire et carte avec nouveau design */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {/* Formulaire */}
-                        <div className="bg-white p-8 rounded-2xl shadow-lg">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Envoyez-nous un message</h2>
+                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-8">
+                                Envoyez-nous un message
+                                <div className="w-20 h-1 bg-[#FF4B4B] mt-4 rounded-full"></div>
+                            </h2>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
@@ -147,6 +146,7 @@ const Contact = () => {
                                             className="w-full px-4 py-3 rounded-xl border border-gray-200
                                                      focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                      transition-all duration-300"
+                                            placeholder="Votre nom"
                                         />
                                     </div>
                                     <div>
@@ -162,6 +162,7 @@ const Contact = () => {
                                             className="w-full px-4 py-3 rounded-xl border border-gray-200
                                                      focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                      transition-all duration-300"
+                                            placeholder="votre@email.com"
                                         />
                                     </div>
                                 </div>
@@ -178,6 +179,7 @@ const Contact = () => {
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200
                                                  focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                  transition-all duration-300"
+                                        placeholder="Sujet de votre message"
                                     />
                                 </div>
                                 <div>
@@ -193,6 +195,7 @@ const Contact = () => {
                                         className="w-full px-4 py-3 rounded-xl border border-gray-200
                                                  focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                  transition-all duration-300 resize-none"
+                                        placeholder="Votre message..."
                                     />
                                 </div>
                                 <button
@@ -215,15 +218,15 @@ const Contact = () => {
                             </form>
                         </div>
 
-                        {/* Carte */}
-                        {/* Carte */}
-                        <div className="bg-white p-8 rounded-2xl shadow-lg">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">Notre localisation</h2>
-                            {/* Version modifiée sans aspect-ratio plugin */}
-                            <div className="relative w-full h-0 pb-[56.25%] mb-6">
+                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-8">
+                                Notre localisation
+                                <div className="w-20 h-1 bg-[#FF4B4B] mt-4 rounded-full"></div>
+                            </h2>
+                            <div className="relative w-full h-0 pb-[56.25%] mb-8">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15248.461678610854!2d46.93131716977539!3d-21.83333384360462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21f07de59f456f2b%3A0x4c6b17a0f2c3f8a9!2sAmbalavao!5e0!3m2!1sfr!2smg!4v1629902254784!5m2!1sfr!2smg"
-                                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                                    className="absolute top-0 left-0 w-full h-full rounded-xl shadow-sm"
                                     style={{border: 0}}
                                     allowFullScreen=""
                                     loading="lazy"
@@ -238,7 +241,7 @@ const Contact = () => {
                                             key={index}
                                             href={social.url}
                                             className="p-3 rounded-xl bg-gray-50 text-gray-600 hover:bg-[#FF4B4B]
-                             hover:text-white transition-all duration-300"
+                                                     hover:text-white transition-all duration-300"
                                             aria-label={social.label}
                                         >
                                             {social.icon}
