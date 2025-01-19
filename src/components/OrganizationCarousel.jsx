@@ -185,7 +185,7 @@ const OrganizationCarousel = () => {
                             Notre réseau
                         </span>
                     </div>
-                    <h2 className="text-6xl font-bold mb-8 text-gray-900">
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900">
                         Notre
                         <span className="relative inline-block mx-4">
                             Écosystème

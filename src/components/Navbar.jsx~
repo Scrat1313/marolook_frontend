@@ -102,7 +102,7 @@ const Navbar = () => {
                                     : 'bg-[#FF4B4B] text-white hover:bg-[#FF4B4B] hover:text-white hover:shadow-lg hover:shadow-[#FF4B4B]/25'
                                 }`}
                             >
-                                <PhoneIcon className="h-2 w-2"/>
+                                <PhoneIcon fontSize={"small"}/>
                                 <span>Contact</span>
                             </Link>
                         </div>

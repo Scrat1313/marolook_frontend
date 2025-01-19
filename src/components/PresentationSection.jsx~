@@ -2,7 +2,6 @@ import React from 'react';
 import {BusinessCenter, Event, Timeline, Lightbulb, TrendingUp, Groups, EmojiEvents, Speed} from '@mui/icons-material';
 
 const PresentationSection = () => {
-        const url = "https://api.api-ninjas.com/v1/randomimage?category=nature";
 
     const achievements = [
         {number: "150+", label: "Projets Réussis", icon: <TrendingUp/>},

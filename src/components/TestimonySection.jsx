@@ -132,7 +132,7 @@ const TestimonySection = () => {
                             Témoignages vérifiés
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
+                    <h2 className="text-3xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
                         Ce qu'ils
                         <span className="relative inline-block ml-2 md:ml-4">
                             pensent

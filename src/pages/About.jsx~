@@ -8,56 +8,56 @@ const About = () => {
 
     const heroSlides = [
         {
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-            backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
+            title: "Découvrez la beauté naturelle d'Ambalavao",
+            description: "Explorez des paysages à couper le souffle, des traditions authentiques et une culture riche.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=1",
             buttons: [
                 {
-                    text: "Lorem ipsum",
-                    path: "/",
+                    text: "En savoir plus",
+                    path: "/explore",
                     variant: "primary"
                 },
                 {
-                    text: "Lorem ipsum ",
-                    path: "/",
+                    text: "Réserver maintenant",
+                    path: "/booking",
                     variant: "secondary"
                 }
             ]
         },
         {
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-            backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
+            title: "Vivez des aventures inoubliables",
+            description: "Partez à l'aventure et découvrez des expériences uniques au cœur de la nature.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=2",
             buttons: [
                 {
-                    text: "Lorem ipsum",
-                    path: "/",
+                    text: "Nos activités",
+                    path: "/activities",
                     variant: "primary"
                 },
                 {
-                    text: "Lorem ipsum ",
-                    path: "/",
+                    text: "Contactez-nous",
+                    path: "/contact",
                     variant: "secondary"
                 }
             ]
         },
         {
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-            backgroundImage: "/images/ambalavao-1.jpg", // À remplacer par votre image
+            title: "Plongez dans la culture locale",
+            description: "Rencontrez des artisans locaux, dégustez une cuisine unique et partagez des moments mémorables.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=3",
             buttons: [
                 {
-                    text: "Lorem ipsum",
-                    path: "/",
+                    text: "Découvrir",
+                    path: "/culture",
                     variant: "primary"
                 },
                 {
-                    text: "Lorem ipsum ",
-                    path: "/",
+                    text: "Voir la galerie",
+                    path: "/gallery",
                     variant: "secondary"
                 }
             ]
-        },
+        }
     ];
 
     return (

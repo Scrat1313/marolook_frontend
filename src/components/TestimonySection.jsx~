@@ -9,14 +9,13 @@ import {
     VerifiedUser
 } from '@mui/icons-material';
 
-const url = "https://randomuser.me/api/portraits/women/31.jpg";
 const testimonialData = [
     {
         id: 1,
         name: "Marie Rakoto",
         role: "Résidente",
         type: "particular",
-        avatar: url, // Assurez-vous d'avoir ces images ou remplacez par des images de votre choix
+        avatar: "https://i.pravatar.cc/150?img=21",
         content: "La mairie d'Ambalavao a transformé mon expérience administrative. Le service est rapide, efficace et le personnel est très accueillant. Je recommande vivement leurs services en ligne !",
         rating: 5,
         date: "Janvier 2025"
@@ -26,7 +25,7 @@ const testimonialData = [
         name: "Hôtel Betsileo",
         role: "Entreprise locale",
         type: "business",
-        avatar: url,
+        avatar: "https://i.pravatar.cc/150?img=22",
         content: "En tant qu'entreprise locale, nous apprécions grandement la réactivité et le professionnalisme des services municipaux. Leur accompagnement dans nos démarches administratives a été précieux.",
         rating: 5,
         date: "Décembre 2024"
@@ -36,7 +35,7 @@ const testimonialData = [
         name: "Jean Randria",
         role: "Entrepreneur",
         type: "business",
-        avatar: url,
+        avatar: "https://i.pravatar.cc/150?img=23",
         content: "L'équipe de la commune a été d'une aide exceptionnelle pour l'obtention de mon permis de construire. Un service public moderne et efficace !",
         rating: 4,
         date: "Janvier 2025"
@@ -46,7 +45,7 @@ const testimonialData = [
         name: "Sophie Ravalison",
         role: "Commerçante",
         type: "business",
-        avatar: url,
+        avatar: "https://i.pravatar.cc/150?img=24",
         content: "Les démarches en ligne ont considérablement simplifié la gestion de mon commerce. Un grand merci à l'équipe pour leur disponibilité !",
         rating: 5,
         date: "Janvier 2025"
@@ -56,7 +55,7 @@ const testimonialData = [
         name: "Paul Ratsima",
         role: "Résident",
         type: "particular",
-        avatar: url,
+        avatar: "https://i.pravatar.cc/150?img=25",
         content: "Je suis impressionné par la rapidité de traitement de mes demandes. Le nouveau système en ligne est vraiment pratique et intuitif.",
         rating: 5,
         date: "Décembre 2024"
@@ -133,7 +132,7 @@ const TestimonySection = () => {
                             Témoignages vérifiés
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
                         Ce qu'ils
                         <span className="relative inline-block ml-2 md:ml-4">
                             pensent

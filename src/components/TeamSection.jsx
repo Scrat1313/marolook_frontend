@@ -237,7 +237,7 @@ const TeamSection = () => {
                             Notre capital humain
                         </span>
                     </div>
-                    <h2 className="text-6xl font-bold mb-8 text-gray-900">
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900">
                         L'équipe
                         <span className="relative inline-block ml-4">
                             Marolook

@@ -87,7 +87,7 @@ const ServiceSection = () => {
                             Services municipaux
                         </span>
                     </div>
-                    <h2 className="text-6xl font-bold mb-8 text-gray-900">
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900">
                         Nos
                         <span className="relative inline-block mx-4">
                             Services

@@ -1,0 +1,86 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import EmailIcon from '@mui/icons-material/Email';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+
+const NotFound = () => {
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-[#FFFFFF] px-4">
+            <div className="w-full max-w-4xl">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                    {/* Left side - Content */}
+                    <div className="order-2 md:order-1 text-center md:text-left">
+                        <div className="mb-6">
+              <span className="inline-block px-4 py-2 rounded-full bg-[#FFE5E5] text-[#FF4B4B] font-medium mb-4">
+                Erreur 404
+              </span>
+                            <h1 className="text-4xl md:text-5xl font-bold text-[#333333] mb-4">
+                                Page introuvable
+                            </h1>
+                            <p className="text-[#666666] text-lg">
+                                La page que vous recherchez n'existe plus ou a été déplacée vers une autre destination.
+                            </p>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <Link
+                                to="/"
+                                className="group flex items-center justify-center px-6 py-3 bg-[#FF4B4B] text-white rounded-lg hover:bg-[#E43D3D] transition-all duration-300 gap-2"
+                            >
+                                <HomeIcon className="transition-transform group-hover:-translate-y-1" />
+                                <span>Retour à l'accueil</span>
+                            </Link>
+
+                            <Link
+                                to="/contact"
+                                className="group flex items-center justify-center px-6 py-3 bg-[#F8F8F8] text-[#333333] rounded-lg hover:bg-[#E5E5E5] transition-all duration-300 gap-2"
+                            >
+                                <EmailIcon className="transition-transform group-hover:-translate-y-1" />
+                                <span>Nous contacter</span>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Right side - Animated Illustration */}
+                    <div className="order-1 md:order-2 flex justify-center items-center">
+                        <div className="relative">
+                            {/* Large 404 background */}
+                            <div className="text-[120px] md:text-[180px] font-bold text-[#F8F8F8] select-none animate-pulse">
+                                404
+                            </div>
+                            {/* Animated elements */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <ErrorOutlineIcon
+                                    sx={{ fontSize: 80 }}
+                                    className="text-[#FF4B4B] animate-bounce"
+                                />
+                            </div>
+                            {/* Decorative circles */}
+                            <div className="absolute top-0 right-0 w-20 h-20 bg-[#FFE5E5] rounded-full opacity-50 animate-pulse" />
+                            <div className="absolute bottom-0 left-0 w-16 h-16 bg-[#FFE5E5] rounded-full opacity-30 animate-pulse"
+                                 style={{ animationDelay: '0.5s' }} />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom decoration */}
+                <div className="mt-12 flex justify-center gap-3">
+                    {[...Array(4)].map((_, i) => (
+                        <div
+                            key={i}
+                            className="w-1 h-1 rounded-full bg-[#FF4B4B] animate-ping"
+                            style={{
+                                animationDelay: `${i * 0.3}s`,
+                                animationDuration: '1.5s'
+                            }}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default NotFound;
