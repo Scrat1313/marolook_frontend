@@ -37,6 +37,11 @@ const Navbar = () => {
             path: '/portfolio',
             label: 'Portfolio',
             icon: <LandscapeIcon className="w-6 h-6 md:w-5 md:h-5"/>
+        },
+        {
+            path: '/blog',
+            label: 'Blog',
+            icon: <LandscapeIcon className="w-6 h-6 md:w-5 md:h-5"/>
         }
     ];
 
@@ -97,7 +102,7 @@ const Navbar = () => {
                                     : 'bg-[#FF4B4B] text-white hover:bg-[#FF4B4B] hover:text-white hover:shadow-lg hover:shadow-[#FF4B4B]/25'
                                 }`}
                             >
-                                <PhoneIcon className="h-4 w-4"/>
+                                <PhoneIcon className="h-2 w-2"/>
                                 <span>Contact</span>
                             </Link>
                         </div>

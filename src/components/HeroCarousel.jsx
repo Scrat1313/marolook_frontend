@@ -106,7 +106,7 @@ const HeroCarousel = ({
                                 <div className="text-center space-y-6 md:space-y-8 max-w-3xl px-4
                                               backdrop-blur-sm bg-black/20 rounded-2xl p-6 md:p-8">
                                     <h1 className={`
-                                        text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight
+                                        text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight
                                         ${slide.titleColor || 'text-white'}
                                         transform transition-all duration-700 drop-shadow-lg
                                         ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
@@ -197,7 +197,7 @@ const HeroCarousel = ({
                       text-white/90 text-sm flex items-center gap-2
                       border border-white/20">
                         <span>←</span>
-                        <span>Swipez pour naviguer</span>
+                        <span className="text-center">Swipez</span>
                         <span>→</span>
                     </div>
                 </div>
