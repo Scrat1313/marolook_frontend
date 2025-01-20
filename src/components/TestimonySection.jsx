@@ -12,54 +12,54 @@ import {
 const testimonialData = [
     {
         id: 1,
-        name: "Marie Rakoto",
-        role: "Résidente",
+        name: "Harilala",
+        role: "Présidente nationale de l'EFOI",
         type: "particular",
         avatar: "https://i.pravatar.cc/150?img=21",
-        content: "La mairie d'Ambalavao a transformé mon expérience administrative. Le service est rapide, efficace et le personnel est très accueillant. Je recommande vivement leurs services en ligne !",
+        content: "Nous avons fait appel à vos service pour notre mariage et nous n'aurions pas pu être plus heureux. Les photos sont incroyables et nous permettent de revivre chaque instant. Le professionnalisme et la gentillesse du photographe ont rendu cette journée encore plus spécial.",
         rating: 5,
         date: "Janvier 2025"
     },
     {
         id: 2,
-        name: "Hôtel Betsileo",
-        role: "Entreprise locale",
+        name: "Madame Mirana",
+        role: "Intervenant",
         type: "business",
         avatar: "https://i.pravatar.cc/150?img=22",
-        content: "En tant qu'entreprise locale, nous apprécions grandement la réactivité et le professionnalisme des services municipaux. Leur accompagnement dans nos démarches administratives a été précieux.",
+        content: "Une expérience exceptionnelle du début à la fin ! Le photographe a su capturer des moments magiques que nous chérirons pour toujours. La qualité des photos est tout simplement stupéfiante. Merci infiniment !",
         rating: 5,
         date: "Décembre 2024"
     },
-    {
-        id: 3,
-        name: "Jean Randria",
-        role: "Entrepreneur",
-        type: "business",
-        avatar: "https://i.pravatar.cc/150?img=23",
-        content: "L'équipe de la commune a été d'une aide exceptionnelle pour l'obtention de mon permis de construire. Un service public moderne et efficace !",
-        rating: 4,
-        date: "Janvier 2025"
-    },
-    {
-        id: 4,
-        name: "Sophie Ravalison",
-        role: "Commerçante",
-        type: "business",
-        avatar: "https://i.pravatar.cc/150?img=24",
-        content: "Les démarches en ligne ont considérablement simplifié la gestion de mon commerce. Un grand merci à l'équipe pour leur disponibilité !",
-        rating: 5,
-        date: "Janvier 2025"
-    },
-    {
-        id: 5,
-        name: "Paul Ratsima",
-        role: "Résident",
-        type: "particular",
-        avatar: "https://i.pravatar.cc/150?img=25",
-        content: "Je suis impressionné par la rapidité de traitement de mes demandes. Le nouveau système en ligne est vraiment pratique et intuitif.",
-        rating: 5,
-        date: "Décembre 2024"
-    }
+    // {
+    //     id: 3,
+    //     name: "Jean Randria",
+    //     role: "Entrepreneur",
+    //     type: "business",
+    //     avatar: "https://i.pravatar.cc/150?img=23",
+    //     content: "L'équipe de la commune a été d'une aide exceptionnelle pour l'obtention de mon permis de construire. Un service public moderne et efficace !",
+    //     rating: 4,
+    //     date: "Janvier 2025"
+    // },
+    // {
+    //     id: 4,
+    //     name: "Sophie Ravalison",
+    //     role: "Commerçante",
+    //     type: "business",
+    //     avatar: "https://i.pravatar.cc/150?img=24",
+    //     content: "Les démarches en ligne ont considérablement simplifié la gestion de mon commerce. Un grand merci à l'équipe pour leur disponibilité !",
+    //     rating: 5,
+    //     date: "Janvier 2025"
+    // },
+    // {
+    //     id: 5,
+    //     name: "Paul Ratsima",
+    //     role: "Résident",
+    //     type: "particular",
+    //     avatar: "https://i.pravatar.cc/150?img=25",
+    //     content: "Je suis impressionné par la rapidité de traitement de mes demandes. Le nouveau système en ligne est vraiment pratique et intuitif.",
+    //     rating: 5,
+    //     date: "Décembre 2024"
+    // }
 ];
 
 const TestimonySection = () => {

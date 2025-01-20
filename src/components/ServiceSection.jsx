@@ -12,49 +12,65 @@ const servicesData = [
     {
         id: 1,
         Icon: AdminPanelSettings,
-        title: "Administration",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        link: "/services/administration",
+        title: "Photographie",
+        description: "Immortalisez les moments forts.",
+        link: "#",
         gradient: "from-blue-500 to-cyan-500"
     },
     {
         id: 2,
         Icon: Assignment,
-        title: "État Civil",
-        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        link: "/services/etat-civil",
+        title: "Vidéographie",
+        description: "Créez un souvenir.",
+        link: "#",
         gradient: "from-[#FF4B4B] to-[#E43D3D]"
     },
     {
         id: 3,
         Icon: Business,
-        title: "Urbanisme",
-        description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        title: "Design graphique",
+        description: "Sublimez vos identitées visuelles.",
         link: "/services/urbanisme",
         gradient: "from-purple-500 to-pink-500"
     },
     {
         id: 4,
         Icon: AccountBalance,
-        title: "Finances",
-        description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        title: "Modélisation, Incrustation et Animation 3D",
+        description: "Le monde du 3D et motion design.",
         link: "/services/finances",
         gradient: "from-amber-500 to-orange-500"
     },
     {
         id: 5,
         Icon: Groups,
-        title: "Social",
-        description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+        title: "Community Management",
+        description: "Optimisez votre présence en ligne.",
         link: "/services/social",
         gradient: "from-emerald-500 to-teal-500"
     },
     {
         id: 6,
         Icon: TrendingUp,
-        title: "Développement",
-        description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.",
-        link: "/services/developpement",
+        title: "Développement web",
+        description: "Décrochez des clients internationaux.",
+        link: "#",
+        gradient: "from-indigo-500 to-violet-500"
+    },
+    {
+        id: 7,
+        Icon: TrendingUp,
+        title: "Organisation évenementielle",
+        description: "Organisez un évènement inoubliable.",
+        link: "#",
+        gradient: "from-indigo-500 to-violet-500"
+    },
+    {
+        id: 8,
+        Icon: TrendingUp,
+        title: "Décoration",
+        description: "Aménagez et décorez vos espaces.",
+        link: "#",
         gradient: "from-indigo-500 to-violet-500"
     }
 ];
