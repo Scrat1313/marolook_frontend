@@ -8,56 +8,77 @@ import {
     TrendingUp
 } from '@mui/icons-material';
 
-const servicesData = [
+const heroSlides = [
     {
-        id: 1,
-        Icon: AdminPanelSettings,
-        title: "Photographie",
-        description: "Immortalisez les moments forts.",
-        link: "#",
-        gradient: "from-blue-500 to-cyan-500"
+        title: "Capturez vos moments inoubliables",
+        description: "De la photographie à la vidéographie, nous immortalisons vos souvenirs les plus précieux.",
+        backgroundImage: "https://picsum.photos/1920/1080?random=4",
+        buttons: [
+            {
+                text: "Découvrir nos services",
+                path: "/services",
+                variant: "primary"
+            },
+            {
+                text: "Contactez-nous",
+                path: "/contact",
+                variant: "secondary"
+            }
+        ]
     },
     {
-        id: 2,
-        Icon: Assignment,
-        title: "Vidéographie",
-        description: "Créez un souvenir.",
-        link: "#",
-        gradient: "from-[#FF4B4B] to-[#E43D3D]"
+        title: "Sublimez votre image",
+        description: "Grâce à notre expertise en design graphique et animation 3D, donnez vie à vos idées.",
+        backgroundImage: "https://picsum.photos/1920/1080?random=5",
+        buttons: [
+            {
+                text: "Voir nos réalisations",
+                path: "/portfolio",
+                variant: "primary"
+            },
+            {
+                text: "Demander un devis",
+                path: "/quote",
+                variant: "secondary"
+            }
+        ]
     },
     {
-        id: 3,
-        Icon: Business,
-        title: "Design graphique",
-        description: "Sublimez vos identitées visuelles.",
-        link: "/services/urbanisme",
-        gradient: "from-purple-500 to-pink-500"
+        title: "Développez votre présence en ligne",
+        description: "Avec notre community management et développement web, touchez un public international.",
+        backgroundImage: "https://picsum.photos/1920/1080?random=6",
+        buttons: [
+            {
+                text: "En savoir plus",
+                path: "/services/digital",
+                variant: "primary"
+            },
+            {
+                text: "Commencez maintenant",
+                path: "/start",
+                variant: "secondary"
+            }
+        ]
     },
     {
-        id: 4,
-        Icon: AccountBalance,
-        title: "Modélisation, Incrustation et Animation 3D",
-        description: "Le monde du 3D et motion design.",
-        link: "/services/finances",
-        gradient: "from-amber-500 to-orange-500"
-    },
-    {
-        id: 5,
-        Icon: Groups,
-        title: "Community Management",
-        description: "Optimisez votre présence en ligne.",
-        link: "/services/social",
-        gradient: "from-emerald-500 to-teal-500"
-    },
-    {
-        id: 6,
-        Icon: TrendingUp,
-        title: "Développement web",
-        description: "Décrochez des clients internationaux.",
-        link: "/services/developpement",
-        gradient: "from-indigo-500 to-violet-500"
+        title: "Organisez des événements mémorables",
+        description: "Faites de vos occasions spéciales des souvenirs inoubliables grâce à notre expertise en organisation événementielle et décoration.",
+        backgroundImage: "https://picsum.photos/1920/1080?random=7",
+        buttons: [
+            {
+                text: "Planifiez votre événement",
+                path: "/events",
+                variant: "primary"
+            },
+            {
+                text: "Voir nos services",
+                path: "/services/events",
+                variant: "secondary"
+            }
+        ]
     }
 ];
+
 
 const ServiceSection = () => {
     return (

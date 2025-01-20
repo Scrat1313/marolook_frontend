@@ -1,8 +1,6 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
-import {HeroCarousel, ServiceSection, TestimonySection} from "../components";
-import {HeroCarousel} from "../components";
-
+import {HeroCarousel, ServiceSection} from "../components";
 
 const Service = () => {
     usePageTitle('Nos service');
