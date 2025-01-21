@@ -98,12 +98,12 @@ const PresentationSection = () => {
                     <div className="space-y-8">
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold text-gray-900">Notre Vision</h3>
-                            <p className="text-gray-600 leading-relaxed text-lg">
+                            <p className="text-gray-600 leading-relaxed text-sm text-justify">
                                 MaroLooK est née d'une vision audacieuse : transformer la communication digitale et
                                 l'événementiel à Madagascar. Notre approche unique combine créativité, innovation et
                                 expertise technique pour délivrer des résultats exceptionnels.
                             </p>
-                            <p className="text-gray-600 leading-relaxed text-lg">
+                            <p className="text-gray-600 leading-relaxed text-sm text-justify">
                                 Notre mission est d'accompagner les entreprises dans leur transformation digitale et
                                 de créer des événements qui marquent les esprits, tout en restant fidèles aux valeurs
                                 qui nous définissent : excellence, innovation et engagement.

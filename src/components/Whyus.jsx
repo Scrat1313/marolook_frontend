@@ -100,7 +100,7 @@ const WhyUs = () => {
                                 <h3 className="text-xl font-semibold mb-4 text-gray-900">
                                     {reason.title}
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 text-justify">
                                     {reason.description}
                                 </p>
                             </div>

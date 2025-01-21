@@ -11,39 +11,39 @@ import {
 const WhyUs = () => {
     const reasons = [
         {
-            icon: <Speed/>,
-            title: "Rapidité d'exécution",
-            description: "Nous nous engageons à livrer vos projets dans les délais convenus, sans compromettre la qualité.",
+            icon: <Speed />,
+            title: "Capturez vos émotions",
+            description: "MAROLook est votre meilleur allié pour capturer et immortaliser vos émotions à chaque étape de votre vie personnelle ou vie d’entreprise.",
             color: "from-pink-500 to-rose-500"
         },
         {
-            icon: <EmojiObjects/>,
-            title: "Innovation constante",
-            description: "Nous restons à la pointe des dernières tendances digitales et événementielles pour vous offrir le meilleur.",
+            icon: <EmojiObjects />,
+            title: "Atteignez vos objectifs",
+            description: "Nous vous mènerons avec professionnalisme à l’atteinte de vos objectifs, qu’ils soient personnels ou professionnels.",
             color: "from-purple-500 to-indigo-500"
         },
         {
-            icon: <Handshake/>,
-            title: "Relation de confiance",
-            description: "Nous construisons des partenariats durables basés sur la transparence et la communication.",
+            icon: <Handshake />,
+            title: "Vos besoins prioritaires",
+            description: "Vos besoins les plus spécifiques sont considérés pour des solutions adaptées et efficaces.",
             color: "from-blue-500 to-cyan-500"
         },
         {
-            icon: <Psychology/>,
-            title: "Expertise reconnue",
-            description: "Notre équipe expérimentée apporte des solutions créatives à vos défis les plus complexes.",
+            icon: <Psychology />,
+            title: "Services personnalisés",
+            description: "Nos services sont personnalisés pour répondre parfaitement à vos attentes et exigences.",
             color: "from-teal-500 to-emerald-500"
         },
         {
-            icon: <MilitaryTech/>,
-            title: "Excellence garantie",
-            description: "Nous visons l'excellence dans chaque projet, avec un souci du détail incomparable.",
+            icon: <MilitaryTech />,
+            title: "Respect des délais",
+            description: "Les travaux sont réalisés dans le respect des délais établis, avec une qualité et un professionnalisme inégalés.",
             color: "from-amber-500 to-orange-500"
         },
         {
-            icon: <GroupWork/>,
-            title: "Approche collaborative",
-            description: "Nous travaillons en étroite collaboration avec vous pour assurer le succès de vos projets.",
+            icon: <GroupWork />,
+            title: "Une équipe à l’écoute",
+            description: "Notre équipe dynamique, créative et attentive est à votre disposition. Votre satisfaction est notre priorité.",
             color: "from-red-500 to-[#FF4B4B]"
         }
     ];
