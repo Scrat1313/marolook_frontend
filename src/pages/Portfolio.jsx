@@ -139,6 +139,49 @@ const Portfolio = () => {
                                           rounded-full transform skew-x-12"/>
                         </span>
                     </h2>
+                    {/* Nouvelle description améliorée */}
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto mt-8 leading-relaxed">
+                        Découvrez notre collection diversifiée de photographies : des mariages élégants
+                        aux événements corporate, en passant par des portraits saisissants et des shootings
+                        produits professionnels. Chaque image raconte une histoire unique.
+                    </p>
+
+                    {/* Catégories stylisées avec la palette de couleurs */}
+                    <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {[
+                                {icon: "💑", text: "Mariages"},
+                                {icon: "🏢", text: "Événements Corporate"},
+                                {icon: "👤", text: "Portraits"},
+                                {icon: "📸", text: "Shootings Produits"},
+                                {icon: "✨", text: "Événements Spéciaux"}
+                            ].map((category, index) => (
+                                <div
+                                    key={index}
+                                    className="group flex items-center gap-2 px-6 py-3 rounded-full
+                         bg-white border border-gray-200
+                         hover:border-[#FF4B4B] hover:bg-[#FF4B4B]/5
+                         transition-all duration-300 cursor-pointer
+                         shadow-sm hover:shadow-md"
+                                >
+                <span className="text-xl group-hover:scale-110 transition-transform duration-300">
+                    {category.icon}
+                </span>
+                                    <span className="text-sm font-medium text-gray-700
+                               group-hover:text-[#FF4B4B] transition-colors duration-300">
+                    {category.text}
+                </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Ligne de séparation décorative avec dégradé */}
+                    <div className="flex justify-center items-center gap-3 mt-12 mb-8">
+                        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#FF4B4B]/30"/>
+                        <div className="w-2 h-2 rounded-full bg-[#FF4B4B]/20"/>
+                        <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-[#FF4B4B]/30"/>
+                    </div>
                 </div>
 
                 {/* Style Masonry Pinterest optimisé pour 4 colonnes */}
