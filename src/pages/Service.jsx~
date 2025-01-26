@@ -7,30 +7,13 @@ const Service = () => {
 
     const heroSlides = [
         {
-            title: "Découvrez la beauté naturelle d'Ambalavao",
-            description: "Explorez des paysages à couper le souffle, des traditions authentiques et une culture riche.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=1",
+            title: "Capturez vos moments inoubliables",
+            description: "De la photographie à la vidéographie, nous immortalisons vos souvenirs les plus précieux.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=4",
             buttons: [
                 {
-                    text: "En savoir plus",
-                    path: "/explore",
-                    variant: "primary"
-                },
-                {
-                    text: "Réserver maintenant",
-                    path: "/booking",
-                    variant: "secondary"
-                }
-            ]
-        },
-        {
-            title: "Vivez des aventures inoubliables",
-            description: "Partez à l'aventure et découvrez des expériences uniques au cœur de la nature.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=2",
-            buttons: [
-                {
-                    text: "Nos activités",
-                    path: "/activities",
+                    text: "Découvrir nos services",
+                    path: "/services",
                     variant: "primary"
                 },
                 {
@@ -41,23 +24,58 @@ const Service = () => {
             ]
         },
         {
-            title: "Plongez dans la culture locale",
-            description: "Rencontrez des artisans locaux, dégustez une cuisine unique et partagez des moments mémorables.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=3",
+            title: "Sublimez votre image",
+            description: "Grâce à notre expertise en design graphique et animation 3D, donnez vie à vos idées.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=5",
             buttons: [
                 {
-                    text: "Découvrir",
-                    path: "/culture",
+                    text: "Voir nos réalisations",
+                    path: "/portfolio",
                     variant: "primary"
                 },
                 {
-                    text: "Voir la galerie",
-                    path: "/gallery",
+                    text: "Demander un devis",
+                    path: "/quote",
+                    variant: "secondary"
+                }
+            ]
+        },
+        {
+            title: "Développez votre présence en ligne",
+            description: "Avec notre community management et développement web, touchez un public international.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=6",
+            buttons: [
+                {
+                    text: "En savoir plus",
+                    path: "/services/digital",
+                    variant: "primary"
+                },
+                {
+                    text: "Commencez maintenant",
+                    path: "/start",
+                    variant: "secondary"
+                }
+            ]
+        },
+        {
+            title: "Organisez des événements mémorables",
+            description: "Faites de vos occasions spéciales des souvenirs inoubliables grâce à notre expertise en organisation événementielle et décoration.",
+            backgroundImage: "https://picsum.photos/1920/1080?random=7",
+            buttons: [
+                {
+                    text: "Planifiez votre événement",
+                    path: "/events",
+                    variant: "primary"
+                },
+                {
+                    text: "Voir nos services",
+                    path: "/services/events",
                     variant: "secondary"
                 }
             ]
         }
     ];
+
 
     return (
         <div className="flex flex-col">

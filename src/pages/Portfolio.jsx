@@ -3,6 +3,7 @@ import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel} from "../components";
 import Masonry from 'react-masonry-css';
 import {motion, AnimatePresence} from 'framer-motion';
+import HeroBg from "../assets/images/background/herobg.jpg";
 
 const Portfolio = () => {
     usePageTitle('Portfolio');
@@ -121,7 +122,7 @@ const Portfolio = () => {
         {
             title: "Notre Portfolio",
             description: "Découvrez nos réalisations à travers différents domaines d'expertise",
-            backgroundImage: "https://picsum.photos/1920/1080?random=1",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Explorer",

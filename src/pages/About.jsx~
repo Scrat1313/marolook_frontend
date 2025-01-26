@@ -8,52 +8,52 @@ const About = () => {
 
     const heroSlides = [
         {
-            title: "Découvrez la beauté naturelle d'Ambalavao",
-            description: "Explorez des paysages à couper le souffle, des traditions authentiques et une culture riche.",
+            title: "Une passion commune devenue réalité",
+            description: "Née d’une passion commune qui a animé quelques condisciples, Marolook a vu le jour en l’année 2018.",
             backgroundImage: "https://picsum.photos/1920/1080?random=1",
             buttons: [
                 {
                     text: "En savoir plus",
-                    path: "/explore",
+                    path: "/about",
                     variant: "primary"
                 },
                 {
-                    text: "Réserver maintenant",
-                    path: "/booking",
+                    text: "Nous rejoindre",
+                    path: "/join",
                     variant: "secondary"
                 }
             ]
         },
         {
-            title: "Vivez des aventures inoubliables",
-            description: "Partez à l'aventure et découvrez des expériences uniques au cœur de la nature.",
+            title: "Un chemin parsemé d’épreuves",
+            description: "Non sans difficulté, chaque étape a renforcé notre passion, compétences et expertise.",
             backgroundImage: "https://picsum.photos/1920/1080?random=2",
             buttons: [
                 {
-                    text: "Nos activités",
-                    path: "/activities",
+                    text: "Notre parcours",
+                    path: "/journey",
                     variant: "primary"
                 },
                 {
-                    text: "Contactez-nous",
+                    text: "Nous contacter",
                     path: "/contact",
                     variant: "secondary"
                 }
             ]
         },
         {
-            title: "Plongez dans la culture locale",
-            description: "Rencontrez des artisans locaux, dégustez une cuisine unique et partagez des moments mémorables.",
+            title: "Répondre aux besoins de notre clientèle",
+            description: "Nous nous efforçons de répondre au mieux aux attentes de notre clientèle avec engagement et dévouement.",
             backgroundImage: "https://picsum.photos/1920/1080?random=3",
             buttons: [
                 {
-                    text: "Découvrir",
-                    path: "/culture",
+                    text: "Nos services",
+                    path: "/services",
                     variant: "primary"
                 },
                 {
-                    text: "Voir la galerie",
-                    path: "/gallery",
+                    text: "Voir nos réalisations",
+                    path: "/portfolio",
                     variant: "secondary"
                 }
             ]

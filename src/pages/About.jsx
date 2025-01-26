@@ -2,6 +2,7 @@ import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {OrganizationCarousel, HeroCarousel, TeamSection} from "../components";
 import {PresentationSection, Whyus} from "../components";
+import HeroBg from "../assets/images/background/herobg.jpg";
 
 const About = () => {
     usePageTitle('Qui sommes-nous ?');
@@ -10,7 +11,7 @@ const About = () => {
         {
             title: "Une passion commune devenue réalité",
             description: "Née d’une passion commune qui a animé quelques condisciples, Marolook a vu le jour en l’année 2018.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=1",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "En savoir plus",
@@ -27,7 +28,7 @@ const About = () => {
         {
             title: "Un chemin parsemé d’épreuves",
             description: "Non sans difficulté, chaque étape a renforcé notre passion, compétences et expertise.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=2",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Notre parcours",
@@ -44,7 +45,7 @@ const About = () => {
         {
             title: "Répondre aux besoins de notre clientèle",
             description: "Nous nous efforçons de répondre au mieux aux attentes de notre clientèle avec engagement et dévouement.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=3",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Nos services",

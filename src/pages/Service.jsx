@@ -1,6 +1,7 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel, ServiceSection} from "../components";
+import HeroBg from "../assets/images/background/herobg.jpg";
 
 const Service = () => {
     usePageTitle('Nos service');
@@ -9,7 +10,7 @@ const Service = () => {
         {
             title: "Capturez vos moments inoubliables",
             description: "De la photographie à la vidéographie, nous immortalisons vos souvenirs les plus précieux.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=4",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Découvrir nos services",
@@ -26,7 +27,7 @@ const Service = () => {
         {
             title: "Sublimez votre image",
             description: "Grâce à notre expertise en design graphique et animation 3D, donnez vie à vos idées.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=5",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Voir nos réalisations",
@@ -43,7 +44,7 @@ const Service = () => {
         {
             title: "Développez votre présence en ligne",
             description: "Avec notre community management et développement web, touchez un public international.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=6",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "En savoir plus",
@@ -60,7 +61,7 @@ const Service = () => {
         {
             title: "Organisez des événements mémorables",
             description: "Faites de vos occasions spéciales des souvenirs inoubliables grâce à notre expertise en organisation événementielle et décoration.",
-            backgroundImage: "https://picsum.photos/1920/1080?random=7",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Planifiez votre événement",
