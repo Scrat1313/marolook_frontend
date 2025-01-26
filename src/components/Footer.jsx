@@ -127,9 +127,9 @@ const SCHEDULE_ITEMS = [
 ];
 
 const CONTACT_ITEMS = [
-    {Icon: LocationOn, text: '123 Avenue de la République, 75001 Paris, France'},
-    {Icon: Phone, text: '+33 1 23 45 67 89'},
-    {Icon: Email, text: 'contact@mairie.fr'}
+    {Icon: LocationOn, text: 'Lot 081A/3606 Antarandolo'},
+    {Icon: Phone, text: '+261 34 36 946 93'},
+    {Icon: Email, text: 'contact@marolook.com'}
 ];
 
 const LEGAL_LINKS = ['Mentions légales', 'Politique de confidentialité', 'Plan du site'];
@@ -215,7 +215,7 @@ const Footer = () => {
                     {/* Contact */}
                     <div className="col-span-3">
                         <h3 className="text-xl font-bold text-gray-800 mb-6">Contact</h3>
-                        <div className="space-y-5 bg-white rounded-2xl p-6 shadow-sm">
+                        <div className="space-y-5 bg-white rounded-2xl p-6 shadow-sm text-xs">
                             {CONTACT_ITEMS.map((item, index) => (
                                 <ContactInfo key={index} {...item} />
                             ))}

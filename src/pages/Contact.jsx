@@ -11,6 +11,7 @@ import {
     LinkedIn
 } from '@mui/icons-material';
 import {HeroCarousel} from "../components";
+import HeroBg from "../assets/images/background/herobg.jpg";
 
 const Contact = () => {
     usePageTitle('Contact');
@@ -40,14 +41,14 @@ const Contact = () => {
         {
             icon: <Phone className="text-[#FF4B4B]"/>,
             title: "Téléphone",
-            content: "+261 34 12 345 67",
+            content: "+261 34 36 946 93 | +261 38 19 564 91",
             description: "Du lundi au vendredi, 8h-17h"
         },
         {
             icon: <LocationOn className="text-[#FF4B4B]"/>,
             title: "Adresse",
-            content: "123 rue Principale",
-            description: "Ambalavao, Madagascar"
+            content: "Lot 081A/3603, Antarandolo",
+            description: "Fianarantsoa 301, Madagascar"
         },
         {
             icon: <AccessTime className="text-[#FF4B4B]"/>,
@@ -68,7 +69,7 @@ const Contact = () => {
         {
             title: "Contactez-nous",
             description: "Notre équipe est à votre disposition pour répondre à toutes vos questions",
-            backgroundImage: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80",
+            backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Appelez-nous",
