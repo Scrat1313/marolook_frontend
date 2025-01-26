@@ -16,7 +16,7 @@ const testimonialData = [
         role: "Présidente nationale de l'EFOI",
         type: "particular",
         avatar: "https://i.pravatar.cc/150?img=21",
-        content: "Nous avons fait appel à vos service pour notre mariage et nous n'aurions pas pu être plus heureux. Les photos sont incroyables et nous permettent de revivre chaque instant. Le professionnalisme et la gentillesse du photographe ont rendu cette journée encore plus spécial",
+        content: "Nous avons fait appel à vos service pour notre mariage et nous n'aurions pas pu être plus heureux. Les photos sont incroyables et nous permettent de revivre chaque instant. Le professionnalisme et la gentillesse du photographe ont rendu cette journée encore plus spécial.",
         rating: 5,
         date: "Janvier 2025"
     },

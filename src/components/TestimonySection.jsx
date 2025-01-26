@@ -30,36 +30,6 @@ const testimonialData = [
         rating: 5,
         date: "Décembre 2024"
     },
-    // {
-    //     id: 3,
-    //     name: "Jean Randria",
-    //     role: "Entrepreneur",
-    //     type: "business",
-    //     avatar: "https://i.pravatar.cc/150?img=23",
-    //     content: "L'équipe de la commune a été d'une aide exceptionnelle pour l'obtention de mon permis de construire. Un service public moderne et efficace !",
-    //     rating: 4,
-    //     date: "Janvier 2025"
-    // },
-    // {
-    //     id: 4,
-    //     name: "Sophie Ravalison",
-    //     role: "Commerçante",
-    //     type: "business",
-    //     avatar: "https://i.pravatar.cc/150?img=24",
-    //     content: "Les démarches en ligne ont considérablement simplifié la gestion de mon commerce. Un grand merci à l'équipe pour leur disponibilité !",
-    //     rating: 5,
-    //     date: "Janvier 2025"
-    // },
-    // {
-    //     id: 5,
-    //     name: "Paul Ratsima",
-    //     role: "Résident",
-    //     type: "particular",
-    //     avatar: "https://i.pravatar.cc/150?img=25",
-    //     content: "Je suis impressionné par la rapidité de traitement de mes demandes. Le nouveau système en ligne est vraiment pratique et intuitif.",
-    //     rating: 5,
-    //     date: "Décembre 2024"
-    // }
 ];
 
 const TestimonySection = () => {
@@ -80,7 +50,7 @@ const TestimonySection = () => {
         if (isAnimating) return;
         setIsAnimating(true);
         setCurrentIndex((prev) => (prev + 1) % displayedTestimonials.length);
-        setTimeout(() => setIsAnimating(false), 5);
+        setTimeout(() => setIsAnimating(false), 500);
     };
 
     const handlePrev = () => {
@@ -89,7 +59,7 @@ const TestimonySection = () => {
         setCurrentIndex((prev) =>
             prev === 0 ? displayedTestimonials.length - 1 : prev - 1
         );
-        setTimeout(() => setIsAnimating(false), 5);
+        setTimeout(() => setIsAnimating(false), 500);
     };
 
     const renderStars = (rating) => (
@@ -106,6 +76,11 @@ const TestimonySection = () => {
             ))}
         </div>
     );
+
+    const getInitials = (name) => {
+        const initials = name.split(' ').map(part => part[0]).join('');
+        return initials.toUpperCase();
+    };
 
     return (
         <section className="relative py-12 md:py-24 bg-white text-gray-900 overflow-hidden">
@@ -195,12 +170,10 @@ const TestimonySection = () => {
                                 <div className="flex justify-center mb-6 md:mb-8">
                                     <div className="relative">
                                         <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden
-                                                      ring-4 ring-[#FF4B4B]/20">
-                                            <img
-                                                src={displayedTestimonials[currentIndex].avatar}
-                                                alt={displayedTestimonials[currentIndex].name}
-                                                className="w-full h-full object-cover"
-                                            />
+                                                      ring-4 ring-[#FF4B4B]/20 bg-gray-200 flex items-center justify-center">
+                                            <span className="text-xl md:text-3xl font-bold text-[#FF4B4B]">
+                                                {getInitials(displayedTestimonials[currentIndex].name)}
+                                            </span>
                                         </div>
                                         <div className="absolute -bottom-2 md:-bottom-3 left-1/2
                                                       transform -translate-x-1/2 bg-white rounded-full
