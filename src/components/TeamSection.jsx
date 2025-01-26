@@ -1,262 +1,190 @@
 import React from 'react';
-import {Person} from "@mui/icons-material";
-import Slider from "react-slick";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import {
+    Person,
+    BusinessCenter,
+    Campaign,
+    Code,
+    Camera,
+    Brush,
+    Event,
+} from '@mui/icons-material';
 
 const TeamSection = () => {
-    const teamMembers = [
+    const departments = [
         {
-            name: "John Doe",
-            role: "CEO & Fondateur",
-            phone: "+33 6 12 34 56 78",
-            email: "john.doe@marolook.com",
-            image: "https://i.pravatar.cc/150?img=1"
+            id: 1,
+            Icon: BusinessCenter,
+            title: "Direction Générale",
+            description: "Leadership et vision stratégique",
+            roles: ["DG", "DRH", "Dir.CM", "Dir.Prod", "CODIR", "DAF"],
+            gradient: "from-blue-500 to-cyan-500"
         },
         {
-            name: "Jane Smith",
-            role: "Directrice Technique",
-            phone: "+33 6 23 45 67 89",
-            email: "jane.smith@marolook.com",
-            image: "https://i.pravatar.cc/150?img=2"
+            id: 2,
+            Icon: Person,
+            title: "Administration",
+            description: "Gestion et organisation",
+            roles: ["EC", "RLog", "2RPCM"],
+            gradient: "from-[#FF4B4B] to-[#E43D3D]"
         },
         {
-            name: "Marc Johnson",
-            role: "Lead Designer",
-            phone: "+33 6 34 56 78 90",
-            email: "marc.johnson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=3"
+            id: 3,
+            Icon: Campaign,
+            title: "Communication & Marketing",
+            description: "Promotion et image de marque",
+            roles: ["Assistant CM", "Rédacteurs", "EP", "Equipe EV"],
+            gradient: "from-purple-500 to-pink-500"
         },
         {
-            name: "Sarah Wilson",
-            role: "Responsable Marketing",
-            phone: "+33 6 45 67 89 01",
-            email: "sarah.wilson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=4"
+            id: 4,
+            Icon: Camera,
+            title: "Production Audiovisuelle",
+            description: "Création de contenu visuel",
+            roles: ["Vidéastes", "Photographes"],
+            gradient: "from-amber-500 to-orange-500"
         },
         {
-            name: "Paul Garcia",
-            role: "Développeur Frontend",
-            phone: "+33 6 56 78 90 12",
-            email: "paul.garcia@marolook.com",
-            image: "https://i.pravatar.cc/150?img=5"
+            id: 5,
+            Icon: Brush,
+            title: "Design & Graphisme",
+            description: "Création artistique",
+            roles: ["Graphistes", "3Distes"],
+            gradient: "from-emerald-500 to-teal-500"
         },
         {
-            name: "Emily Brown",
-            role: "Développeuse Backend",
-            phone: "+33 6 67 89 01 23",
-            email: "emily.brown@marolook.com",
-            image: "https://i.pravatar.cc/150?img=6"
+            id: 6,
+            Icon: Code,
+            title: "Développement",
+            description: "Solutions techniques",
+            roles: ["SMU", "RDI", "Développeurs"],
+            gradient: "from-indigo-500 to-violet-500"
         },
         {
-            name: "Thomas Miller",
-            role: "Chef de Projet",
-            phone: "+33 6 78 90 12 34",
-            email: "thomas.miller@marolook.com",
-            image: "https://i.pravatar.cc/150?img=7"
-        },
-        {
-            name: "Olivia Davis",
-            role: "UX Designer",
-            phone: "+33 6 89 01 23 45",
-            email: "olivia.davis@marolook.com",
-            image: "https://i.pravatar.cc/150?img=8"
-        },
-        {
-            name: "James Wilson",
-            role: "Analyste Marketing",
-            phone: "+33 6 90 12 34 56",
-            email: "james.wilson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=9"
-        },
-        {
-            name: "Sophia Martinez",
-            role: "Consultante SEO",
-            phone: "+33 6 01 23 45 67",
-            email: "sophia.martinez@marolook.com",
-            image: "https://i.pravatar.cc/150?img=10"
-        },
-        {
-            name: "Liam Anderson",
-            role: "Spécialiste DevOps",
-            phone: "+33 6 23 45 67 89",
-            email: "liam.anderson@marolook.com",
-            image: "https://i.pravatar.cc/150?img=11"
-        },
-        {
-            name: "Chloe Thomas",
-            role: "Community Manager",
-            phone: "+33 6 34 56 78 90",
-            email: "chloe.thomas@marolook.com",
-            image: "https://i.pravatar.cc/150?img=12"
-        },
-        {
-            name: "Daniel White",
-            role: "Responsable IT",
-            phone: "+33 6 45 67 89 01",
-            email: "daniel.white@marolook.com",
-            image: "https://i.pravatar.cc/150?img=13"
-        },
-        {
-            name: "Isabella Harris",
-            role: "Consultante RH",
-            phone: "+33 6 56 78 90 12",
-            email: "isabella.harris@marolook.com",
-            image: "https://i.pravatar.cc/150?img=14"
-        },
-        {
-            name: "Ethan Clark",
-            role: "Rédacteur Web",
-            phone: "+33 6 67 89 01 23",
-            email: "ethan.clark@marolook.com",
-            image: "https://i.pravatar.cc/150?img=15"
-        },
-        {
-            name: "Mia Rodriguez",
-            role: "Responsable Événements",
-            phone: "+33 6 78 90 12 34",
-            email: "mia.rodriguez@marolook.com",
-            image: "https://i.pravatar.cc/150?img=16"
-        },
-        {
-            name: "Alexander Lewis",
-            role: "Stratégiste Digital",
-            phone: "+33 6 89 01 23 45",
-            email: "alexander.lewis@marolook.com",
-            image: "https://i.pravatar.cc/150?img=17"
-        },
-        {
-            name: "Ava Hall",
-            role: "Spécialiste Contenus",
-            phone: "+33 6 90 12 34 56",
-            email: "ava.hall@marolook.com",
-            image: "https://i.pravatar.cc/150?img=18"
-        },
-        {
-            name: "Lucas Young",
-            role: "Technicien Réseau",
-            phone: "+33 6 01 23 45 67",
-            email: "lucas.young@marolook.com",
-            image: "https://i.pravatar.cc/150?img=19"
-        },
-        {
-            name: "Amelia King",
-            role: "Gestionnaire Comptabilité",
-            phone: "+33 6 23 45 67 89",
-            email: "amelia.king@marolook.com",
-            image: "https://i.pravatar.cc/150?img=20"
+            id: 7,
+            Icon: Event,
+            title: "Événementiel",
+            description: "Organisation et logistique",
+            roles: ["Event Planner", "Tech Son, RLS"],
+            gradient: "from-rose-500 to-red-500"
         }
     ];
 
-
-    const settings = {
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
+    const abbreviations = {
+        "DG": "Directeur Général",
+        "DRH": "Directeur des Ressources Humaines",
+        "Dir.CM": "Directeur Communication & Marketing",
+        "Dir.Prod": "Directeur de Production",
+        "CODIR": "Comité de Direction",
+        "DAF": "Directeur Administratif et Financier",
+        "EC": "Employé Comptable",
+        "RLog": "Responsable Logistique",
+        "2RPCM": "2ème Responsable Communication & Marketing",
+        "Assistant CM": "Assistant Communication & Marketing",
+        "EP": "Équipe Production",
+        "Equipe EV": "Équipe Événementiel",
+        "SMU": "Service Maintenance & Utilisation",
+        "RDI": "Responsable Développement Informatique",
+        "Tech Son": "Technicien Son",
+        "RLS": "Responsable Logistique & Sécurité"
     };
 
-    const MemberCard = ({member}) => (
-        <div className="px-3">
-            <div className="rounded-2xl shadow-lg p-6 bg-white
-                          transform transition-all duration-300 hover:shadow-xl
-                          group relative mb-10">
-                {/* Image Section - Maintenant avec bordure arrondie */}
-                <div className="relative mx-auto mb-6">
-                    <div className="w-40 h-40 mx-auto rounded-full overflow-hidden
-                                  ring-4 ring-[#FF4B4B]/20 group-hover:ring-[#FF4B4B]/40
-                                  transition-all duration-300">
-                        {member.image ? (
-                            <img
-                                src={member.image}
-                                alt={member.name}
-                                className="w-full h-full object-cover transition-transform duration-300
-                                         group-hover:scale-110"
-                            />
-                        ) : (
-                            <div className="w-full h-full bg-[#FF4B4B]/10 flex items-center justify-center">
-                                <Person className="text-[#FF4B4B]" style={{fontSize: "4rem"}}/>
-                            </div>
-                        )}
-                    </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="text-center space-y-3">
-                    <h2 className="text-2xl font-bold text-[#333333] transition-colors duration-300
-                                 group-hover:text-[#FF4B4B]">
-                        {member.name}
-                    </h2>
-                    <button className="bg-[#FF4B4B] text-white font-bold py-1 px-4 rounded-full
-                                     hover:bg-[#E43D3D] transition duration-200">
-                        {member.role}
-                    </button>
-                    <div className="space-y-2 transition-all duration-300 transform
-                                  opacity-80 group-hover:opacity-100">
-                        <p className="text-[#666666] text-lg font-medium">{member.phone}</p>
-                        <p className="text-[#666666]">{member.email}</p>
-                    </div>
-                </div>
+    const DepartmentList = ({department}) => (
+        <div
+            className="flex flex-col items-start p-4 bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105">
+            <div
+                className={`flex items-center justify-center w-12 h-12 mb-4 bg-gradient-to-br ${department.gradient} rounded-full`}>
+                <department.Icon className="w-6 h-6 text-white"/>
             </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{department.title}</h3>
+            <p className="text-gray-600 mb-4">{department.description}</p>
+            <ul className="list-none text-gray-600 space-y-1 ml-0">
+                {department.roles.map((role, index) => (
+                    <li key={index} className="hover:text-[#FF4B4B] transition-colors duration-300 relative group">
+                        {role}
+                        <span
+                            className="absolute left-full top-0 ml-2 hidden group-hover:block bg-gray-700 text-white text-xs rounded px-2 py-1">
+                            {abbreviations[role]}
+                        </span>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 
     return (
-        <section className="w-full py-20">
-            <div className="max-w-7xl mx-auto px-4">
-                {/* En-tête avec style moderne */}
-                <div className="text-center mb-20">
+        <section className="relative py-16 bg-gray-50 text-gray-900 overflow-hidden">
+            {/* Motif de fond */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)',
+                    backgroundSize: '40px 40px'
+                }}/>
+            </div>
+
+            {/* Éléments décoratifs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-gradient-to-br from-[#FF4B4B]/20 to-purple-500/20
+                              rounded-full blur-3xl transform translate-x-1/2 opacity-30"/>
+                <div className="absolute bottom-1/4 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-500/20 to-[#E43D3D]/20
+                              rounded-full blur-3xl transform -translate-x-1/2 opacity-30"/>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 relative">
+                {/* En-tête moderne */}
+                <div className="text-center mb-16">
                     <div className="inline-block">
                         <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
                                        rounded-full text-sm font-medium border border-[#FF4B4B]/20">
-                            Notre capital humain
+                            Structure Organisationnelle
                         </span>
                     </div>
-                    <h2 className="text-3xl font-bold mb-8 text-gray-900">
-                        L'équipe
-                        <span className="relative inline-block ml-4">
-                            Marolook
+                    <h2 className="text-3xl font-bold mb-4 text-gray-900">
+                        Notre
+                        <span className="relative inline-block mx-4">
+                            Organisation
                             <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#FF4B4B]
                                           rounded-full transform skew-x-12"/>
                         </span>
                     </h2>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Découvrez les talents passionnés qui font de Marolook une entreprise innovante
+                        Découvrez les différents départements et postes qui composent notre structure
                     </p>
                 </div>
 
-                {/* Carousel */}
-                <div>
-                    <Slider {...settings}>
-                        {teamMembers.map((member, index) => (
-                            <MemberCard key={`member-${index}`} member={member}/>
+                {/* Liste des départements */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {departments.map((department) => (
+                        <DepartmentList key={department.id} department={department}/>
+                    ))}
+                </div>
+
+                {/* Section des abréviations */}
+                <div className="mt-16">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Abréviations</h3>
+                    <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                        <thead>
+                        <tr>
+                            <th className="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                Abréviation
+                            </th>
+                            <th className="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                Signification
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                        {Object.entries(abbreviations).map(([abbr, full], index) => (
+                            <tr key={index}>
+                                <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+                                    {abbr}
+                                </td>
+                                <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-600">
+                                    {full}
+                                </td>
+                            </tr>
                         ))}
-                    </Slider>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

@@ -5,48 +5,42 @@ import {
     Handshake,
     Psychology,
     MilitaryTech,
-    GroupWork
 } from '@mui/icons-material';
 
 const WhyUs = () => {
     const reasons = [
         {
             icon: <Speed />,
-            title: "Capturez vos émotions",
-            description: "MAROLook est votre meilleur allié pour capturer et immortaliser vos émotions à chaque étape de votre vie personnelle ou vie d’entreprise.",
-            color: "from-pink-500 to-rose-500"
-        },
-        {
-            icon: <EmojiObjects />,
-            title: "Atteignez vos objectifs",
-            description: "Nous vous mènerons avec professionnalisme à l’atteinte de vos objectifs, qu’ils soient personnels ou professionnels.",
+            title: "Atteindre vos objectifs",
+            description: "Nous vous mènerons avec professionnalisme à l’atteinte de vos objectifs que ce soit personnel ou professionnel.",
             color: "from-purple-500 to-indigo-500"
         },
         {
-            icon: <Handshake />,
-            title: "Vos besoins prioritaires",
-            description: "Vos besoins les plus spécifiques sont considérés pour des solutions adaptées et efficaces.",
+            icon: <EmojiObjects />,
+            title: "Besoins spécifiques",
+            description: "Vos besoins les plus spécifiques sont considérés pour des solutions adaptées.",
             color: "from-blue-500 to-cyan-500"
         },
         {
-            icon: <Psychology />,
+            icon: <Handshake />,
             title: "Services personnalisés",
-            description: "Nos services sont personnalisés pour répondre parfaitement à vos attentes et exigences.",
+            description: "Nos services sont personnalisés à la hauteur de vos attentes.",
             color: "from-teal-500 to-emerald-500"
         },
         {
-            icon: <MilitaryTech />,
+            icon: <Psychology />,
             title: "Respect des délais",
             description: "Les travaux sont réalisés dans le respect des délais établis, avec une qualité et un professionnalisme inégalés.",
             color: "from-amber-500 to-orange-500"
         },
         {
-            icon: <GroupWork />,
-            title: "Une équipe à l’écoute",
-            description: "Notre équipe dynamique, créative et attentive est à votre disposition. Votre satisfaction est notre priorité.",
+            icon: <MilitaryTech />,
+            title: "Qualité inégalée",
+            description: "Notre équipe dynamique, créative et attentive est à votre disposition pour garantir votre satisfaction.",
             color: "from-red-500 to-[#FF4B4B]"
         }
     ];
+
 
     return (
         <section className="py-24 bg-white text-gray-900 relative overflow-hidden">
