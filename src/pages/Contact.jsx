@@ -63,35 +63,13 @@ const Contact = () => {
         {icon: <LinkedIn/>, url: "https://mg.linkedin.com/company/marolook", label: "LinkedIn"}
     ];
 
-    const heroSlides = [
-        {
-            title: "Contactez-nous",
-            description: "Notre équipe est à votre disposition pour répondre à toutes vos questions",
-            backgroundImage: HeroBg,
-            buttons: [
-                {
-                    text: "Appelez-nous",
-                    path: "tel:+261341234567",
-                    variant: "primary"
-                }
-            ]
-        }
-    ];
-
     return (
         <div className="flex flex-col min-h-screen">
-            <HeroCarousel
-                slides={heroSlides}
-                height="h-[500px] md:h-[500px]"
-                showArrows={false}
-                showDots={false}
-            />
-
             {/* Nouvelle section d'informations de contact */}
             <div className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
                     {/* Section titre */}
-                    <div className="text-center mb-12">
+                    <div className="text-center mt-12 mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                             Comment pouvons-nous vous aider ?
                         </h2>

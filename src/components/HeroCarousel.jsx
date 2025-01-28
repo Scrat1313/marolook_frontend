@@ -101,8 +101,8 @@ const HeroCarousel = ({
                             )}
                         </div>
 
-                        <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex items-center justify-center h-full">
+                        <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+                            <div className="flex items-center justify-center h-full mt-8">
                                 <div className="text-center space-y-6 md:space-y-8 max-w-3xl px-4
                                               p-6 md:p-8">
                                     <h1 className={`
