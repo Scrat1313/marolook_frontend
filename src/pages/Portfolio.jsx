@@ -126,10 +126,10 @@ const Portfolio = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="gallery">
                 <div className="text-center mb-16">
                     <div className="inline-block">
-                        {/* <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
+                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
                                       rounded-full text-sm font-medium border border-[#FF4B4B]/20">
                             Nos Réalisations
-                        </span> */}
+                        </span>
                     </div>
                     {/* <h2 className="text-3xl font-bold mb-8 text-gray-900">
                         Notre
@@ -141,7 +141,7 @@ const Portfolio = () => {
                     </h2> */}
 
                     {/* Catégories stylisées avec la palette de couleurs */}
-                    {/* <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
+                    <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
                                 {icon: "💑", text: "Mariages"},
@@ -168,7 +168,7 @@ const Portfolio = () => {
                                 </div>
                             ))}
                         </div>
-                    </div> */}
+                    </div>
 
                     {/* Ligne de séparation décorative avec dégradé */}
                     {/* <div className="flex justify-center items-center gap-3 mt-12 mb-8">
