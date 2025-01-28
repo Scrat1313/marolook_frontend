@@ -126,28 +126,22 @@ const Portfolio = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="gallery">
                 <div className="text-center mb-16">
                     <div className="inline-block">
-                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
+                        {/* <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
                                       rounded-full text-sm font-medium border border-[#FF4B4B]/20">
                             Nos Réalisations
-                        </span>
+                        </span> */}
                     </div>
-                    <h2 className="text-3xl font-bold mb-8 text-gray-900">
+                    {/* <h2 className="text-3xl font-bold mb-8 text-gray-900">
                         Notre
                         <span className="relative inline-block ml-4">
                             Portfolio
                             <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#FF4B4B]
                                           rounded-full transform skew-x-12"/>
                         </span>
-                    </h2>
-                    {/* Nouvelle description améliorée */}
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto mt-8 leading-relaxed">
-                        Découvrez notre collection diversifiée de photographies : des mariages élégants
-                        aux événements corporate, en passant par des portraits saisissants et des shootings
-                        produits professionnels. Chaque image raconte une histoire unique.
-                    </p>
+                    </h2> */}
 
                     {/* Catégories stylisées avec la palette de couleurs */}
-                    <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
+                    {/* <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
                                 {icon: "💑", text: "Mariages"},
@@ -174,14 +168,14 @@ const Portfolio = () => {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Ligne de séparation décorative avec dégradé */}
-                    <div className="flex justify-center items-center gap-3 mt-12 mb-8">
+                    {/* <div className="flex justify-center items-center gap-3 mt-12 mb-8">
                         <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#FF4B4B]/30"/>
                         <div className="w-2 h-2 rounded-full bg-[#FF4B4B]/20"/>
                         <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-[#FF4B4B]/30"/>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Style Masonry Pinterest optimisé pour 4 colonnes */}

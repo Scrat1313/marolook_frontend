@@ -115,7 +115,7 @@ const SOCIAL_LINKS = [
     {Icon: Facebook, href: '#'},
     {Icon: Twitter, href: '#'},
     {Icon: Instagram, href: '#'},
-    {Icon: LinkedIn, href: '#'}
+    {Icon: LinkedIn, href: 'https://mg.linkedin.com/company/marolook'}
 ];
 
 const NAV_ITEMS = ['Accueil', 'Qui sommes-nous ?', 'Nos services', 'Portfolio', 'Contact'];
