@@ -1,6 +1,6 @@
 import React from 'react';
 import {BusinessCenter, Event, Timeline, Lightbulb, TrendingUp, Groups, EmojiEvents, Speed} from '@mui/icons-material';
-import HeroBg from '../assets/images/background/homebg.png'
+import HeroBg from '../assets/images/background/team.jpg'
 
 const PresentationSection = () => {
 
