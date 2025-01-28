@@ -106,48 +106,54 @@ const ServiceSection = () => {
                 </div>
 
                 {/* Grille des services */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {servicesData.map((service) => (
-                        <div key={service.id} className="group relative">
+                        <div key={service.id} className="group relative h-full">  {/* Ajout de h-full ici */}
                             {/* Effet de fond au hover */}
                             <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} 
-                                          opacity-0 group-hover:opacity-100 transition-opacity duration-500 
-                                          rounded-2xl blur-xl`}/>
+                          opacity-0 group-hover:opacity-100 transition-opacity duration-500 
+                          rounded-2xl blur-xl`}/>
 
                             {/* Carte */}
                             <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl
-                                          transition-all duration-300 border border-gray-100 backdrop-blur-sm">
-                                {/* Icône avec gradient */}
-                                <div
-                                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5 mb-6`}>
-                                    <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
-                                        <service.Icon className="w-8 h-8 text-[#FF4B4B]"/>
+                          transition-all duration-300 border border-gray-100 backdrop-blur-sm
+                          h-full flex flex-col justify-between"> {/* Ajout de h-full flex flex-col justify-between */}
+                                <div> {/* Nouveau div pour grouper le contenu supérieur */}
+                                    {/* Icône avec gradient */}
+                                    <div
+                                        className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5 mb-6`}>
+                                        <div
+                                            className="w-full h-full bg-white rounded-xl flex items-center justify-center">
+                                            <service.Icon className="w-8 h-8 text-[#FF4B4B]"/>
+                                        </div>
                                     </div>
+
+                                    {/* Contenu */}
+                                    <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#FF4B4B]
+                                 transition-colors duration-300">
+                                        {service.title}
+                                    </h3>
+                                    <p className="text-gray-600 mb-6">
+                                        {service.description}
+                                    </p>
                                 </div>
 
-                                {/* Contenu */}
-                                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#FF4B4B]
-                                             transition-colors duration-300">
-                                    {service.title}
-                                </h3>
-                                <p className="text-gray-600 mb-6">
-                                    {service.description}
-                                </p>
-
-                                {/* Bouton avec effet */}
-                                <a href={service.link}
-                                   className="inline-flex items-center gap-2 text-[#FF4B4B] font-medium
-                                            group-hover:text-[#E43D3D] transition-colors duration-300">
-                                    <span>En savoir plus</span>
-                                    <div className="w-6 h-6 rounded-full bg-[#FF4B4B]/10 flex items-center justify-center
-                                                  transform group-hover:translate-x-2 transition-transform duration-300">
-                                        <svg className="w-4 h-4 text-[#FF4B4B]" fill="none" viewBox="0 0 24 24"
-                                             stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                  d="M9 5l7 7-7 7"/>
-                                        </svg>
-                                    </div>
-                                </a>
+                                {/* Bouton avec effet - maintenant dans son propre conteneur */}
+                                <div> {/* Nouveau div pour le bouton */}
+                                    <a href={service.link}
+                                       className="inline-flex items-center gap-2 text-[#FF4B4B] font-medium
+                                group-hover:text-[#E43D3D] transition-colors duration-300">
+                                        <span>En savoir plus</span>
+                                        <div className="w-6 h-6 rounded-full bg-[#FF4B4B]/10 flex items-center justify-center
+                                      transform group-hover:translate-x-2 transition-transform duration-300">
+                                            <svg className="w-4 h-4 text-[#FF4B4B]" fill="none" viewBox="0 0 24 24"
+                                                 stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                      d="M9 5l7 7-7 7"/>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     ))}

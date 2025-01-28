@@ -10,31 +10,31 @@ import {
 const WhyUs = () => {
     const reasons = [
         {
-            icon: <Speed />,
+            icon: <Speed/>,
             title: "Atteindre vos objectifs",
             description: "Nous vous mènerons avec professionnalisme à l’atteinte de vos objectifs que ce soit personnel ou professionnel.",
             color: "from-purple-500 to-indigo-500"
         },
         {
-            icon: <EmojiObjects />,
+            icon: <EmojiObjects/>,
             title: "Besoins spécifiques",
             description: "Vos besoins les plus spécifiques sont considérés pour des solutions adaptées.",
             color: "from-blue-500 to-cyan-500"
         },
         {
-            icon: <Handshake />,
+            icon: <Handshake/>,
             title: "Services personnalisés",
             description: "Nos services sont personnalisés à la hauteur de vos attentes.",
             color: "from-teal-500 to-emerald-500"
         },
         {
-            icon: <Psychology />,
+            icon: <Psychology/>,
             title: "Respect des délais",
             description: "Les travaux sont réalisés dans le respect des délais établis, avec une qualité et un professionnalisme inégalés.",
             color: "from-amber-500 to-orange-500"
         },
         {
-            icon: <MilitaryTech />,
+            icon: <MilitaryTech/>,
             title: "Qualité inégalée",
             description: "Notre équipe dynamique, créative et attentive est à votre disposition pour garantir votre satisfaction.",
             color: "from-red-500 to-[#FF4B4B]"
@@ -71,19 +71,19 @@ const WhyUs = () => {
                     </h2>
                 </div>
 
-                {/* Grille des raisons avec design hexagonal */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {reasons.map((reason, index) => (
+                    {/* Premières cartes */}
+                    {reasons.slice(0, reasons.length - 2).map((reason, index) => (
                         <div
                             key={index}
-                            className="group relative"
+                            className="group relative h-full"
                         >
                             <div
                                 className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl"
                                 style={{background: `linear-gradient(to right, #FF4B4B, ${reason.color.split(' ')[1].replace('to-', '')})`}}/>
 
                             <div
-                                className="relative bg-white rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 border border-gray-200 shadow-lg backdrop-blur-sm">
+                                className="relative bg-white rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 border border-gray-200 shadow-lg backdrop-blur-sm h-full flex flex-col">
                                 {/* Icône avec effet de gradient */}
                                 <div className={`w-16 h-16 mb-6 rounded-xl bg-gradient-to-r ${reason.color} p-0.5`}>
                                     <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
@@ -94,12 +94,44 @@ const WhyUs = () => {
                                 <h3 className="text-xl font-semibold mb-4 text-gray-900">
                                     {reason.title}
                                 </h3>
-                                <p className="text-gray-600 text-justify">
+                                <p className="text-gray-600 text-justify flex-grow">
                                     {reason.description}
                                 </p>
                             </div>
                         </div>
                     ))}
+
+                    {/* Conteneur pour les deux dernières cartes */}
+                    <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+                        {reasons.slice(-2).map((reason, index) => (
+                            <div
+                                key={index + reasons.length - 2}
+                                className="group relative h-full w-full max-w-md"
+                            >
+                                <div
+                                    className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl"
+                                    style={{background: `linear-gradient(to right, #FF4B4B, ${reason.color.split(' ')[1].replace('to-', '')})`}}/>
+
+                                <div
+                                    className="relative bg-white rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 border border-gray-200 shadow-lg backdrop-blur-sm h-full flex flex-col">
+                                    {/* Icône avec effet de gradient */}
+                                    <div className={`w-16 h-16 mb-6 rounded-xl bg-gradient-to-r ${reason.color} p-0.5`}>
+                                        <div
+                                            className="w-full h-full bg-white rounded-xl flex items-center justify-center">
+                                            {React.cloneElement(reason.icon, {className: 'w-8 h-8 text-[#FF4B4B]'})}
+                                        </div>
+                                    </div>
+
+                                    <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                                        {reason.title}
+                                    </h3>
+                                    <p className="text-gray-600 text-justify flex-grow">
+                                        {reason.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Section des statistiques avec design moderne */}
