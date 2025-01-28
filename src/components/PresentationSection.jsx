@@ -1,5 +1,6 @@
 import React from 'react';
 import {BusinessCenter, Event, Timeline, Lightbulb, TrendingUp, Groups, EmojiEvents, Speed} from '@mui/icons-material';
+import HeroBg from '../assets/images/background/homebg.png'
 
 const PresentationSection = () => {
 
@@ -80,7 +81,7 @@ const PresentationSection = () => {
                             <div className="absolute inset-0 bg-gradient-to-br from-[#FF4B4B] to-[#E43D3D] opacity-75
                                           group-hover:opacity-90 transition-opacity duration-300"/>
                             <img
-                                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800&h=600"
+                                src={HeroBg}
                                 alt="MaroLooK Modern Workspace"
                                 className="rounded-xl relative z-10 transform group-hover:scale-105 transition-transform duration-300"
                                 loading="lazy"

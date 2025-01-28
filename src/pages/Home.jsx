@@ -1,7 +1,7 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel, ServiceSection, TestimonySection} from "../components";
-import HeroBg from '../assets/images/background/homebg.png'
+import HeroBg from "../assets/images/background/herobg.jpg";
 
 const Home = () => {
     usePageTitle('Accueil');
