@@ -224,7 +224,7 @@ const Contact = () => {
                             </h2>
                             <div className="relative w-full h-0 pb-[56.25%] mb-8">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15248.461678610854!2d46.93131716977539!3d-21.83333384360462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21f07de59f456f2b%3A0x4c6b17a0f2c3f8a9!2sAmbalavao!5e0!3m2!1sfr!2smg!4v1629902254784!5m2!1sfr!2smg"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.7093826594896!2d47.091044275268075!3d-21.44066508031373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21e7b9649452322d%3A0xea9b6edf64222497!2sO'matsiatra!5e0!3m2!1sfr!2smg!4v1720203253511!5m2!1sfr!2smg"
                                     className="absolute top-0 left-0 w-full h-full rounded-xl shadow-sm"
                                     style={{border: 0}}
                                     allowFullScreen=""
