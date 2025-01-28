@@ -112,7 +112,7 @@ const ContactInfo = ({Icon, text}) => (
 );
 
 const SOCIAL_LINKS = [
-    {Icon: Facebook, href: '#'},
+    {Icon: Facebook, href: 'https://www.facebook.com/profile.php/?id=61555942448287'},
     {Icon: Twitter, href: '#'},
     {Icon: Instagram, href: '#'},
     {Icon: LinkedIn, href: 'https://mg.linkedin.com/company/marolook'}
