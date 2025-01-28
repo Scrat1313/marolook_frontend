@@ -104,10 +104,10 @@ const TestimonySection = () => {
                         <span className="inline-block px-3 py-1 md:px-4 md:py-1 mb-4 text-[#FF4B4B]
                                        bg-[#FF4B4B]/10 rounded-full text-sm font-medium
                                        border border-[#FF4B4B]/20">
-                            Témoignages vérifiés
+                            Témoignages client
                         </span>
                     </div>
-                    <h2 className="text-3xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
+                    {/* <h2 className="text-3xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
                         Ce qu'ils
                         <span className="relative inline-block ml-2 md:ml-4">
                             pensent
@@ -117,7 +117,7 @@ const TestimonySection = () => {
                     </h2>
                     <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto px-4">
                         Découvrez les expériences authentiques de nos citoyens et entreprises
-                    </p>
+                    </p> */}
                 </div>
 
                 {/* Filtres améliorés - version mobile */}

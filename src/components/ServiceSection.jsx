@@ -100,20 +100,9 @@ const ServiceSection = () => {
                     <div className="inline-block">
                         <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
                                        rounded-full text-sm font-medium border border-[#FF4B4B]/20">
-                            Services municipaux
+                            Nos Services
                         </span>
                     </div>
-                    <h2 className="text-3xl font-bold mb-8 text-gray-900">
-                        Nos
-                        <span className="relative inline-block mx-4">
-                            Services
-                            <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#FF4B4B]
-                                          rounded-full transform skew-x-12"/>
-                        </span>
-                    </h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Découvrez l'ensemble des services proposés par la commune pour faciliter votre quotidien
-                    </p>
                 </div>
 
                 {/* Grille des services */}

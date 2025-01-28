@@ -6,9 +6,8 @@ import {
     AccessTime,
     Send,
     Facebook,
-    Twitter,
-    Instagram,
-    LinkedIn
+    LinkedIn,
+    YouTube
 } from '@mui/icons-material';
 import {HeroCarousel} from "../components";
 import HeroBg from "../assets/images/background/herobg.jpg";
@@ -59,10 +58,9 @@ const Contact = () => {
     ];
 
     const socialLinks = [
-        {icon: <Facebook/>, url: "#", label: "Facebook"},
-        {icon: <Twitter/>, url: "#", label: "Twitter"},
-        {icon: <Instagram/>, url: "#", label: "Instagram"},
-        {icon: <LinkedIn/>, url: "#", label: "LinkedIn"}
+        {icon: <Facebook/>, url: "https://www.facebook.com/profile.php/?id=61555942448287", label: "Facebook"},
+        {icon: <YouTube/>, url: "https://www.youtube.com/@marolook9389", label: "Instagram"},
+        {icon: <LinkedIn/>, url: "https://mg.linkedin.com/company/marolook", label: "LinkedIn"}
     ];
 
     const heroSlides = [

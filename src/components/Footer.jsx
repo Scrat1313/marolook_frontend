@@ -5,8 +5,7 @@ import {
     Phone,
     Email,
     Facebook,
-    Twitter,
-    Instagram,
+    YouTube,
     LinkedIn,
     Add,
     Remove
@@ -113,8 +112,7 @@ const ContactInfo = ({Icon, text}) => (
 
 const SOCIAL_LINKS = [
     {Icon: Facebook, href: 'https://www.facebook.com/profile.php/?id=61555942448287'},
-    {Icon: Twitter, href: '#'},
-    {Icon: Instagram, href: '#'},
+    {Icon: YouTube, href: 'https://www.youtube.com/@marolook9389'},
     {Icon: LinkedIn, href: 'https://mg.linkedin.com/company/marolook'}
 ];
 
