@@ -86,7 +86,7 @@ const HeroCarousel = ({
                         `}
                     >
                         <div
-                            className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105
+                            className="absolute inset-0 bg-contain bg-center bg-no-repeat transform scale-105
                                      transition-transform duration-1000"
                             style={{
                                 backgroundImage: `url(${slide.backgroundImage})`,

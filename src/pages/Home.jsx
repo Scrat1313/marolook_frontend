@@ -66,7 +66,7 @@ const Home = () => {
             <HeroCarousel
                 slides={heroSlides}
                 autoPlayInterval={1000}
-                height="h-[700px]"
+                height="h-[770px]"
                 showArrows={true}
                 showDots={true}
             />

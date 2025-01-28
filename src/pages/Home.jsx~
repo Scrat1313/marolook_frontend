@@ -1,7 +1,7 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel, ServiceSection, TestimonySection} from "../components";
-import HeroBg from '../assets/images/background/herobg.jpg'
+import HeroBg from '../assets/images/background/homebg.png'
 
 const Home = () => {
     usePageTitle('Accueil');
@@ -66,7 +66,7 @@ const Home = () => {
             <HeroCarousel
                 slides={heroSlides}
                 autoPlayInterval={1000}
-                height="h-[700px]"
+                height="h-[750px]"
                 showArrows={true}
                 showDots={true}
             />
