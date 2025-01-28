@@ -95,7 +95,7 @@ const HeroCarousel = ({
 
                         <div className="absolute inset-0">
                             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"/>
-                            <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"/>
+                            <div className="absolute inset-0"/>
                             {slide.overlayColor && (
                                 <div className={`absolute inset-0 ${slide.overlayColor} opacity-50`}/>
                             )}
@@ -104,7 +104,7 @@ const HeroCarousel = ({
                         <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div className="flex items-center justify-center h-full">
                                 <div className="text-center space-y-6 md:space-y-8 max-w-3xl px-4
-                                              backdrop-blur-sm bg-black/20 rounded-2xl p-6 md:p-8">
+                                              p-6 md:p-8">
                                     <h1 className={`
                                         text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight
                                         ${slide.titleColor || 'text-white'}

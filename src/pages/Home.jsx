@@ -2,41 +2,38 @@ import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel, ServiceSection, TestimonySection} from "../components";
 import HeroBg from "../assets/images/background/herobg.jpg";
+import routes from '../routes/routes';
 
 const Home = () => {
     usePageTitle('Accueil');
 
     const heroSlides = [
         {
-            title: "Une passion commune devenue réalité",
-            description: "Née d’une passion commune qui a animé quelques condisciples, Marolook a vu le jour en l’année 2018.",
             backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "En savoir plus",
-                    path: "/about",
+                    path: routes.service,
                     variant: "primary"
                 },
                 {
                     text: "Nous rejoindre",
-                    path: "/join",
+                    path: routes.contact,
                     variant: "secondary"
                 }
             ]
         },
         {
-            title: "Un chemin parsemé d’épreuves",
-            description: "Non sans difficulté, chaque étape a renforcé notre passion, compétences et expertise.",
             backgroundImage: HeroBg,
             buttons: [
                 {
                     text: "Notre parcours",
-                    path: "/journey",
+                    path: routes.about,
                     variant: "primary"
                 },
                 {
                     text: "Nous contacter",
-                    path: "/contact",
+                    path: routes.contact,
                     variant: "secondary"
                 }
             ]
@@ -48,12 +45,12 @@ const Home = () => {
             buttons: [
                 {
                     text: "Nos services",
-                    path: "/services",
+                    path: routes.service,
                     variant: "primary"
                 },
                 {
                     text: "Voir nos réalisations",
-                    path: "/portfolio",
+                    path: routes.portfolio,
                     variant: "secondary"
                 }
             ]

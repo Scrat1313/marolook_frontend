@@ -2,6 +2,7 @@ import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
 import {HeroCarousel, ServiceSection} from "../components";
 import HeroBg from "../assets/images/background/herobg.jpg";
+import routes from '../routes/routes';
 
 const Service = () => {
     usePageTitle('Nos service');
@@ -13,13 +14,8 @@ const Service = () => {
             backgroundImage: HeroBg,
             buttons: [
                 {
-                    text: "Découvrir nos services",
-                    path: "/services",
-                    variant: "primary"
-                },
-                {
                     text: "Contactez-nous",
-                    path: "/contact",
+                    path: routes.contact,
                     variant: "secondary"
                 }
             ]
@@ -31,12 +27,12 @@ const Service = () => {
             buttons: [
                 {
                     text: "Voir nos réalisations",
-                    path: "/portfolio",
+                    path: routes.portfolio,
                     variant: "primary"
                 },
                 {
                     text: "Demander un devis",
-                    path: "/quote",
+                    path: routes.contact,
                     variant: "secondary"
                 }
             ]
@@ -45,35 +41,11 @@ const Service = () => {
             title: "Développez votre présence en ligne",
             description: "Avec notre community management et développement web, touchez un public international.",
             backgroundImage: HeroBg,
-            buttons: [
-                {
-                    text: "En savoir plus",
-                    path: "/services/digital",
-                    variant: "primary"
-                },
-                {
-                    text: "Commencez maintenant",
-                    path: "/start",
-                    variant: "secondary"
-                }
-            ]
         },
         {
             title: "Organisez des événements mémorables",
             description: "Faites de vos occasions spéciales des souvenirs inoubliables grâce à notre expertise en organisation événementielle et décoration.",
             backgroundImage: HeroBg,
-            buttons: [
-                {
-                    text: "Planifiez votre événement",
-                    path: "/events",
-                    variant: "primary"
-                },
-                {
-                    text: "Voir nos services",
-                    path: "/services/events",
-                    variant: "secondary"
-                }
-            ]
         }
     ];
 

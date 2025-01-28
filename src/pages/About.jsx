@@ -3,6 +3,7 @@ import usePageTitle from "../hooks/usePageTitle";
 import {OrganizationCarousel, HeroCarousel, TeamSection} from "../components";
 import {PresentationSection, Whyus} from "../components";
 import HeroBg from "../assets/images/background/herobg.jpg";
+import routes from '../routes/routes';
 
 const About = () => {
     usePageTitle('Qui sommes-nous ?');
@@ -14,13 +15,8 @@ const About = () => {
             backgroundImage: HeroBg,
             buttons: [
                 {
-                    text: "En savoir plus",
-                    path: "/about",
-                    variant: "primary"
-                },
-                {
                     text: "Nous rejoindre",
-                    path: "/join",
+                    path: routes.contact,
                     variant: "secondary"
                 }
             ]
@@ -29,18 +25,6 @@ const About = () => {
             title: "Un chemin parsemé d’épreuves",
             description: "Non sans difficulté, chaque étape a renforcé notre passion, compétences et expertise.",
             backgroundImage: HeroBg,
-            buttons: [
-                {
-                    text: "Notre parcours",
-                    path: "/journey",
-                    variant: "primary"
-                },
-                {
-                    text: "Nous contacter",
-                    path: "/contact",
-                    variant: "secondary"
-                }
-            ]
         },
         {
             title: "Répondre aux besoins de notre clientèle",
@@ -49,12 +33,12 @@ const About = () => {
             buttons: [
                 {
                     text: "Nos services",
-                    path: "/services",
+                    path: routes.about,
                     variant: "primary"
                 },
                 {
                     text: "Voir nos réalisations",
-                    path: "/portfolio",
+                    path: routes.portfolio,
                     variant: "secondary"
                 }
             ]
