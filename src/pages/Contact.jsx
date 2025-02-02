@@ -9,8 +9,6 @@ import {
     LinkedIn,
     YouTube
 } from '@mui/icons-material';
-import {HeroCarousel} from "../components";
-import HeroBg from "../assets/images/background/herobg.jpg";
 
 const Contact = () => {
     usePageTitle('Contact');

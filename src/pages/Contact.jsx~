@@ -6,11 +6,9 @@ import {
     AccessTime,
     Send,
     Facebook,
-    Twitter,
-    Instagram,
-    LinkedIn
+    LinkedIn,
+    YouTube
 } from '@mui/icons-material';
-import {HeroCarousel} from "../components";
 import HeroBg from "../assets/images/background/herobg.jpg";
 
 const Contact = () => {
@@ -41,7 +39,7 @@ const Contact = () => {
         {
             icon: <Phone className="text-[#FF4B4B]"/>,
             title: "Téléphone",
-            content: "+261 34 36 946 93 / +261 38 19 564 91",
+            content: "+261 34 36 946 93 | +261 38 19 564 91",
             description: "Du lundi au vendredi, 8h-17h"
         },
         {
@@ -59,41 +57,18 @@ const Contact = () => {
     ];
 
     const socialLinks = [
-        {icon: <Facebook/>, url: "#", label: "Facebook"},
-        {icon: <Twitter/>, url: "#", label: "Twitter"},
-        {icon: <Instagram/>, url: "#", label: "Instagram"},
-        {icon: <LinkedIn/>, url: "#", label: "LinkedIn"}
-    ];
-
-    const heroSlides = [
-        {
-            title: "Contactez-nous",
-            description: "Notre équipe est à votre disposition pour répondre à toutes vos questions",
-            backgroundImage: HeroBg,
-            buttons: [
-                {
-                    text: "Appelez-nous",
-                    path: "tel:+261341234567",
-                    variant: "primary"
-                }
-            ]
-        }
+        {icon: <Facebook/>, url: "https://www.facebook.com/profile.php/?id=61555942448287", label: "Facebook"},
+        {icon: <YouTube/>, url: "https://www.youtube.com/@marolook9389", label: "Instagram"},
+        {icon: <LinkedIn/>, url: "https://mg.linkedin.com/company/marolook", label: "LinkedIn"}
     ];
 
     return (
         <div className="flex flex-col min-h-screen">
-            <HeroCarousel
-                slides={heroSlides}
-                height="h-[500px] md:h-[500px]"
-                showArrows={false}
-                showDots={false}
-            />
-
             {/* Nouvelle section d'informations de contact */}
             <div className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
                     {/* Section titre */}
-                    <div className="text-center mb-12">
+                    <div className="text-center mt-12 mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
                             Comment pouvons-nous vous aider ?
                         </h2>
@@ -226,7 +201,7 @@ const Contact = () => {
                             </h2>
                             <div className="relative w-full h-0 pb-[56.25%] mb-8">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15248.461678610854!2d46.93131716977539!3d-21.83333384360462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21f07de59f456f2b%3A0x4c6b17a0f2c3f8a9!2sAmbalavao!5e0!3m2!1sfr!2smg!4v1629902254784!5m2!1sfr!2smg"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.7093826594896!2d47.091044275268075!3d-21.44066508031373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21e7b9649452322d%3A0xea9b6edf64222497!2sO'matsiatra!5e0!3m2!1sfr!2smg!4v1720203253511!5m2!1sfr!2smg"
                                     className="absolute top-0 left-0 w-full h-full rounded-xl shadow-sm"
                                     style={{border: 0}}
                                     allowFullScreen=""
