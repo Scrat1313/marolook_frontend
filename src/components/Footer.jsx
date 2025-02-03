@@ -12,7 +12,6 @@ import {
 } from '@mui/icons-material';
 import logo from "../assets/images/logos/logo.png";
 
-// Hook personnalisé pour le défilement
 const useScrollToTop = () => {
     const {pathname} = useLocation();
 
@@ -27,12 +26,12 @@ const useScrollToTop = () => {
 const SocialLink = ({Icon, href}) => (
     <a
         href={href}
-        className="group relative p-3 bg-white rounded-xl shadow-sm hover:shadow-md
-                   transition-all duration-300 hover:-translate-y-1"
+        className="group relative p-3 dark:bg-[#1E1E1E] bg-white rounded-xl shadow-sm hover:shadow-md
+                   transition-all duration-300 hover:-translate-y-1 dark:border-[#2D2D2D] border"
         aria-label={`Lien vers ${href}`}
     >
         <Icon
-            className="text-gray-600 group-hover:text-[#FF4B4B] transition-colors duration-300"
+            className="dark:text-[#F5F5F5] text-gray-600 group-hover:text-[#FF4B4B] transition-colors duration-300"
             sx={{fontSize: 22}}
         />
     </a>
@@ -57,7 +56,7 @@ const NavigationLink = ({item, onClick}) => {
             to={path}
             onClick={onClick}
             className={`group relative px-3 py-1.5 rounded-md transition-colors duration-300
-                ${active ? 'text-[#FF4B4B]' : 'text-[#666666] hover:text-[#FF4B4B]'}`}
+                ${active ? 'text-[#FF4B4B]' : 'dark:text-[#BBBBBB] text-[#666666] hover:text-[#FF4B4B]'}`}
         >
             <div className={`absolute inset-0 bg-[#FF4B4B]/10 rounded-md 
                 ${active ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} 
@@ -69,23 +68,23 @@ const NavigationLink = ({item, onClick}) => {
 };
 
 const MobileAccordion = ({title, children, isOpen, onToggle}) => (
-    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+    <div className="dark:bg-[#1E1E1E] bg-white rounded-2xl shadow-sm overflow-hidden dark:border-[#2D2D2D] border">
         <button
             onClick={onToggle}
             className="flex items-center justify-between w-full p-4 text-left"
         >
-            <span className="text-lg font-bold text-gray-800">{title}</span>
-            <div className={`p-2 rounded-lg bg-gray-50 transition-colors duration-300
-                          ${isOpen ? 'bg-[#FF4B4B]/10' : ''}`}>
+            <span className="text-lg font-bold dark:text-[#F5F5F5] text-gray-800">{title}</span>
+            <div className={`p-2 rounded-lg transition-colors duration-300
+                          ${isOpen ? 'bg-[#FF4B4B]/10' : 'dark:bg-[#242424] bg-gray-50'}`}>
                 {isOpen ?
                     <Remove className="text-[#FF4B4B]"/> :
-                    <Add className="text-gray-600"/>
+                    <Add className="dark:text-[#F5F5F5] text-gray-600"/>
                 }
             </div>
         </button>
         <div className={`transition-all duration-300 ease-in-out
                       ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="p-4 bg-gray-50">
+            <div className="p-4 dark:bg-[#242424] bg-gray-50">
                 {children}
             </div>
         </div>
@@ -93,18 +92,20 @@ const MobileAccordion = ({title, children, isOpen, onToggle}) => (
 );
 
 const Schedule = ({day, hours}) => (
-    <div className="group hover:bg-gray-50 p-2 rounded-lg transition-colors duration-300">
-        <p className="text-sm font-medium text-gray-800">{day}</p>
-        <p className="text-sm text-gray-600">{hours}</p>
+    <div className="group hover:bg-gray-50 dark:hover:bg-[#242424] p-2 rounded-lg transition-colors duration-300">
+        <p className="text-sm font-medium dark:text-[#F5F5F5] text-gray-800">{day}</p>
+        <p className="text-sm dark:text-[#BBBBBB] text-gray-600">{hours}</p>
     </div>
 );
 
 const ContactInfo = ({Icon, text}) => (
-    <div className="group flex items-start gap-4 hover:bg-gray-50 p-3 rounded-xl transition-all duration-300">
+    <div
+        className="group flex items-start gap-4 hover:bg-gray-50 dark:hover:bg-[#242424] p-3 rounded-xl transition-all duration-300">
         <div className="p-2 bg-[#FF4B4B]/10 rounded-lg group-hover:bg-[#FF4B4B]/20 transition-colors duration-300">
             <Icon className="text-[#FF4B4B]" sx={{fontSize: 20}}/>
         </div>
-        <span className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
+        <span
+            className="dark:text-[#BBBBBB] text-gray-600 group-hover:text-gray-900 dark:group-hover:text-[#F5F5F5] transition-colors duration-300">
             {text}
         </span>
     </div>
@@ -150,8 +151,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="relative bg-gradient-to-b from-white to-gray-50">
-            {/* Effet de fond décoratif */}
+        <footer className="relative bg-gradient-to-b from-white to-gray-50 dark:from-[#121212] dark:to-[#1E1E1E]">
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
                 <div className="absolute inset-0" style={{
                     backgroundImage: 'radial-gradient(circle at 1px 1px, #FF4B4B 1px, transparent 0)',
@@ -160,10 +160,8 @@ const Footer = () => {
                 }}/>
             </div>
 
-            {/* Desktop version */}
             <div className="hidden lg:block relative max-w-7xl mx-auto px-8 py-20">
                 <div className="grid grid-cols-12 gap-12">
-                    {/* Logo et description */}
                     <div className="col-span-4 pr-8">
                         <Link
                             to="/"
@@ -176,7 +174,7 @@ const Footer = () => {
                                 className="w-12 h-12 object-contain transform transition-transform duration-300 group-hover:scale-110"
                             />
                         </Link>
-                        <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                        <p className="dark:text-[#BBBBBB] text-gray-600 text-lg leading-relaxed mb-8">
                             Marolook, rejoignez une communauté dynamique et engagée.
                         </p>
                         <div className="flex gap-3">
@@ -186,9 +184,8 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Navigation */}
                     <div className="col-span-3">
-                        <h3 className="text-xl font-bold text-gray-800 mb-6">Navigation</h3>
+                        <h3 className="text-xl font-bold dark:text-[#F5F5F5] text-gray-800 mb-6">Navigation</h3>
                         <div className="flex flex-col gap-3">
                             {NAV_ITEMS.map(item => (
                                 <NavigationLink
@@ -200,20 +197,20 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Horaires */}
                     <div className="col-span-2">
-                        <h3 className="text-xl font-bold text-gray-800 mb-6">Horaires</h3>
-                        <div className="space-y-3 bg-white rounded-2xl p-4 shadow-sm">
+                        <h3 className="text-xl font-bold dark:text-[#F5F5F5] text-gray-800 mb-6">Horaires</h3>
+                        <div
+                            className="space-y-3 dark:bg-[#1E1E1E] bg-white rounded-2xl p-4 shadow-sm dark:border-[#2D2D2D] border">
                             {SCHEDULE_ITEMS.map(item => (
                                 <Schedule key={item.day} {...item} />
                             ))}
                         </div>
                     </div>
 
-                    {/* Contact */}
                     <div className="col-span-3">
-                        <h3 className="text-xl font-bold text-gray-800 mb-6">Contact</h3>
-                        <div className="space-y-5 bg-white rounded-2xl p-6 shadow-sm text-xs">
+                        <h3 className="text-xl font-bold dark:text-[#F5F5F5] text-gray-800 mb-6">Contact</h3>
+                        <div
+                            className="space-y-5 dark:bg-[#1E1E1E] bg-white rounded-2xl p-6 shadow-sm dark:border-[#2D2D2D] border text-xs">
                             {CONTACT_ITEMS.map((item, index) => (
                                 <ContactInfo key={index} {...item} />
                             ))}
@@ -222,7 +219,6 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Mobile version */}
             <div className="lg:hidden relative px-4 py-12">
                 <div className="text-center mb-12">
                     <Link
@@ -236,7 +232,7 @@ const Footer = () => {
                             className="w-16 h-16 object-contain mx-auto"
                         />
                     </Link>
-                    <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-sm mx-auto">
+                    <p className="dark:text-[#BBBBBB] text-gray-600 text-lg leading-relaxed mb-8 max-w-sm mx-auto">
                         Marolook, rejoignez une communauté dynamique et engagée.
                     </p>
                     <div className="flex justify-center gap-4">
@@ -246,7 +242,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Sections accordéon */}
                 <div className="space-y-4 max-w-md mx-auto">
                     <MobileAccordion
                         title="Navigation"
@@ -290,11 +285,11 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Copyright et liens légaux */}
-            <div className="relative border-t border-gray-200 bg-white/50 backdrop-blur-sm">
+            <div
+                className="relative border-t dark:border-[#2D2D2D] border-gray-200 dark:bg-[#121212]/50 bg-white/50 backdrop-blur-sm">
                 <div className="max-w-7xl mx-auto px-6 py-8">
                     <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-                        <p className="text-gray-600 text-center lg:text-left">
+                        <p className="dark:text-[#BBBBBB] text-gray-600 text-center lg:text-left">
                             © {currentYear} Marolook - Tous droits réservés.
                         </p>
                         <div className="flex flex-wrap justify-center gap-8">
@@ -302,8 +297,7 @@ const Footer = () => {
                                 <Link
                                     key={item}
                                     to="#"
-                                    className="text-sm text-gray-600 hover:text-[#FF4B4B]
-                                             transition-colors duration-300"
+                                    className="text-sm dark:text-[#BBBBBB] text-gray-600 hover:text-[#FF4B4B] transition-colors duration-300"
                                 >
                                     {item}
                                 </Link>

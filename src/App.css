@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Dans votre fichier CSS global */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Transitions douces pour tous les éléments */
+*, *::before, *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}

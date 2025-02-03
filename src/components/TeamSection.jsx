@@ -89,20 +89,20 @@ const TeamSection = () => {
     };
 
     const DepartmentList = ({department}) => (
-        <div
-            className="flex flex-col items-start p-4 bg-white rounded-lg shadow-lg transform transition-transform hover:scale-105">
+        <div className="flex flex-col items-start p-4 dark:bg-[#1E1E1E] bg-white rounded-lg shadow-lg
+                      transform transition-transform hover:scale-105 dark:border-[#2D2D2D] border">
             <div
                 className={`flex items-center justify-center w-12 h-12 mb-4 bg-gradient-to-br ${department.gradient} rounded-full`}>
                 <department.Icon className="w-6 h-6 text-white"/>
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">{department.title}</h3>
-            <p className="text-gray-600 mb-4">{department.description}</p>
-            <ul className="list-none text-gray-600 space-y-1 ml-0">
+            <h3 className="text-xl font-bold dark:text-[#F5F5F5] text-gray-900 mb-2">{department.title}</h3>
+            <p className="dark:text-[#BBBBBB] text-gray-600 mb-4">{department.description}</p>
+            <ul className="list-none dark:text-[#BBBBBB] text-gray-600 space-y-1 ml-0">
                 {department.roles.map((role, index) => (
                     <li key={index} className="hover:text-[#FF4B4B] transition-colors duration-300 relative group">
                         {role}
-                        <span
-                            className="absolute left-full top-0 ml-2 hidden group-hover:block bg-gray-700 text-white text-xs rounded px-2 py-1">
+                        <span className="absolute left-full top-0 ml-2 hidden group-hover:block dark:bg-[#242424] bg-gray-700
+                                     dark:text-[#F5F5F5] text-white text-xs rounded px-2 py-1 z-10">
                             {abbreviations[role]}
                         </span>
                     </li>
@@ -112,16 +112,15 @@ const TeamSection = () => {
     );
 
     return (
-        <section className="relative py-16 bg-gray-50 text-gray-900 overflow-hidden">
-            {/* Motif de fond */}
-            <div className="absolute inset-0 opacity-5">
+        <section
+            className="relative py-16 dark:bg-[#121212] bg-gray-50 dark:text-[#F5F5F5] text-gray-900 overflow-hidden">
+            <div className="absolute inset-0 opacity-5 dark:opacity-[0.03]">
                 <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)',
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
                     backgroundSize: '40px 40px'
                 }}/>
             </div>
 
-            {/* Éléments décoratifs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-gradient-to-br from-[#FF4B4B]/20 to-purple-500/20
                               rounded-full blur-3xl transform translate-x-1/2 opacity-30"/>
@@ -130,15 +129,14 @@ const TeamSection = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 relative">
-                {/* En-tête moderne */}
                 <div className="text-center mb-16">
                     <div className="inline-block">
-                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
+                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10 dark:bg-[#FF4B4B]/5
                                        rounded-full text-sm font-medium border border-[#FF4B4B]/20">
                             Structure Organisationnelle
                         </span>
                     </div>
-                    <h2 className="text-3xl font-bold mb-4 text-gray-900">
+                    <h2 className="text-3xl font-bold mb-4 dark:text-[#F5F5F5] text-gray-900">
                         Notre
                         <span className="relative inline-block mx-4">
                             Organisation
@@ -146,45 +144,53 @@ const TeamSection = () => {
                                           rounded-full transform skew-x-12"/>
                         </span>
                     </h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    <p className="dark:text-[#BBBBBB] text-gray-600 text-lg max-w-2xl mx-auto">
                         Découvrez les différents départements et postes qui composent notre structure
                     </p>
                 </div>
 
-                {/* Liste des départements */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {departments.map((department) => (
                         <DepartmentList key={department.id} department={department}/>
                     ))}
                 </div>
 
-                {/* Section des abréviations */}
                 <div className="mt-16">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Abréviations</h3>
-                    <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-                        <thead>
-                        <tr>
-                            <th className="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-                                Abréviation
-                            </th>
-                            <th className="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
-                                Signification
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody className="bg-white divide-y divide-gray-200">
-                        {Object.entries(abbreviations).map(([abbr, full], index) => (
-                            <tr key={index}>
-                                <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                                    {abbr}
-                                </td>
-                                <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-600">
-                                    {full}
-                                </td>
+                    <h3 className="text-2xl font-bold dark:text-[#F5F5F5] text-gray-900 mb-4">Abréviations</h3>
+                    <div
+                        className="overflow-hidden dark:bg-[#1E1E1E] bg-white border dark:border-[#2D2D2D] border-gray-200 rounded-lg shadow-lg">
+                        <table className="min-w-full divide-y dark:divide-[#2D2D2D] divide-gray-200">
+                            <thead>
+                            <tr>
+                                <th className="px-6 py-3 border-b dark:border-[#2D2D2D] border-gray-200 dark:bg-[#242424] bg-gray-100
+                                               text-left text-xs leading-4 font-medium dark:text-[#BBBBBB] text-gray-600
+                                               uppercase tracking-wider">
+                                    Abréviation
+                                </th>
+                                <th className="px-6 py-3 border-b dark:border-[#2D2D2D] border-gray-200 dark:bg-[#242424] bg-gray-100
+                                               text-left text-xs leading-4 font-medium dark:text-[#BBBBBB] text-gray-600
+                                               uppercase tracking-wider">
+                                    Signification
+                                </th>
                             </tr>
-                        ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody
+                                className="dark:bg-[#1E1E1E] bg-white dark:divide-[#2D2D2D] divide-y divide-gray-200">
+                            {Object.entries(abbreviations).map(([abbr, full], index) => (
+                                <tr key={index}>
+                                    <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium
+                                                   dark:text-[#F5F5F5] text-gray-900">
+                                        {abbr}
+                                    </td>
+                                    <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5
+                                                   dark:text-[#BBBBBB] text-gray-600">
+                                        {full}
+                                    </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>

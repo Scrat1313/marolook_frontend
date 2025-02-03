@@ -1,8 +1,11 @@
 import React from 'react';
 import {
+    AdminPanelSettings,
+    Assignment,
     AccountBalance,
     Business,
-    Groups,Palette, Schedule, Code, Videocam, PhotoCamera
+    Groups,
+    TrendingUp, CalendarViewDay, PartyMode, Palette, Schedule, Code, Videocam, PhotoCamera
 } from '@mui/icons-material';
 
 const servicesData = [

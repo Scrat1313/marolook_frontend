@@ -12,7 +12,7 @@ const WhyUs = () => {
         {
             icon: <Speed/>,
             title: "Atteindre vos objectifs",
-            description: "Nous vous mènerons avec professionnalisme à l'atteinte de vos objectifs que ce soit personnel ou professionnel.",
+            description: "Nous vous mènerons avec professionnalisme à l’atteinte de vos objectifs que ce soit personnel ou professionnel.",
             color: "from-purple-500 to-indigo-500"
         },
         {
@@ -41,25 +41,27 @@ const WhyUs = () => {
         }
     ];
 
+
     return (
-        <section
-            className="py-24 bg-white dark:bg-[#121212] text-gray-900 dark:text-[#F5F5F5] relative overflow-hidden">
-            <div className="absolute inset-0 opacity-5 dark:opacity-[0.03]">
+        <section className="py-24 bg-white text-gray-900 relative overflow-hidden">
+            {/* Motif décoratif */}
+            <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)',
                     backgroundSize: '40px 40px'
                 }}/>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 relative">
+                {/* En-tête avec style moderne */}
                 <div className="text-center mb-20">
                     <div className="inline-block">
-                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10 dark:bg-[#FF4B4B]/5
-                                       rounded-full text-sm font-medium border border-[#FF4B4B]/20">
+                        <span
+                            className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10 rounded-full text-sm font-medium border border-[#FF4B4B]/20">
                             Notre valeur ajoutée
                         </span>
                     </div>
-                    <h2 className="text-3xl font-bold mb-8 dark:text-[#F5F5F5] text-gray-900">
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900">
                         Pourquoi nous
                         <span className="relative inline-block ml-4">
                             choisir ?
@@ -70,54 +72,60 @@ const WhyUs = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {/* Premières cartes */}
                     {reasons.slice(0, reasons.length - 2).map((reason, index) => (
-                        <div key={index} className="group relative h-full">
-                            <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100
-                                          transition-opacity duration-500 rounded-2xl blur-xl"
-                                 style={{background: `linear-gradient(to right, #FF4B4B, ${reason.color.split(' ')[1].replace('to-', '')})`}}/>
+                        <div
+                            key={index}
+                            className="group relative h-full"
+                        >
+                            <div
+                                className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl"
+                                style={{background: `linear-gradient(to right, #FF4B4B, ${reason.color.split(' ')[1].replace('to-', '')})`}}/>
 
-                            <div className="relative dark:bg-[#1E1E1E] bg-white rounded-2xl p-8
-                                          dark:hover:bg-[#242424] hover:bg-gray-50 transition-all duration-300
-                                          dark:border-[#2D2D2D] border-gray-200 border shadow-lg backdrop-blur-sm h-full flex flex-col">
+                            <div
+                                className="relative bg-white rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 border border-gray-200 shadow-lg backdrop-blur-sm h-full flex flex-col">
+                                {/* Icône avec effet de gradient */}
                                 <div className={`w-16 h-16 mb-6 rounded-xl bg-gradient-to-r ${reason.color} p-0.5`}>
-                                    <div
-                                        className="w-full h-full dark:bg-[#1E1E1E] bg-white rounded-xl flex items-center justify-center">
+                                    <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
                                         {React.cloneElement(reason.icon, {className: 'w-8 h-8 text-[#FF4B4B]'})}
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-semibold mb-4 dark:text-[#F5F5F5] text-gray-900">
+                                <h3 className="text-xl font-semibold mb-4 text-gray-900">
                                     {reason.title}
                                 </h3>
-                                <p className="dark:text-[#BBBBBB] text-gray-600 text-justify flex-grow">
+                                <p className="text-gray-600 text-justify flex-grow">
                                     {reason.description}
                                 </p>
                             </div>
                         </div>
                     ))}
 
+                    {/* Conteneur pour les deux dernières cartes */}
                     <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
                         {reasons.slice(-2).map((reason, index) => (
-                            <div key={index + reasons.length - 2}
-                                 className="group relative h-full w-full max-w-md">
-                                <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100
-                                              transition-opacity duration-500 rounded-2xl blur-xl"
-                                     style={{background: `linear-gradient(to right, #FF4B4B, ${reason.color.split(' ')[1].replace('to-', '')})`}}/>
+                            <div
+                                key={index + reasons.length - 2}
+                                className="group relative h-full w-full max-w-md"
+                            >
+                                <div
+                                    className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl blur-xl"
+                                    style={{background: `linear-gradient(to right, #FF4B4B, ${reason.color.split(' ')[1].replace('to-', '')})`}}/>
 
-                                <div className="relative dark:bg-[#1E1E1E] bg-white rounded-2xl p-8
-                                              dark:hover:bg-[#242424] hover:bg-gray-50 transition-all duration-300
-                                              dark:border-[#2D2D2D] border-gray-200 border shadow-lg backdrop-blur-sm h-full flex flex-col">
+                                <div
+                                    className="relative bg-white rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 border border-gray-200 shadow-lg backdrop-blur-sm h-full flex flex-col">
+                                    {/* Icône avec effet de gradient */}
                                     <div className={`w-16 h-16 mb-6 rounded-xl bg-gradient-to-r ${reason.color} p-0.5`}>
                                         <div
-                                            className="w-full h-full dark:bg-[#1E1E1E] bg-white rounded-xl flex items-center justify-center">
+                                            className="w-full h-full bg-white rounded-xl flex items-center justify-center">
                                             {React.cloneElement(reason.icon, {className: 'w-8 h-8 text-[#FF4B4B]'})}
                                         </div>
                                     </div>
 
-                                    <h3 className="text-xl font-semibold mb-4 dark:text-[#F5F5F5] text-gray-900">
+                                    <h3 className="text-xl font-semibold mb-4 text-gray-900">
                                         {reason.title}
                                     </h3>
-                                    <p className="dark:text-[#BBBBBB] text-gray-600 text-justify flex-grow">
+                                    <p className="text-gray-600 text-justify flex-grow">
                                         {reason.description}
                                     </p>
                                 </div>
@@ -126,6 +134,7 @@ const WhyUs = () => {
                     </div>
                 </div>
 
+                {/* Section des statistiques avec design moderne */}
                 <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8">
                     {[
                         {number: "500+", label: "Projets réalisés"},
@@ -133,16 +142,19 @@ const WhyUs = () => {
                         {number: "5+", label: "Années d'expérience"},
                         {number: "24/7", label: "Support client"}
                     ].map((stat, index) => (
-                        <div key={index} className="relative group">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#FF4B4B] to-purple-600
-                                          opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl blur-xl"/>
-                            <div className="relative p-6 rounded-xl dark:border-[#2D2D2D] border-gray-200 border
-                                          dark:bg-[#1E1E1E] bg-white shadow-lg backdrop-blur-sm">
+                        <div
+                            key={index}
+                            className="relative group"
+                        >
+                            <div
+                                className="absolute inset-0 bg-gradient-to-r from-[#FF4B4B] to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl blur-xl"/>
+                            <div
+                                className="relative p-6 rounded-xl border border-gray-200 bg-white shadow-lg backdrop-blur-sm">
                                 <div
                                     className="text-4xl font-bold bg-gradient-to-r from-[#FF4B4B] to-purple-600 bg-clip-text text-transparent">
                                     {stat.number}
                                 </div>
-                                <div className="dark:text-[#BBBBBB] text-gray-600 mt-2">
+                                <div className="text-gray-600 mt-2">
                                     {stat.label}
                                 </div>
                             </div>

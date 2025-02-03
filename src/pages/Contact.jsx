@@ -62,25 +62,21 @@ const Contact = () => {
     ];
 
     return (
-        <div className="flex flex-col min-h-screen">
-            {/* Nouvelle section d'informations de contact */}
-            <div className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className="flex flex-col min-h-screen dark:bg-[#121212]">
+            <div className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white dark:from-[#121212] dark:to-[#1E1E1E]">
                 <div className="max-w-7xl mx-auto">
-                    {/* Section titre */}
                     <div className="text-center mt-12 mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-[#F5F5F5] mb-4">
                             Comment pouvons-nous vous aider ?
                         </h2>
                         <div className="w-24 h-1 bg-[#FF4B4B] mx-auto rounded-full"></div>
                     </div>
 
-                    {/* Cartes d'information avec nouveau design */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                         {contactInfo.map((info, index) => (
                             <div key={index}
-                                 className="relative overflow-hidden bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl
-                                           transition-all duration-300 group border border-gray-100">
-                                {/* Cercle décoratif */}
+                                 className="relative overflow-hidden dark:bg-[#1E1E1E] bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl
+                                           transition-all duration-300 group dark:border-[#2D2D2D] border-gray-100 border">
                                 <div className="absolute -right-16 -top-16 w-32 h-32 bg-[#FF4B4B]/5 rounded-full
                                               group-hover:bg-[#FF4B4B]/10 transition-colors duration-300"></div>
 
@@ -91,25 +87,26 @@ const Contact = () => {
                                             className: "w-8 h-8 text-[#FF4B4B] group-hover:text-white transition-colors duration-300"
                                         })}
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-800 mb-3">{info.title}</h3>
+                                    <h3 className="text-2xl font-bold text-gray-800 dark:text-[#F5F5F5] mb-3">{info.title}</h3>
                                     <p className="text-[#FF4B4B] font-medium text-lg mb-2">{info.content}</p>
-                                    <p className="text-gray-600">{info.description}</p>
+                                    <p className="text-gray-600 dark:text-[#BBBBBB]">{info.description}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Formulaire et carte avec nouveau design */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-8">
+                        <div
+                            className="dark:bg-[#1E1E1E] bg-white p-8 rounded-2xl shadow-lg dark:border-[#2D2D2D] border-gray-100 border">
+                            <h2 className="text-2xl font-bold text-gray-800 dark:text-[#F5F5F5] mb-8">
                                 Envoyez-nous un message
                                 <div className="w-20 h-1 bg-[#FF4B4B] mt-4 rounded-full"></div>
                             </h2>
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label
+                                            className="block text-sm font-medium text-gray-700 dark:text-[#BBBBBB] mb-2">
                                             Nom complet
                                         </label>
                                         <input
@@ -118,14 +115,15 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                     focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
+                                            className="w-full px-4 py-3 rounded-xl dark:bg-[#242424] dark:border-[#2D2D2D] border-gray-200 border
+                                                     dark:text-[#F5F5F5] focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                      transition-all duration-300"
                                             placeholder="Votre nom"
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        <label
+                                            className="block text-sm font-medium text-gray-700 dark:text-[#BBBBBB] mb-2">
                                             Email
                                         </label>
                                         <input
@@ -134,15 +132,15 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                     focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
+                                            className="w-full px-4 py-3 rounded-xl dark:bg-[#242424] dark:border-[#2D2D2D] border-gray-200 border
+                                                     dark:text-[#F5F5F5] focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                      transition-all duration-300"
                                             placeholder="votre@email.com"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-[#BBBBBB] mb-2">
                                         Sujet
                                     </label>
                                     <input
@@ -151,14 +149,14 @@ const Contact = () => {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                 focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
+                                        className="w-full px-4 py-3 rounded-xl dark:bg-[#242424] dark:border-[#2D2D2D] border-gray-200 border
+                                                 dark:text-[#F5F5F5] focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                  transition-all duration-300"
                                         placeholder="Sujet de votre message"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-[#BBBBBB] mb-2">
                                         Message
                                     </label>
                                     <textarea
@@ -167,8 +165,8 @@ const Contact = () => {
                                         onChange={handleChange}
                                         required
                                         rows={6}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200
-                                                 focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
+                                        className="w-full px-4 py-3 rounded-xl dark:bg-[#242424] dark:border-[#2D2D2D] border-gray-200 border
+                                                 dark:text-[#F5F5F5] focus:ring-2 focus:ring-[#FF4B4B] focus:border-transparent
                                                  transition-all duration-300 resize-none"
                                         placeholder="Votre message..."
                                     />
@@ -193,8 +191,9 @@ const Contact = () => {
                             </form>
                         </div>
 
-                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-8">
+                        <div
+                            className="dark:bg-[#1E1E1E] bg-white p-8 rounded-2xl shadow-lg dark:border-[#2D2D2D] border-gray-100 border">
+                            <h2 className="text-2xl font-bold text-gray-800 dark:text-[#F5F5F5] mb-8">
                                 Notre localisation
                                 <div className="w-20 h-1 bg-[#FF4B4B] mt-4 rounded-full"></div>
                             </h2>
@@ -209,14 +208,14 @@ const Contact = () => {
                                 />
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-lg font-medium text-gray-800">Suivez-nous</h3>
+                                <h3 className="text-lg font-medium text-gray-800 dark:text-[#F5F5F5]">Suivez-nous</h3>
                                 <div className="flex gap-4">
                                     {socialLinks.map((social, index) => (
                                         <a
                                             key={index}
                                             href={social.url}
-                                            className="p-3 rounded-xl bg-gray-50 text-gray-600 hover:bg-[#FF4B4B]
-                                                     hover:text-white transition-all duration-300"
+                                            className="p-3 rounded-xl bg-gray-50 dark:bg-[#242424] text-gray-600 dark:text-[#F5F5F5]
+                                                     hover:bg-[#FF4B4B] hover:text-white transition-all duration-300"
                                             aria-label={social.label}
                                         >
                                             {social.icon}

@@ -1,14 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@media (min-width: 1024px) {
-    .last-line-center {
-        position: relative;
-    }
-
-    .last-line-center > *:nth-last-child(2):nth-child(3n-1),
-    .last-line-center > *:last-child:nth-child(3n-2) {
-        translate: 50%;
-    }
-}

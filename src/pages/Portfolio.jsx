@@ -5,13 +5,11 @@ import Masonry from 'react-masonry-css';
 import {motion, AnimatePresence} from 'framer-motion';
 import HeroBg from "../assets/images/background/herobg.jpg";
 
-// Fonction pour importer les images avec des tailles différentes
 const importImages = () => {
     const images = [];
     const sizes = ['small', 'medium', 'medium-tall', 'large'];
     const aspectRatios = ['4/5', '3/4', '2/3', '9/16'];
 
-    // Images .jpg avec tailles variables
     for (let i = 1; i <= 15; i++) {
         try {
             images.push({
@@ -25,7 +23,6 @@ const importImages = () => {
         }
     }
 
-    // Images .jpeg avec tailles variables
     for (let i = 16; i <= 33; i++) {
         try {
             images.push({
@@ -68,7 +65,6 @@ const Portfolio = () => {
         }
     ];
 
-    // Configuration exacte pour 4 colonnes
     const breakpointColumns = {
         default: 4,
         1536: 4,
@@ -79,7 +75,6 @@ const Portfolio = () => {
         480: 1
     };
 
-    // Composant Modal amélioré
     const ImageModal = ({image, onClose}) => (
         <motion.div
             initial={{opacity: 0}}
@@ -115,7 +110,7 @@ const Portfolio = () => {
     );
 
     return (
-        <div className="flex flex-col min-h-screen bg-white">
+        <div className="flex flex-col min-h-screen bg-white dark:bg-[#121212]">
             <HeroCarousel
                 slides={heroSlides}
                 height="h-[500px]"
@@ -126,21 +121,12 @@ const Portfolio = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="gallery">
                 <div className="text-center mb-16">
                     <div className="inline-block">
-                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10
+                        <span className="inline-block px-4 py-1 mb-4 text-[#FF4B4B] bg-[#FF4B4B]/10 dark:bg-[#FF4B4B]/5
                                       rounded-full text-sm font-medium border border-[#FF4B4B]/20">
                             Nos Réalisations
                         </span>
                     </div>
-                    {/* <h2 className="text-3xl font-bold mb-8 text-gray-900">
-                        Notre
-                        <span className="relative inline-block ml-4">
-                            Portfolio
-                            <div className="absolute -bottom-2 left-0 w-full h-2 bg-[#FF4B4B]
-                                          rounded-full transform skew-x-12"/>
-                        </span>
-                    </h2> */}
 
-                    {/* Catégories stylisées avec la palette de couleurs */}
                     <div className="flex flex-wrap justify-center items-center gap-4 mt-8">
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
@@ -153,32 +139,24 @@ const Portfolio = () => {
                                 <div
                                     key={index}
                                     className="group flex items-center gap-2 px-6 py-3 rounded-full
-                         bg-white border border-gray-200
-                         hover:border-[#FF4B4B] hover:bg-[#FF4B4B]/5
-                         transition-all duration-300 cursor-pointer
-                         shadow-sm hover:shadow-md"
+                                             dark:bg-[#1E1E1E] bg-white dark:border-[#2D2D2D] border-gray-200 border
+                                             hover:border-[#FF4B4B] hover:bg-[#FF4B4B]/5 dark:hover:bg-[#FF4B4B]/10
+                                             transition-all duration-300 cursor-pointer
+                                             shadow-sm hover:shadow-md"
                                 >
-                <span className="text-xl group-hover:scale-110 transition-transform duration-300">
-                    {category.icon}
-                </span>
-                                    <span className="text-sm font-medium text-gray-700
-                               group-hover:text-[#FF4B4B] transition-colors duration-300">
-                    {category.text}
-                </span>
+                                    <span className="text-xl group-hover:scale-110 transition-transform duration-300">
+                                        {category.icon}
+                                    </span>
+                                    <span className="text-sm font-medium dark:text-[#F5F5F5] text-gray-700
+                                                   group-hover:text-[#FF4B4B] transition-colors duration-300">
+                                        {category.text}
+                                    </span>
                                 </div>
                             ))}
                         </div>
                     </div>
-
-                    {/* Ligne de séparation décorative avec dégradé */}
-                    {/* <div className="flex justify-center items-center gap-3 mt-12 mb-8">
-                        <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#FF4B4B]/30"/>
-                        <div className="w-2 h-2 rounded-full bg-[#FF4B4B]/20"/>
-                        <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-[#FF4B4B]/30"/>
-                    </div> */}
                 </div>
 
-                {/* Style Masonry Pinterest optimisé pour 4 colonnes */}
                 <style>
                     {`
                         .masonry-grid {
@@ -209,6 +187,9 @@ const Portfolio = () => {
                             overflow: hidden;
                             background-color: #EAEAEA;
                         }
+                        .dark .image-container {
+                            background-color: #242424;
+                        }
                         .image-small { height: 300px; }
                         .image-medium { height: 360px; }
                         .image-medium-tall { height: 420px; }
@@ -235,7 +216,6 @@ const Portfolio = () => {
                     `}
                 </style>
 
-                {/* Grille Pinterest */}
                 <AnimatePresence>
                     <Masonry
                         breakpointCols={breakpointColumns}
@@ -253,7 +233,8 @@ const Portfolio = () => {
                             >
                                 <div
                                     className={`image-container shadow-sm hover:shadow-lg 
-                                              transition-all duration-300 cursor-zoom-in`}
+                                              transition-all duration-300 cursor-zoom-in
+                                              dark:border-[#2D2D2D] border`}
                                     onClick={() => setSelectedImage(item.image)}
                                 >
                                     <div className={`relative image-${item.size}`}>
@@ -272,7 +253,6 @@ const Portfolio = () => {
                     </Masonry>
                 </AnimatePresence>
 
-                {/* Modal */}
                 <AnimatePresence>
                     {selectedImage && (
                         <ImageModal
@@ -282,10 +262,9 @@ const Portfolio = () => {
                     )}
                 </AnimatePresence>
 
-                {/* Message si aucune image */}
                 {portfolioImages.length === 0 && (
                     <div className="text-center py-12">
-                        <p className="text-gray-600">
+                        <p className="dark:text-[#BBBBBB] text-gray-600">
                             Aucune image disponible dans le portfolio pour le moment.
                         </p>
                     </div>

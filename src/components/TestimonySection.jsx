@@ -83,44 +83,33 @@ const TestimonySection = () => {
     };
 
     return (
-        <section className="relative py-12 md:py-24 bg-white text-gray-900 overflow-hidden">
+        <section className="relative py-12 md:py-24
+                          bg-white dark:bg-[#121212]
+                          text-gray-900 dark:text-[#F5F5F5]
+                          overflow-hidden">
             {/* Motif de fond */}
-            <div className="absolute inset-0 opacity-5 hidden md:block">
+            <div className="absolute inset-0 opacity-5 dark:opacity-[0.03] hidden md:block">
                 <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)',
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
                     backgroundSize: '40px 40px'
                 }}/>
-            </div>
-
-            {/* Éléments décoratifs - cachés sur mobile */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
-                {/* ... (éléments décoratifs restent identiques) */}
             </div>
 
             <div className="max-w-7xl mx-auto px-4 relative">
                 {/* En-tête moderne */}
                 <div className="text-center mb-10 md:mb-20">
                     <div className="inline-block">
-                        <span className="inline-block px-3 py-1 md:px-4 md:py-1 mb-4 text-[#FF4B4B]
-                                       bg-[#FF4B4B]/10 rounded-full text-sm font-medium
+                        <span className="inline-block px-3 py-1 md:px-4 md:py-1 mb-4
+                                       text-[#FF4B4B]
+                                       bg-[#FF4B4B]/10 dark:bg-[#FF4B4B]/5
+                                       rounded-full text-sm font-medium
                                        border border-[#FF4B4B]/20">
                             Témoignages client
                         </span>
                     </div>
-                    {/* <h2 className="text-3xl font-bold mb-4 md:mb-8 text-gray-900 px-2">
-                        Ce qu'ils
-                        <span className="relative inline-block ml-2 md:ml-4">
-                            pensent
-                            <div className="absolute -bottom-2 left-0 w-full h-1.5 md:h-2 bg-[#FF4B4B]
-                                          rounded-full transform skew-x-12"/>
-                        </span>
-                    </h2>
-                    <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto px-4">
-                        Découvrez les expériences authentiques de nos citoyens et entreprises
-                    </p> */}
                 </div>
 
-                {/* Filtres améliorés - version mobile */}
+                {/* Filtres améliorés */}
                 <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-16 px-2">
                     {[
                         {id: 'all', label: 'Tous', mobileLabel: 'Tous', icon: <VerifiedUser/>},
@@ -135,7 +124,7 @@ const TestimonySection = () => {
                                 transition-all duration-300 text-sm md:text-base
                                 ${currentFilter === filter.id
                                 ? 'text-white shadow-lg shadow-[#FF4B4B]/20 scale-105'
-                                : 'bg-white text-gray-600 hover:text-[#FF4B4B] border border-gray-200'
+                                : 'dark:bg-[#1E1E1E] bg-white dark:text-[#F5F5F5] text-gray-600 hover:text-[#FF4B4B] dark:border-[#2D2D2D] border-gray-200 border'
                             }
                             `}
                         >
@@ -148,7 +137,7 @@ const TestimonySection = () => {
                                     className: `w-4 h-4 md:w-5 md:h-5 ${
                                         currentFilter === filter.id
                                             ? 'text-white'
-                                            : 'text-gray-500 group-hover:text-[#FF4B4B]'
+                                            : 'dark:text-gray-400 text-gray-500 group-hover:text-[#FF4B4B]'
                                     }`
                                 })}
                                 <span className="hidden md:inline">{filter.label}</span>
@@ -163,20 +152,25 @@ const TestimonySection = () => {
                     <div className="max-w-4xl mx-auto">
                         <div className={`transition-all duration-500 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
                             {/* Carte de témoignage */}
-                            <div className="relative bg-white rounded-xl md:rounded-2xl p-4 md:p-8
+                            <div className="relative dark:bg-[#1E1E1E] bg-white
+                                          rounded-xl md:rounded-2xl p-4 md:p-8
                                           shadow-lg hover:shadow-xl transition-all duration-300
-                                          border border-gray-100 mx-2 md:mx-0">
+                                          dark:border-[#2D2D2D] border-gray-100 border
+                                          mx-2 md:mx-0">
                                 {/* Avatar et badge de vérification */}
                                 <div className="flex justify-center mb-6 md:mb-8">
                                     <div className="relative">
                                         <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden
-                                                      ring-4 ring-[#FF4B4B]/20 bg-gray-200 flex items-center justify-center">
+                                                      ring-4 ring-[#FF4B4B]/20
+                                                      dark:bg-[#242424] bg-gray-200
+                                                      flex items-center justify-center">
                                             <span className="text-xl md:text-3xl font-bold text-[#FF4B4B]">
                                                 {getInitials(displayedTestimonials[currentIndex].name)}
                                             </span>
                                         </div>
                                         <div className="absolute -bottom-2 md:-bottom-3 left-1/2
-                                                      transform -translate-x-1/2 bg-white rounded-full
+                                                      transform -translate-x-1/2
+                                                      dark:bg-[#1E1E1E] bg-white rounded-full
                                                       px-2 md:px-3 py-0.5 md:py-1 shadow-lg">
                                             {renderStars(displayedTestimonials[currentIndex].rating)}
                                         </div>
@@ -188,7 +182,8 @@ const TestimonySection = () => {
                                     <FormatQuote className="absolute top-0 left-0 w-6 h-6 md:w-8 md:h-8
                                                           text-[#FF4B4B]/20 transform -translate-x-full
                                                           -translate-y-full hidden md:block"/>
-                                    <p className="text-gray-600 text-base md:text-lg leading-relaxed italic">
+                                    <p className="dark:text-[#BBBBBB] text-gray-600
+                                                text-base md:text-lg leading-relaxed italic">
                                         {displayedTestimonials[currentIndex].content}
                                     </p>
                                     <FormatQuote className="absolute bottom-0 right-0 w-6 h-6 md:w-8 md:h-8
@@ -198,13 +193,14 @@ const TestimonySection = () => {
 
                                 {/* Informations de l'auteur */}
                                 <div className="text-center">
-                                    <h3 className="text-lg md:text-xl font-bold text-gray-900">
+                                    <h3 className="text-lg md:text-xl font-bold
+                                                 dark:text-[#F5F5F5] text-gray-900">
                                         {displayedTestimonials[currentIndex].name}
                                     </h3>
                                     <p className="text-[#FF4B4B] font-medium text-sm md:text-base">
                                         {displayedTestimonials[currentIndex].role}
                                     </p>
-                                    <p className="text-gray-500 text-xs md:text-sm mt-1">
+                                    <p className="dark:text-gray-400 text-gray-500 text-xs md:text-sm mt-1">
                                         {displayedTestimonials[currentIndex].date}
                                     </p>
                                 </div>
@@ -214,9 +210,11 @@ const TestimonySection = () => {
                             <div className="flex justify-center items-center gap-4 md:gap-6 mt-6 md:mt-8">
                                 <button
                                     onClick={handlePrev}
-                                    className="p-2 md:p-3 rounded-full bg-white shadow-lg hover:shadow-xl
+                                    className="p-2 md:p-3 rounded-full
+                                             dark:bg-[#1E1E1E] bg-white shadow-lg hover:shadow-xl
                                              hover:scale-110 transition-all duration-300
-                                             text-gray-600 hover:text-[#FF4B4B]"
+                                             dark:text-[#F5F5F5] text-gray-600 hover:text-[#FF4B4B]
+                                             dark:border-[#2D2D2D] border"
                                     disabled={isAnimating}
                                 >
                                     <ArrowBack className="w-5 h-5 md:w-6 md:h-6"/>
@@ -229,16 +227,18 @@ const TestimonySection = () => {
                                             className={`transition-all duration-300 ${
                                                 index === currentIndex
                                                     ? 'w-6 md:w-8 h-1.5 md:h-2 bg-[#FF4B4B]'
-                                                    : 'w-1.5 md:w-2 h-1.5 md:h-2 bg-gray-300 hover:bg-[#FF4B4B]/50'
+                                                    : 'w-1.5 md:w-2 h-1.5 md:h-2 dark:bg-gray-600 bg-gray-300 hover:bg-[#FF4B4B]/50'
                                             } rounded-full`}
                                         />
                                     ))}
                                 </div>
                                 <button
                                     onClick={handleNext}
-                                    className="p-2 md:p-3 rounded-full bg-white shadow-lg hover:shadow-xl
+                                    className="p-2 md:p-3 rounded-full
+                                             dark:bg-[#1E1E1E] bg-white shadow-lg hover:shadow-xl
                                              hover:scale-110 transition-all duration-300
-                                             text-gray-600 hover:text-[#FF4B4B]"
+                                             dark:text-[#F5F5F5] text-gray-600 hover:text-[#FF4B4B]
+                                             dark:border-[#2D2D2D] border"
                                     disabled={isAnimating}
                                 >
                                     <ArrowForward className="w-5 h-5 md:w-6 md:h-6"/>
@@ -247,9 +247,12 @@ const TestimonySection = () => {
                         </div>
                     </div>
                 ) : (
-                    <div
-                        className="text-center py-8 md:py-12 bg-white rounded-xl md:rounded-2xl shadow-lg mx-2 md:mx-0">
-                        <p className="text-gray-600 text-sm md:text-base">
+                    <div className="text-center py-8 md:py-12
+                                  dark:bg-[#1E1E1E] bg-white
+                                  rounded-xl md:rounded-2xl shadow-lg
+                                  dark:border-[#2D2D2D] border
+                                  mx-2 md:mx-0">
+                        <p className="dark:text-[#BBBBBB] text-gray-600 text-sm md:text-base">
                             Aucun témoignage disponible pour cette catégorie.
                         </p>
                     </div>

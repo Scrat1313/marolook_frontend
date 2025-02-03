@@ -161,14 +161,30 @@ const TeamSection = () => {
                 {/* Section des abréviations */}
                 <div className="mt-16">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Abréviations</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-gray-600">
+                    <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                        <thead>
+                        <tr>
+                            <th className="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                Abréviation
+                            </th>
+                            <th className="px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                Signification
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
                         {Object.entries(abbreviations).map(([abbr, full], index) => (
-                            <div key={index} className="flex items-center">
-                                <span className="font-medium w-20">{abbr}</span>
-                                <span>{full}</span>
-                            </div>
+                            <tr key={index}>
+                                <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+                                    {abbr}
+                                </td>
+                                <td className="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-600">
+                                    {full}
+                                </td>
+                            </tr>
                         ))}
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
