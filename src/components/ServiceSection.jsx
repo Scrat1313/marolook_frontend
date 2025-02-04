@@ -27,7 +27,7 @@ const servicesData = [
         Icon: Business,
         title: "Design graphique",
         description: "Sublimez vos identitées visuelles.",
-        link: "/services/urbanisme",
+        link: "#",
         gradient: "from-purple-500 to-pink-500"
     },
     {
@@ -35,7 +35,7 @@ const servicesData = [
         Icon: AccountBalance,
         title: "Modélisation, Incrustation et Animation 3D",
         description: "Le monde du 3D et motion design.",
-        link: "/services/finances",
+        link: "#",
         gradient: "from-amber-500 to-orange-500"
     },
     {
@@ -43,7 +43,7 @@ const servicesData = [
         Icon: Groups,
         title: "Community Management",
         description: "Optimisez votre présence en ligne.",
-        link: "/services/social",
+        link: "#",
         gradient: "from-emerald-500 to-teal-500"
     },
     {
