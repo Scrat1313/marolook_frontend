@@ -1,6 +1,6 @@
 import React from 'react';
 import usePageTitle from "../hooks/usePageTitle";
-import {HeroCarousel, ServiceSection, TestimonySection} from "../components";
+import {HeroCarousel, ServiceSection, TestimonySection, SliderHome} from "../components";
 import HeroBg from "../assets/images/background/herobg.jpg";
 import routes from '../routes/routes';
 
@@ -67,6 +67,8 @@ const Home = () => {
                 showArrows={true}
                 showDots={true}
             />
+
+            <SliderHome/>
 
             <ServiceSection/>
 
