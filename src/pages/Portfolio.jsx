@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import usePageTitle from "../hooks/usePageTitle";
-import {HeroCarousel} from "../components";
+import {HeroCarousel, VideoFromYT} from "../components";
 import Masonry from 'react-masonry-css';
 import {motion, AnimatePresence} from 'framer-motion';
 import HeroBg from "../assets/images/background/herobg.jpg";
@@ -117,6 +117,8 @@ const Portfolio = () => {
                 showArrows={false}
                 showDots={false}
             />
+
+            <VideoFromYT />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="gallery">
                 <div className="text-center mb-16">
