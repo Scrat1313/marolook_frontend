@@ -52,9 +52,6 @@ const VideoFromYT = () => {
                             Vidéos
                         </span>
                     </div>
-                    <p className="text-lg dark:text-[#BBBBBB] text-gray-600 max-w-2xl mx-auto">
-                        Découvrez notre expertise à travers nos réalisations audiovisuelles
-                    </p>
                 </div>
 
                 {/* Grille des vidéos */}
